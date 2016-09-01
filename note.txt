@@ -1,0 +1,202 @@
+Git
+分布式版本控制系统
+和svn区别  
+1.集中式 和  分布式  svn联网 使用去中央服务器下载最新版本 修改完提交 需要联网 但是git不需要联网 每个电脑存在完整版本库
+2.git分支管理功能强大
+msysgit
+
+git bash应用linux的git命令
+pwd 当前路径
+ls查看
+
+修改后
+git status：
+Changes not staged for commit:表示为提交到暂存区 未add
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   addedtext.txt 表示已修改
+        
+        
+        git add 。之后：
+        git status：
+        On branch master
+Changes to be committed: 为提交 已暂存
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   addedtext.txt 修改过 
+        
+        
+        
+        
+        
+
+新增一个
+gitstatus会变差untracted files
+必须add commit
+addcommit之后 再对其改变 就会出现not staged 或者 to commit
+虽说新增是修改的特例  但是新增之后和修改之后status显示不一样  untracted和unstaged
+
+对已存在工作区的文件修改可以找到 因为已记录  之后还原 git checkout -- file （git checkout表示切换分支）
+                        修改 add之后 还原1.git reset head file返回到未add  2.git checkout -- file返回到为修改
+
+新增之后 如果不add（commit）系统找不到它 不存在 相当于工作区没有该文件
+
+删除 git rm file      git commit -m “delete”彻底删除 只可以根据版本库恢复到上一个commit的版本或者其他版本  无法恢复到上一次修改例如rm未commit的节点  （checkout值对于修改恢复到add之前节点 rest head 回复到add之前修改之后）
+
+只有commit才会提交到版本库 每次修改 或者add都不会提交 只有commit提交到版本库 并增加一个log记录
+例如修改之后add 在修改 只要不commmit 版本库没有修改过程
+
+
+Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上。怎么分布呢？最早，肯定只有一台机器有一个原始版本库，此后，别的机器可以“克隆”这个原始版本库，而且每台机器的版本库其实都是一样的，并没有主次之分。
+
+
+
+
+安装：
+配置git信息：
+git config --global user.name "name"
+git config --global user.email "email"
+
+
+pwd 新建仓库文件夹 cd拖进去 git init 文件夹多. git隐藏文件 不再是普通文件夹 而是git类型文件夹
+仓库内部新建test.txt 加值 git add file      。 git commmit -m “” 显示1file changed inserted等 提交到初始版本库 可以多次add 一次commit
+
+vim修改 esc退出修改 ：wq！保存退出 cat查看 ctrl+c重新命令
+git diff查看具体修改内容
+
+版本回退：
+git reset --hard head~n
+git reset --hard log编号
+
+git log查看日志 只看到commit的节点
+git当前是操作空间是工作区 add之保存到暂存区 stage commit之后保存到版本库 创建一个节点表示该版本 工作空间是临时的 版本空间永久的
+暂存区  
+版本库
+
+
+
+第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；
+
+第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
+
+git commit一次性将多次add提交到版本库
+
+
+git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销
+
+git checkout切换到另一个分hi
+
+git reset HEAD readme.txt撤销暂存区的修改
+
+
+删除：
+
+rm file或者手动删除
+$ git rm test.txt
+ +git commit -m “remove”
+ 
+ 
+git checkout -- test.txt
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+
+关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+和github ssh配置：
+ssh-keygen -t rsa -C "humingx@yeah.net"
+密钥中公钥添加到giuthub' setting  ssh 无密码访问
+
+
+git clone git@github.com:michaelliao/gitskills.git
+将github项目克隆岛本地当前文件夹pwd
+
+gitpush提交的改动必须已经commit 提交的是版本库内容 否则无法提交
+
+
+Git鼓励大量使用分支：
+分之指的是对工作区改动并add 以及提交到版本库的一个个版本节点构成的时间序列树
+分之保存的是操作过程 恢复就是逆向操作
+合工作区无关
+
+不缓存不提交只是工作空间 就是草稿写完没保存一样 
+可以选择保存到不同的分支 存到a分支 那么b不变 所以工作空间的改动不保存不提交毫无意义
+
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+目标分之合当前一样
+
+删除分支：git branch -d <name>
+
+所以Git合并分支也很快！就改改指针，工作区内容也不变！
+
+合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支：
+
+分至冲突：手动解决冲突 再merge
+
+在实际开发中，我们应该按照几个基本原则进行分支管理：
+
+首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；
+
+那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；
+
+你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
+
+git clone 地址随便拷贝 不需要密码
+push需要密码 无密码访问针对push
+
+git push origin master  origin表示远程仓库 就是当前地址关联的远程仓库的某个分支
+
+
+
+
+
+    查看远程库信息，使用git remote -v；
+
+    本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+    从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+    在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+    建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+    从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+
+
+     （git barnch --setup。。。）分支关联和仓库关联区别（git remote add origin 。。@。。仓库关联 并且自动关联master分支 后面可以直接git push （-u表示一次绑定）origin master）
+     master
+
+
+git pull拉去github当前分支最信息更新 否则github上当前分支无法提交修改 因为过期了
+
+
+github开源库
+很多bootstrap什么的都在上面有代码公布 
+
+不可直接clone别人的代码在git本地修改 无法提交 权限不足 
+需要fork到自己github 在clone本地 修改后push到自己github项目 自己项目是fork的 开源pull request对方按照心情觉得是否pull request
+
+小结
+
+    在GitHub上，可以任意Fork开源仓库；
+
+    自己拥有Fork后的仓库的读写权限；
+
+    可以推送pull request给官方仓库来贡献代码。
+    
+    自己搭建git服务器
+    在远程仓库一节中，我们讲了远程仓库实际上和本地仓库没啥不同，纯粹为了7x24小时开机并交换大家的修改。
+
+GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。

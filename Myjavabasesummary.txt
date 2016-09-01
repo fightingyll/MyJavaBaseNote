@@ -1,0 +1,7037 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8"">
+<title>note</title>
+</head>
+<body>
+
+<%@ include file="test.jsp" %>
+
+</body>  
+进制
+对于任何一个数，我们可以用不同的进位制来表示。比如：十进数57(10)，可以用二进制表示为111001(2)，也可以用五进制表示为212(5)，也可以用八进制表示为71(8)、用十六进制表示为39(16)，它们所代表的数值都是一样的。
+二进制数的书写通常在数的右下方注上基数2，或加后面加B表示。
+例如：二进制数10110011可以写成（10110011）2，或写成10110011B，对于十进制数可以不加注
+binary二进制
+decimal十进制
+2）十进制转换R 进制
+十进制数转换成R 进制数，须将整数部分和小数部分分别转换.
+1.整数转换——---除R 取余法 规则：
+3.二进制数与十六进制数之间的转换
+由于4位二进制数恰好有16个组合状态，即1位十六进制数与4位二进制数是一一对应的.所以，十六进制数与二进制数的转换是十分简单的.
+(1）十六进制数转换成二进制数，只要将每一位十六进制数用对应的4位二进制数替代即可――简称位分四位.
+例：将（4AF8B)16转换为二进制数.
+解： 4 A F 8 B
+0100 1010 1111 1000 1011
+所以（4AF8B)16=(1001010111110001011)2
+
+
+八进制 0
+十六 0x 或者后面+H
+二进制 +B （2）
+
+编码方式
+编码方式（屏幕上的字符转化为二进制比特流） 和解码方式（比特流解码为屏幕显示字符）
+若编码解码使用不同的对照表（字符编码表或者字符集）乱码
+
+最早七位ascii american
+包含数字 字母 常用数学符号 控制符号等
+null字符0
+48-57        0-9
+65-90        A-Z
+97-122      a-z
++-=*/等 0-127之间
+
+
+扩展asc 8位 多了一些更罕见的字符 例如阿拉伯字母乱七八糟的
+
+随着互联网发展 不同国家交流 unicode编码 全世界所有字符一起 不会乱码
+但是主要还是自己的编码 所以字符集很多字符用不着 但是大大使得自己国家编码字符序号靠后 序号大 所占用字节多 效率低
+
+utf-8变长unicode编码
+
+gbk2312等 中文编码 存放简体汉字 以及常用国家字符（日本 英语 俄法国等）
+
+ 
+ 
+ 
+//char s[]=...
+//s.length;
+	//String sss="";
+		//string1.length();
+		//
+		List li=new ArrayList();
+		//list.size()
+
+
+
+
+
+java中String的常用方法
+java中String的常用方法
+1、length() 字符串的长度
+　　例：char chars[]={'a','b'.'c'};
+　　　　String s=new String(chars);
+　　　　int len=s.length();
+
+2、charAt() 截取一个字符
+　　例：char ch;
+　　　　ch="abc".charAt(1); 返回'b'
+
+3、 getChars() 截取多个字符
+　　void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)
+　　sourceStart指定了子串开始字符的下标，sourceEnd指定了子串结束后的下一个字符的下标。因此， 子串包含从sourceStart到sourceEnd-1的字符。接收字符的数组由target指定，target中开始复制子串的下标值是targetStart。
+　　例：String s="this is a demo of the getChars method.";
+　　　　char buf[]=new char[20];
+　　　　s.getChars(10,14,buf,0);
+
+4、getBytes()
+　　替代getChars()的一种方法是将字符存储在字节数组中，该方法即getBytes()。
+
+5、toCharArray()
+
+6、equals()和equalsIgnoreCase() 比较两个字符串
+
+7、regionMatches() 用于比较一个字符串中特定区域与另一特定区域，它有一个重载的形式允许在比较中忽略大小写。
+　　boolean regionMatches(int startIndex,String str2,int str2StartIndex,int numChars)
+　　boolean regionMatches(boolean ignoreCase,int startIndex,String str2,int str2StartIndex,int numChars)
+
+8、startsWith()和endsWith()　　startsWith()方法决定是否以特定字符串开始，endWith()方法决定是否以特定字符串结束
+
+9、equals()和==
+　　equals()方法比较字符串对象中的字符，==运算符比较两个对象是否引用同一实例。
+　　例：String s1="Hello";
+　　　　String s2=new String(s1);
+　　　　s1.eauals(s2); //true
+　　　　s1==s2;//false
+
+10、compareTo()和compareToIgnoreCase() 比较字符串
+
+11、indexOf()和lastIndexOf()
+　　indexOf() 查找字符或者子串第一次出现的地方。
+　　lastIndexOf() 查找字符或者子串是后一次出现的地方。
+
+12、substring()　　它有两种形式，第一种是：String substring(int startIndex)
+　　　　　　　　 第二种是：String substring(int startIndex,int endIndex)
+
+13、concat() 连接两个字符串
+
+14 、replace() 替换
+　　它有两种形式，第一种形式用一个字符在调用字符串中所有出现某个字符的地方进行替换，形式如下：
+　　String replace(char original,char replacement)
+　　例如：String s="Hello".replace('l','w');
+　　第二种形式是用一个字符序列替换另一个字符序列，形式如下：
+　　String replace(CharSequence original,CharSequence replacement)
+
+15、trim() 去掉起始和结尾的空格
+
+16、valueOf() 转换为字符串
+
+17、toLowerCase() 转换为小写
+
+18、toUpperCase() 转换为大写
+
+19、StringBuffer构造函数
+　　StringBuffer定义了三个构造函数：
+　　StringBuffer()
+　　StringBuffer(int size)
+　　StringBuffer(String str)
+　　StringBuffer(CharSequence chars)
+　　
+　　(1)、length()和capacity()　　　　一个StringBuffer当前长度可通过length()方法得到,而整个可分配空间通过capacity()方法得到。
+　　
+　　(2)、ensureCapacity() 设置缓冲区的大小
+　　　　void ensureCapacity(int capacity)
+
+　　(3)、setLength() 设置缓冲区的长度
+　　　　void setLength(int len)
+
+　　(4)、charAt()和setCharAt()
+　　　　char charAt(int where)
+　　　　void setCharAt(int where,char ch)
+
+　　(5)、getChars()
+　　　　void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)
+
+　　(6)、append() 可把任何类型数据的字符串表示连接到调用的StringBuffer对象的末尾。
+　　　　例：int a=42;
+　　　　　　StringBuffer sb=new StringBuffer(40);
+　　　　　　String s=sb.append("a=").append(a).append("!").toString();
+
+　　(7)、insert() 插入字符串
+　　　　StringBuffer insert(int index,String str)
+　　　　StringBuffer insert(int index,char ch)
+　　　　StringBuffer insert(int index,Object obj)
+　　　　index指定将字符串插入到StringBuffer对象中的位置的下标。
+
+　　(8)、reverse() 颠倒StringBuffer对象中的字符
+　　　　StringBuffer reverse()
+
+　　(9)、delete()和deleteCharAt() 删除字符
+　　　　StringBuffer delete(int startIndex,int endIndex)
+　　　　StringBuffer deleteCharAt(int loc)
+
+　　(10)、replace() 替换
+　　　　StringBuffer replace(int startIndex,int endIndex,String str)
+
+　　(11)、substring() 截取子串
+　　　　String substring(int startIndex)
+　　　　String substring(int startIndex,int endIndex)
+
+secone的表格展示:表头表体表尾
+无论text 下拉 ztree 点击排序 选择一页显示的数据 或者页数调整 都触发js 重新载入页面
+ajax从服务器获取表头体尾（当前页）所有内容 封装起来 到js展开 写到jsp显示
+表头写在国际化配置文件 获取之后拼接HTML字符串 body转化为二维数组 然后tr一行一行拼接 等
+ 
+
+js confirm（是否删除？）先验证一下 在ajax
+modeldriven就是不需要name=userinfo.username  记住是name 不是id
+id方便为js jquery调用等 就是方便前台页面获取   name为了request.getparameter（name）  和struts中根据name取值 总之和服务器有关
+
+
+struts传值的一个总结：
+struts中action值的来源于jsp user.username获取过来 set到action的user中 然后action 的result跳转到struts。xml 再到另一个jsp 那个jsp可以通过
+type="text" value="<s:property value=user.username>"获取 不知道是来源于值栈还是前面的action
+
+
+js：openmodal(url,"400,300")打开400 300的窗口 内容为url的内容
+
+
+登陆：失败 返回登陆页面
+成功 redirect到loginaction_loginredirect.ACTION放入session菜单 返回main 再进入main的jsp显示菜单
+
+znode不是给菜单的 是个给银行部门下拉tree的
+
+<div id="menuContent_b" class="menuContent" style="display: none;  position: absolute;">
+	<div id="tree_bank" class="ztree" style="margin-top: -85px; width: 120px; height: 180px"></div>
+</div>
+
+jQuery.fn.zTree.init(jQuery("#tree_bank"), setting_bank, zNodes_bank);
+
+zNodes_bank是jsonobject action存放list的json对象
+setting_bank中出了定义设置 还定义了基本的事件处理
+#tree_bank表示页面存放的位置
+
+var setting_bank = {
+	data: {
+			simpleData: {
+			enable:true,
+			idKey: "bankId",
+			pIdKey: "fatherId",
+			rootPId: ""
+		}
+	},
+	view: {
+		dblClickExpand: false
+	},
+	
+	callback: {
+		onClick: onClick
+	}
+	
+};
+
+function onClick(e, treeId, treeNode) {
+	
+	var s_bank = jQuery("#s_bank");
+	var atm_bankId = jQuery("#info_bankId");
+	s_bank.val("");
+	atm_bankId.val("");
+	//s_bank.html("");
+	var zTree = jQuery.fn.zTree.getZTreeObj("tree_bank"),
+	nodes = zTree.getSelectedNodes(),
+	v = "";
+	var value_b = "";
+	nodes.sort(function compare(a,b){return a.id-b.id;});
+	for (var i=0, l=nodes.length; i<l; i++) {
+		v += nodes[i].name + ",";
+		value_b += nodes[i].bankId + ",";
+	}
+	if (v.length > 0 ) {
+		v = v.substring(0, v.length-1);
+		value_b = value_b.substring(0, value_b.length-1);
+		s_bank.val(v);
+		
+		//s_bank.html(v);
+		if(value_b == '1'){value_b = "";}
+		atm_bankId.val(value_b)
+		hideMenu();
+	}
+	//var cityObj = jQuery("#citySel");
+	//cityObj.attr("value", v);
+}
+/*
+ * 展示tree菜单
+ */
+
+ajax传值 前台js 
+	var postData = {"notInIds":"1,5"};
+	jQuery.post(url,postData,function(data){
+	
+	后台new HttpServletRequest().getParameter("")获取
+	
+	
+	银行tree用的是jquery的ztree的znode等
+	ajax从db获取list然后znode展开
+	在jsp后面先写一个隐藏div 存放银行树信息
+	 jsp原位置写一个text 和一个隐藏表单域type=hidden 存放的是tree里面当前选项的id 加载好了tree之后将该tree放到该text中
+	 tree的以及很多事件都在js中写好  有一个setting
+	 var setting_bank = {
+	data: {
+			simpleData: {
+			enable:true,
+			idKey: "bankId",
+			pIdKey: "fatherId",
+			rootPId: ""
+		}
+	},
+	view: {
+		dblClickExpand: false
+	},
+	
+	callback: {
+		onClick: onClick
+	}
+	
+};
+
+	 
+	
+	
+jQuery("span","#User_Manage_Add_User_form")[1].className="error2";
+表单验证可以通过：借用jQuery("#userinfo_username").change(function(){
+		checkLoginName();
+	checkLoginName();内部写正则表达校验
+		以及ajax
+	
+	或者struts的表单验证 拦截器
+	
+		
+AjaxRequest.formRequest("User_Manage_Add_User_form","",function(data){
+表示User_Manage_Add_User_form表单提交请求
+
+拦截器是ＡＯＰ的一种实现．
+
+	jQuery("span","#User_Manage_Add_User_form")[1].innerHTML="OK";表示末表单的第二个span
+		jQuery("span")[1].innerHTML="OK";表示该页面的第二个span
+		
+
+final就是初始化一次就不变了
+例如类的一个对象为final 每次舒适化之后就不变了 但是不同的对象吃实话时候该值不一样 只是确定了就不变了 强调相对于一个对象不变 但是可以有多个对象
+static是说一个雷只有一个 独一无二 强调相对类独一无二
+常量可以非静态
+常量根据需要加stataic
+ 
+
+
+s标签就是struts标签
+不能在struts2标签中用el表达式，
+如<s:textfield lable="user" name="user" value="${session.user}" />
+struts标签中多使用ognl标签
+非struts标签（c）或者普通html jsp使用el表达式
+Struts 2默认的表达式语言是OGNL
+OGNL是通常要结合Struts 2的标志一起使用。主要是#、%和$这三个符号的使用。
+ognl特殊 支持对象方法调用 例如<title><s:property value="%{getText('login.title')}" /></title>
+JSTL（JSP Standard Tag Library，JSP标准标签库)
+
+
+
+
+二、JSTL标签库的分类
+
+    核心标签(用得最多) core标签 或者c标签      foreach 和 if set
+    ArrayList类对象用数组实现 自动具备foreach功能
+    for（int i:intlist）｛｝
+    或者foreach（int i in intlist）｛｝ 
+    
+    JSTL 核心标签库标签共有13个，功能上分为4类：
+
+1.表达式控制标签：out、set、remove、catch
+
+2.流程控制标签：if、choose、when、otherwise
+
+3.循环标签：forEach、forTokens
+
+4.URL操作标签：import、url、redirect
+
+使用标签时，一定要在jsp文件头加入以下代码：
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+    
+    国际化标签(I18N格式化标签)  fmt:setlocale fmt:setbundle 等  fmt：message
+    数据库标签(SQL标签，很少使用)
+    XML标签(几乎不用)
+    JSTL函数(EL函数)  就是el表达式 用于从服务器session req获取值  除了struts标签 都可以用  包括普通jsp等
+
+  action：权限表   
+  actioncolumn表示完整菜单表 表示菜单之间父子关系 以及  path扥属性 每个角色对应一套权限 权限的属性flagviewmode表示该权限是否显示 
+  group管理组 也就是角色 对应多个master（用户） 
+
+
+用户表（master表）- 角色表（role 或者管理组group）- 权限表（action）- 菜单表（action_column）
+            （多对多 userrolemapping）                        （多对多 actionrolemapping关联表 笛卡尔积 后面多个flagviewmode表示角色的权限是否可视 ）       
+
+
+
+需要把当前访问的菜单actioncolumn对象放在session里面CURRENT_SHOW_MENU_ID
+首先通过当前用户的id获取角色类型 然后有角色在角色权限表获取权限放入list 然后获取
+菜单 然后菜单根据path是否为空 或者其他flag 分为子菜单list（或者map）和父菜单list<action_column> 
+然后对父list进行迭代 对每一个菜单 在son中寻找按照getparentcolumn获取所有孩子菜单 存入到该父菜单的sonlist<action_column>中，这要不用频繁访问
+数据库查询父子关系，然后得到了所有显示的父菜单list和子菜单 然后将父菜单list存入session
+
+
+
+
+
+
+
+struts标签（s标签）多用于struts表单中的 例如s:textarea s:hidden  s:select s:property特殊的s:if c和s都有的
+
+<%@ taglib uri="/struts-tags" prefix="s"%> 
+
+
+项目经验：
+上下文跟和项目名字考研不一样 代表代替项目访问虚拟路径 本来是写项目具体名字 但是如果名字长 可以缩写 上下文改缩写
+但是切记 改完要重新装载   清理 运行
+常用的类写好（可以包含获取session的当前用户，获取国际化标识） 别人继承他
+国际化标志写在session中 
+
+s标签库的property标签
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<title><s:property value="%{getText('login.title')}" /></title>
+
+%{}是为了保证用OGNL的表达式去执行{}里面的字符串
+<%= %>shi jsp语言 
+
+
+${}叫做EL表达式，就是说可以取到服务器的各种作用域里面的值，比如说取到request里面的一个叫 list集合 的话，你可以写成${requestScope.list},至于<c:foreach items="${requestScope.list}" var="val"
+展示菜单
+session是map 里面多对
+
+
+actioncontext里面拿session
+session里面放国际化信息，登录用户 当前用户的菜单 以及目前打开的菜单 等
+因为任何一部操作都需要考虑国际化 考虑当前session的locale属性值 所以添加国际化拦截器在struts。xml 拦截所有action操作
+国际化拦截器操作：从session中获取locale设定 设置使用gettext（）使用resourcebundle。getbundle将locale和资源基文件绑定等  
+
+
+主页修改中英文就是点击 到action？request_locale=en/cn 然后到拦截器进行intercept方法写到session里面。
+使用资源文件国际化
+java.util.locale本地化（国际化）信息
+lcoale locale=new locale("zh","CN")
+
+resouresbundles rb=ResourceBundles.getBundles（language/message（资源包基名），lacale）
+String s(登陆)=rb。getString（“com.info.login”）
+绑定了src下面laguage/message_zh_CN.properties文件 
+session里面放一个国际化标志 session.put(WW_TRANS_I18N_LOCALE:"en")
+<%--导入国际化标签库 --%>
+ 3 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setlocale value="zh_CN"/>
+<fmt:setBundle var="bundle"  basename="me.gacl.i18n.resource.myproperties" scope="page"/>
+<fmt:message key="password" bundle="${bundle}"/>
+
+
+
+准备实习复习过程 java经验 全部汇总
+
+
+
+
+
+
+
+
+
+
+   “变量名”：Java_Home
+
+    “变量值”：C:\Program Files\Java\jdk1.7.0_07
+path 加;
+  %Java_Home%\bin;%Java_Home%\jre\bin; 
+ “变量名”：ClassPath
+
+    “变量值”：.;%Java_Home%\bin;%Java_Home%\lib\dt.jar;%Java_Home%\lib\tools.jar
+
+
+
+javahome jdk目录地址
+path命令地址 java每个命令都是一个exe存放 例如输入 javac ...\test1.java 会先找javac命令地址 就在path找 然后再classpath中找test1.java类地址 包括bin和jre下面bin
+classpath类地址 包括自己写的类和系统的工具基类 包括bin和lib的dt和tools.jar 如果写jar类型文件 就当成目录结构文件夹展开找到位置
+
+
+
+
+dos错误 可能环境变量没配好 
+
+标识符 数字字母下划线美元 第一个不可以数字
+
+数据类型
+byte 1字节 八位 8bit
+short 2字节
+int 4字节
+long 8字节 +l
+
+浮点
+float  4字节+l
+double 8  +d
+
+boolean
+char x='t';
+int x=3;
+也可以
+int x='a';
+char t=92;
+别混淆为'92'错误
+\t制表符
+
+\\反斜杠字符
+\默认是转意的特殊字符 无实际意义 如果要表示本意就是反斜杠字符 必须在转移
+final int AA=55常量大写
+static静态变量活方法 表示类可以直接调用
+局部变量 方法中的变量
+成员变量法方法
+
+import java.util.Scanner;
+Scanner scanner =new Scaaner(System.in);
+scanner.next
+scanner可以允许输入多行，
+next()一个字符串 以空格为间隔 每次取到一个间隔符前面的数据   如： 输入 a b c 取值应该是a，因为a后面有空格
+nextLine() 每次取一个换行符前面的数据  如：输入 a b c 回车，取值 就是a b c
+nextInt() 是取next() 然后把字符串解析成一个int数字。
+hasNextInt() 是判断下次调用next()是否可以得到一个可以安全解析成int的字符串。如果已经到达输入的结尾，或者下一个next()的返回值不能解析为一个数字，即不符合数字的格式，那么返回发false
+
+switch(x)
+{
+case 1:...;
+     break;
+case 2:;;;
+...break:
+
+..
+default:
+ 
+ 
+
+}
+
+continue
+跳过后面的 进行下一次循环
+
+java.util.Arrays
+Arrays.sort()
+Arrays.fill(,)
+Arrays.copyOf()
+
+String1.charAt(5)
+String1.indexOf('m')
+String1.trim()去掉前后空格
+st1.equals（）
+st1.equalsignorecase(0)
+st1.replace(,)
+String m[]=st1.split('')
+st1.toCharArray()
+
+StringBuilder sb=new StringBuilder(0)  或者加字符串
+sb.append(0)
+
+
+
+ tomcat webapp 部署的项目 lib 类库 conf 配置文件  start。bat开启
+ 将web复制到tomcat webapp久会自动部署
+
+tomcat负责装在项目 负责web显示和连接数据库 例如oracle DBCP(DataBase connection pool),数据库连接池。是 apache 上的一个 java 连接池项目，也是 tomcat 使用的连接池组件。单独使用dbcp需要2个包：commons-dbcp.jar,commons-pool.jar由于建立数据库连接是一个非常耗时耗资源的行为，所以通过连接池预先同数据库建立一些连接，放在内存中，应用程序需要建立数据库连接时直接到连接池中申请一个就行，用完后再放回去。
+例如我增删改查都会不停地调用db 而且不停的链接 不停的关闭connection
+
+
+prefix前缀 plugin插件 repository仓库 archetype原型 是一个marven插件 创建marven项目  convention约定 convenstion over configuration coc 约定大于配置 nstall安装
+
+prefix前缀 plugin插件 repository仓库 archetype原型 是一个marven插件 创建marven项目  convention约定 convenstion over configuration coc 约定大于配置 nstall安装
+
+marven 是ant的增强版 插件管理 核心约定大雨诶配置 按照约定创建好大项目就可以使用marven内部各种插件进行管理 marven小工具 主要功能是其中各种插件
+ 项目管理工具 类似于ant 依赖于pom project object model项目对象模型  管理项目的变异 创建 等 
+ 很多洞悉通过命令行来查看检测是否安装成功 要配置环境变量 cmd之后先扫描换句变量 
+ mvn help：sysetem 判断是否安装成功 或者命令行 mvn -v（version）
+ mvn 插件名：目标名 首先下载插件组件等 后操作
+  只要将项目的源文件按早maven的规范 提供pom。xml 就可以使用：
+  例如源代码，资源文件，测试 class位于额定文件夹 source java test target等 
+  mvn archetype：generate
+  mvn compile（默认目标）
+  mvn exec：java。。。执行
+  mvn多个省内周期 phrase
+  clean
+  default
+  site
+
+
+
+
+标签大全
+  空标签 带属性的标签 带标签提的标签 带动态标签的标签
+  标签是继承了simpletagsupport类的类 例如 firsttag etends simpletagsupport
+  重写了doTag方法 并且自带属性 并且set and geter 一个累就是一个标签  
+  然后写个tld（taglib definition）格式xml 为标签库 包含多个标签 
+  之间用
+  自定义标签
+  《tag》
+  <name></name>
+  <tag-class><.>
+  <body-content>
+  
+  <attribute>
+  
+  <name></name>
+  <required>
+  <fragment>
+  </attribute>
+  
+   <attribute>
+  <name></name>
+  <required>
+  <fragment>
+  </attribute>
+  ...
+  <dynamic attribute></dynamic attribute>
+ <tag>
+  
+  <tag>
+  第二个标签 
+  </tag>
+  
+  然后在jsp中通过<%@ taglib url="标签库地址" prefix="first">first指定标签库
+  <first:标签库标签名 property1=“” property2=“” 属性 标签会赋值给dotag >
+  标签体：
+  <tr> 
+  <td></td> 
+  ...
+  </tr>
+  </first:标签库标签名>
+  servlet包括过滤器 监听器 
+
+
+封装过的标签：
+JSP标准标签库（JSP Standard Tag Library jstl
+1.控制标签
+if esle if 标签
+<s:set name="age" value="29">
+<s:if test="#age>60">
+老年人
+</s:if>
+<s:elseif test="#age>15">
+青年人
+</s:elseif>
+<s:else>
+少年
+</s:else>
+
+
+iterator集合
+<table>
+<s:iterator value="{'1','2','3',....}" id="name">
+ <tr>
+ <td>...</td>
+ </tr>
+</s:iterator>
+</table>
+
+append和merge标签 表示合并多个集合为一个集合
+
+ <sort>排序
+2.数据标签  
+  s:action
+  s:bean name="classpath"
+   <s:param name=...>
+   <s:param name=...> 
+  <debug></debug>超级链接 查看valuestack之战内容
+  《s:include value=“。。。jsp”》
+  <s:property value="age">在页面输出制定age的值
+  表单标签 
+ 或者直接表单 
+  <s:form name="" value="" action=“”>...
+  </s:form>>
+  checkbox标签 textfield标签等
+  
+  例子
+  jsp
+  <s:form action="regist">
+  <s:textfield name="name" label="用户名"/>
+   <s:textfield name="pass" label="密码"/>
+   <s:textfield name="age" label="年龄"/>
+    <s:textfield name="birth" label="生日"/>
+  <s:submit value="注册"/>
+  </s:form>
+
+
+
+
+
+xml xml两者方式 xml dtd（文档类型机构定义）和xml schema（概要计划）后者即将取代前者 牵着广泛使用 表示这个xml文档按照声明xml标准 例如哪些标签对 各自嵌套的数量和顺序等等 构造文档结构 不同的xml使用的dtd（schema）标准不一样 例如jsp由body head等 和pom。xml的标签不一样 所以《！doctype后面标准地址不一样
+ 九大隐士（内置）对象：session（session） reqquest（一次请求） response exception config appliacation（整个web应用） out page（这个页面） pagecontent 
+ jsp中《%request.getpara 质疑；reqeust未定义 从何来 事实上在jsp编译时候request等对象已经初始化和赋值 为后面的使用做准备内置 就是编译时候系统自动初始化和赋值的 对象 不需要人工创建
+ jsp在编译成servlet时候首当其冲执行jspservice方法 创建和初始化九大对象 然后jsp其余java代码 就会可以从这九大对象取值 例如jsp的《%request.getpara%》首先编译后产生request对象 自动存储之前页面的请求各种信息 然后代码获取request的对应参数值
+ application应用对象表示整个应用的信息 可以appli。读取。。application应用范围 可以通过jsp或者javaservlet获取该应用使用的数据库信息 例如 application。getInitParameter（“driver”） （user）《pass》《url》 
+  内置就是系统自动初始化的对象 不需要人工
+  session表示一次回话 如果浏览器关闭重启会话消失 否则重新复制网址 之后不需要再输入账户密码
+  out对象 jsp的 out。write jspservice自动定义out对象 然后直接调用 
+  pagecontext上下文 表示页面之间共享的数据 例如（page request appli session）
+
+类
+封装  特征属性和行为合并起来 隐藏细节 把对同事务进行操作的数据和方法放在一起 高内聚低耦合（模块内部紧密相关 模块之间独立完成各自功能 ） 面向对象思想核心 对象的属性和行为封装起来 对客户隐藏起内部细节  内部高度自治 相对封闭 保证了类内部数据结构的完整性 使用类的用户无法
+轻易操纵数据结构，避免了外部对内部数据的影响  安全性和可维护性 有些和接口配合用户只调用接口 同时private属性 安全合法操作属性 不能轻易get 权限判断 set必须通过方法set赋值限制约束 不允许随便赋值  合法  开发方便清晰 
+继承 利用类之间的共有属性   继承的部分是共有的 使用父类非私有方法 减少代码书写  共享父类数据方法 节约了软件开发时间 对定义好的类进行复用提高性能 复用重用可扩展性  缺点 提高耦合性 低内聚高耦合 模块和模块之间关联太大 不够独立  
+多态 在继承和实现接口的基础上重写重载 同一个方法在不同对象中调用实现方式不一样
+
+多态：
+多态存在的三个必要条件
+一、要有继承；
+二、要有重写；
+三、父类引用指向子类对象。
+
+一、多态的概念多态即“一个接口，多种实现”，在父类中声明的方法，可以在子类中进行覆盖（声明为finial的除外），这样，父类的引用在引用子类对象的时候可以做出不同的响应。所以，多态也可以说成是：相同的消息被发送到子类或父类对象上，将导致完全不同的行为。多态允许将子类的对象当作父类的对象使用，某父类型的引用指向其子类型的对象,调用的方法是该子类型的方法。这里引用和调用方法的代码编译前就已经决定了,而引用所指向的对象可以在运行期间动态绑定。二、多态存在的条件1、必须存在继承关系。2、子类必须覆盖父类中声明过的方法。三、java多态的实现机制java多态是由动态绑定技术来实现的，动态绑定即运行时绑定（以之对应的有静态绑定，即编译时绑定），在java语言中，除了声明为finial的方法外（声明为private的方法默认为finial）其余都是采用动态绑定来调用的，过程如下：当程序运行时，需要动态的调用方法时，则是虚拟机的工作，虚拟机将依照具体环境首先拟定出一张方法表，列举出可能的方法调用，继而在实现调用的时候，可以节省寻找函数方法所带来的时间开销，其将调用最合适及最合理的方法，在派生类中能调用相应的重名函数的则调用该新方法，不能则调用超类（父类）方法，同时应注意一点，若虚拟机放弃对本类的相应方法调用，那么虚拟机将搜索超类的方法表，依次类同，若都没有相应的处理来响应，则程序运行出错，一般来说在编译阶段，编译器将作出相应的控制。下面我们来看看动态绑定的内部实现机制。JAVA虚拟机调用一个类方法时，它会基于对象引用的类型(通常在编译时可知)来选择所调用的方法。相反，当虚拟机调用一个实例方法时，它会基于对象实际的类型(只能在运行时得知)来选择所调用的方法，这就是动态绑定。在编译阶段，编译器会为制造两种表，一种叫做方法表，一种叫做常量表。方法表以数组的形式记录了当前类及其所有超类的可见方法字节码在内存中的直接地址。此表有两个特点：：(1) 子类方法表中继承了父类的方法。 (2) 相同的方法(相同的方法签名：方法名和参数列表，即被覆盖的方法)在所有类的方法表中的索引相同。而常量表(CONSTATN_Methodref_info ) 记录的是被调用方法信息的符号引用(包括方法所在的类名，方法名和返回类型)。详细调用过程如下：（1）JVM首先根据常量表中的符号所引找到调用方法的全额限定名（要用多态机制的话，一般是用基类来声明引用）。（2）在基类的方法表中查找到调用方法，如果找到，则将此方法在基类方法表中的索引记录到常量表中。这里要注意，这里必须要基类中有此方法的定义，如果没有，及时子类中存在，编译器也会报错。（3）根据（2）中记录到常量表中的索引找到子类中的响应方法。四、多态的作用1、 应用程序不必为每一个派生类编写功能调用，只需要对抽象基类进行处理即可。大大提高程序的可复用性。//继承2、 派生类的功能可以被基类的方法或引用变量所调用，这叫向后兼容，可以提高可扩充性和可维护性。 
+
+
+父类 fu = new 子类()
+fu可是使用子类方法,但不能调用父类同名方法.
+
+A a2 = new B();
+栈中的引用变量是A，堆中的实例变量是B。
+将子类的实例，赋值给父类的引用。就是向上转型。
+向上转型，在运行时，会遗忘子类对象中与父类对象中不同的方法。也会覆盖与父类中相同的方法--重写。（方法名，参数都相同）
+所以a2,可以调用的方法就是，A中有的，但是B中没有的方法，和B中的重写A的方法。
+
+重载：参数样式 参数类型 参数个数 参数顺序
+重写覆盖：方法不可private 否则相当于重新写一个   重写的方法和被重写的方法必须具有相同方法名称、参数列表和返回类型。
+
+
+
+
+
+类加载：
+ 一个java文件从被加载到被卸载这个生命过程，总共要经历5个阶段：
+ 在第一次创建一个类的对象或者第一次调用一个类的静态属性和方法的时候，会发生类加载
+
+加载->链接（验证+准备+解析）->初始化（使用前的准备）->使用->卸载 
+
+static在准备开辟空间 在初始化确定值
+static final在在准备阶段操作两部 既空间 又确定值
+
+
+
+static不需要创建对象即可调用 不是不需要加载类即可调用 别混淆
+只有static final全局常量 属于编译时常量 类未加载 编译成二进制字节码时候 已经存储在常量池 不加载类也可以访问
+实例对象 非静态
+显式 class c=test.class（加载环节执行加载 链接 不执行初始化 ） 或者 class c=class.forname（test）（执行加载+链接（验证+准备+解析）+初始化） 首先必须存在test.class编译后的二进制字节码 或者网络的 或者lib 
+隐式 默认的 访问对象的方法或者属性 自动调用
+
+加载：类加载器 （自定义—+——默认系统）根据类全限定名找到二进制字节流 来源于（lib 网络 编译好的。class文件夹）  将表示静态存储结构的二进制字节流所代表的转换为方法区的运行时数据结构 然后在堆中创建java，lang。class对象 
+验证：
+文件格式验证->元数据验证->字节码验证->符号引用验证
+
+文件格式验证：验证字节流是否符合Class文件格式的规范并 验证其版本是否能被当前的jvm版本所处理。ok没问题后，字节流就可以进入内存的方法区进行保存了。后面的3个校验都是在方法区进行的。
+
+元数据验证：对字节码描述的信息进行语义化分析，保证其描述的内容符合java语言的语法规范。
+
+字节码检验：最复杂，对方法体的内容进行检验，保证其在运行时不会作出什么出格的事来。
+
+符号引用验证：来验证一些引用的真实性与可行性，比如代码里面引了其他类，这里就要去检测一下那些来究
+
+
+准备：static变量分配空间 类变量分配空间 设置初始化值0  方法区和二进制流在一起 暂时赋值为0  int为0  string等引用类型变量类型为null 不包括示例变量 实例变量跟随对象 在创建对象后再堆中空间
+解析：解析好像是对类的字段，方法等东西进行转换，具体涉及到Class文件的格式内容，并没深入去了解。 
+
+初始化：初始化过程是类加载过程的最后一步
+在前面的类加载过程中，除了在加载阶段用户可以通过自定义类加载器参与之外，其他的动作完全有jvm主导，到了初始化这块，才开始真正执行java里面的代码。 
+static变量赋值 static{}块，构造函数，父类的初始化
+
+非静态的都不存在于加载过程
+到了初始化这块，才开始真正执行java里面的代码。 静态代码快
+
+
+
+同一个class文件产生的类不一定相同 如果加载器不一样 类不一样 
+
+栈帧：局部变量表 操作数 入栈到出栈 
+
+包括static具体赋值
+static代码块运行
+（具体顺序按照先后 貌似先static赋值 再执行static代码块）
+之后才开始 类加载完成了 开始正式使用对象 来进行常规使用 非常规使用例如调用静态变量也可以执行了
+构造方法 默认静态
+只有编译时敞亮 在为加载类即可访问
+（非）静态方法只有调用才会在类加载时候初始化
+在new对象（非晶态）或者调用静态属性方法时候 也就是使用时候类加载 
+1在new B一个实例时首先要进行类的装载。（类只有在使用New调用创建的时候才会被java类装载器装入）2，在装载类时，先装载父类A，再装载子类B
+3，装载父类A后，完成静态动作（包括静态代码和变量，它们的级别是相同的，安装代码中出现的顺序初始化） 
+static的属性和static代码块会依次执行，static方法会被加载到方法区 
+非晶态方法
+调用main时候 首先会初步加载所属类 先弗父类静态属性在子类（静态变量 静态代码快 顺序 如果用到方法 也去加载对应方法 否则即使是静态也方法不加载） 
+初步加载过程：基本完毕 类的非静态变量 非晶态代码 构造器等都不加载 只加载必要的静态 因为很可能非晶态用不着 不急着记载 例如直接调用静态属性不需要加载这些非晶态
+当new'对象时候 此时需要类所有信息  非晶态等需要使用了 这时候加载非晶态（菲静态属性 非晶态代码快 以及构造函数（构造本质static 但是名义上非static）） 先父后子 
+无论静态方法或者非静态方法  都不会主动去加载 被动加载  只有调用才加载 
+
+加载包括轻度加载和重度加载 （错误）
+
+new就进行类加载 类加载只包括静态部分 非静态变量 或代码快 只有当对象初始化在堆中时候在堆中进行加载操作来初始化 
+每次初始化对象都是根据类作为模版的 加载第一次new后 静态已完成 后面每次new静态部分不需要执行 只加载非静态部分
+
+静态方法和非静态方法都会加载到方法区中
+静态方法是类中 公用
+非静态方法是多个对象公用 但是方法内部数据对象instance私有的 
+非晶态也在方法去 也是独一无二的多个对象共有的
+
+那么他们在内存中的表示为：
+
+class field：共用一块记忆体
+class method：共用一块记忆体
+instance field：随着每个instance各有一块记忆体
+instance method：共用一块记忆体
+
+如果instance method也随着instance增加而增加的话，那内存消耗也太大了，为了做到共用一小段内存，Java是根据this关键字做到的，比如：instance1.instanceMethod(); instance2.instanceMethod(); 在传递给对象参数的时候，Java编译器自动先加上了一个this参数，它表示传递的是这个对象引用，虽然他们两个对象共用一个方法，但是他们的方法中所产生的数据是私有的，这是因为参数被传进来变成call stack内的entry，而各个对象都有不同call stack，所以不会混淆。其实调用每个非static方法时，Java编译器都会自动的先加上当前调用此方法对象的参数，有时候在一个方法调用另一个方法，这时可以不用在前面加上this的，因为要传递的对象参数就是当前执行这个方法的对象。
+会在非晶态方法前面加上this. 表示当前对象调用方法
+
+
+在Person.class文件加载时，静态方法和非静态方法都会加载到方法区中，只不过要调用到非静态方法时需要先实例化一个对象
+，对象才能调用非静态方法。如果让类中所有的非静态方法都随着对象的实例化而建立一次，那么会大量消耗内存资源，
+所以才会让所有对象共享这些非静态方法，然后用this关键字指向调用非静态方法的对象。
+ 
+不好理解：两部分独立记忆理解
+
+
+
+
+code：
+    class Parent {  
+        // 静态变量  
+        public static String p_StaticField = "父类--静态变量";  
+        // 变量(其实这用对象更好能体同这一点，如专门写一个类的实例)  
+    　　  
+        //如果这个变量放在初始化块的后面，是会报错的，因为你根本没有被初始化  
+        public String p_Field = "父类--变量";  
+        // 静态初始化块  
+        static {  
+            System.out.println(p_StaticField);  
+            System.out.println("父类--静态初始化块");  
+        }  
+        // 初始化块  
+        {  
+            System.out.println(p_Field);  
+            System.out.println("父类--初始化块");  
+        }  
+        // 构造器  
+        public Parent() {  
+            System.out.println("父类--构造器");  
+        }  
+    }  
+    public class SubClass extends Parent {  
+        // 静态变量  
+        public static String s_StaticField = "子类--静态变量";  
+        // 变量  
+        public String s_Field = "子类--变量";  
+        // 静态初始化块  
+        static {  
+            System.out.println(s_StaticField);  
+            System.out.println("子类--静态初始化块");  
+        }  
+        // 初始化块  
+        {  
+            System.out.println(s_Field);  
+            System.out.println("子类--初始化块");  
+        }  
+        // 构造器  
+        public SubClass() {  
+            //super();  
+            System.out.println("子类--构造器");  
+        }  
+        // 程序入口  
+        public static void main(String[] args) {  
+            System.out.println("*************in main***************");  
+            new SubClass();  
+            System.out.println("*************second subClass***************");  
+            new SubClass();  
+        }  
+    }  
+
+
+代码的执行结果如下：
+
+
+[html] view plain copy
+在CODE上查看代码片派生到我的代码片
+
+    父类--静态变量  
+    父类--静态初始化块  
+    子类--静态变量  
+    子类--静态初始化块  
+    *************in main***************  
+    父类--变量  
+    父类--初始化块  
+    父类--构造器  
+    子类--变量  
+    子类--初始化块  
+    子类--构造器  
+    *************second subClass***************  
+    父类--变量  
+    父类--初始化块  
+    父类--构造器  
+    子类--变量  
+    子类--初始化块  
+    子类--构造器  
+
+
+在这段代码中，子类和父类中都有static变量和static代码块，父类中有无参的构造方法，从上面执行的结果可以得出下面结论：
+
+1、当代码进入到子类的main方法时，此时不执行main()方法中的任何语句，这时候会先开始按顺序先加载父类的static变量、static代码块，再加载子类的static变量、static代码块；
+
+2、当父类和子类的static变量和代码块加载完之后，开始按顺序执行main方法中的语句System.out.println("*************in main***************");；
+
+3、执行完println语句之后，此时new一个子类对象，由于子类继承父类，此时会先按顺序初试化父类中的变量、代码块、构造方法，然后再初始化子类变量、代码块、构造方法。其中变量最先初始化创建，其次是代码块，构造方法最后创建；
+
+4、当new完一个子类对象之后，再new第二个子类对象时，由于static变量与方法还有代码块在内存中只加载一遍，此时父类和子类已经加载了一遍，所以不会再次加载
+
+5、当把子类main方法中的代码都删掉
+
+[java] view plain copy
+在CODE上查看代码片派生到我的代码片
+
+    System.out.println("*************in main***************");  
+    new Super_Sub_Contr();  
+    System.out.println("*************second subClass***************");  
+    new Super_Sub_Contr();  
+
+ 此时执行程序，子类和父类的static变量和代码块也还是会加载，但是其它的变量、代码块、构造方法都不会加载。
+
+
+以上代码是在子类里面直接new子类对象，如果我们新建一个类，在这个类中new子类结果会是怎样？还有，当我们初始化变量时，变量调用了一个方法，这个方法会不会在变量初始时就执行？看看下面代码执行的结果：
+
+
+[java] view plain copy
+在CODE上查看代码片派生到我的代码片
+
+    class Parent {  
+        // 静态变量  
+        public static String p_StaticField = "父类--静态变量";  
+        // 变量(其实这用对象更好能体同这一点，如专门写一个类的实例)  
+      
+        // 如果这个变量放在初始化块的后面，是会报错的，因为你根本没有被初始化  
+        public String p_Field = "父类--变量";  
+          
+        int a = getParent();  
+        // 静态初始化块  
+        static {  
+            System.out.println(p_StaticField);  
+            System.out.println("父类--静态初始化块");  
+        }  
+        // 初始化块  
+      
+        {  
+            System.out.println(p_Field);  
+            System.out.println("父类--初始化块");  
+        }  
+        {  
+            System.out.println(a);  
+        }  
+      
+        // 构造器  
+        public Parent() {  
+            System.out.println("父类--构造器");  
+        }  
+      
+        private int getParent() {  
+            System.out.println("********getParent()*********");  
+            return 6;  
+        }  
+    }  
+      
+    class SubClass extends Parent {  
+        // 静态变量  
+        public static String s_StaticField = "子类--静态变量";  
+        // 变量  
+        public String s_Field = "子类--变量";  
+        // 静态初始化块  
+        static {  
+            System.out.println(s_StaticField);  
+            System.out.println("子类--静态初始化块");  
+        }  
+        // 初始化块  
+        {  
+            System.out.println(s_Field);  
+            System.out.println("子类--初始化块");  
+        }  
+      
+        // 构造器  
+        public SubClass() {  
+            // super();  
+            System.out.println("子类--构造器");  
+        }  
+      
+    }  
+      
+    public class Super_Sub_Contr{  
+        // 程序入口  
+        public static void main(String[] args) {  
+            System.out.println("*************in main***************");  
+            new SubClass();  
+            System.out.println("*************second subClass***************");  
+            new SubClass();  
+        }  
+    }  
+
+
+代码执行结果
+
+
+[html] view plain copy
+在CODE上查看代码片派生到我的代码片
+
+    *************in main***************  
+    父类--静态变量  
+    父类--静态初始化块  
+    子类--静态变量  
+    子类--静态初始化块  
+    ********getParent()*********  
+    父类--变量  
+    父类--初始化块  
+    6  
+    父类--构造器  
+    子类--变量  
+    子类--初始化块  
+    子类--构造器  
+    *************second subClass***************  
+    ********getParent()*********  
+    父类--变量  
+    父类--初始化块  
+    6  
+    父类--构造器  
+    子类--变量  
+    子类--初始化块  
+    子类--构造器
+
+
+
+
+
+
+
+并发不一定多线程
+
+super.父类的属性
+super()父类构造 根据括号内格式选择构造
+
+this. 调用该方法的对象的属性方法
+this() 在一个构造方法中调用另一个构造方法 
+this（）调用当前累的构造方法 super调用父类的构造方法
+
+this在构造函数中的使用
+public class Dog{
+private String name;
+private int age;
+//有一个参数的构造函数
+public Dog(String name){
+this.name = name;
+}
+public Dog(String name,int age){
+this.name = name;
+this.age = age;
+}
+//这个无参构造方法里调用的有两个参数的构造方法，这个也就是this的第二种用法了！
+public Dog(){
+this("nihao",20);
+} 
+
+
+
+外部类 里面创建内部类 和field一层次
+
+在成员内部类要引用外部类对象时，使用outerclassname outobj=outerclassname.this获取外部类对象  不要() 来表示创建外部类对象 不可以直接outerclassname ob=new outerclassname（）；
+
+
+
+    //内部类方法中对外部类对象的引用  
+      
+    public class Test {  
+        public static void main(String[] args) {  
+            // TODO: Add your code here  
+        }  
+          
+        int x;  
+        public class A{  
+            int x;  
+            public void aMethod(){  
+                int x;  
+                x=3;            // x为aMethod方法的局部变量x  
+                this.x=4;       // x为内部类A的成员变量x  this是对A类对象的引用  
+                Test.this.x=5;  // x为外部类Test的成员变量x  Test.this是对外部类的Test类对象的引用  
+                }  
+            }     
+    } 
+
+而需要创建外outerobj部类对象，可以使用outer.inner obj = outerobj.new inner();
+例如：Outer outer=new Outer();
+Outer.Inner inner=outer.new Inner();
+变量方法 public 》private
+继承只获取父类的public方法变量 加了private的在子类不可见
+
+this.   指当前类（自己的类对象的属性方法） 
+
+内访问外 1行
+外访问内 两行
+
+
+
+
+    
+ 下列java基础：
+  continue 是跳过此次。继续循环。 
+  break是一层
+  
+  java.lang.Math 类包含的方法进行基本的数字操作，如基本的指数，对数，平方根和三角函数等. 
+    
+  Scanner scan =new Scanner(System.in);  
+  String s1=scan.nextLine();
+  
+  for(int x:arr){
+  String[5] m=new String[]{"","","",....}
+  int[][] s=new int[][]{(),(),(),,,}
+  for(int[] t:s){
+  for(int q:t){...}
+  
+  }
+  A 65 Z90
+  a97 z122
+  小写比大写多32
+  string1.equals("")
+  
+  //数组操作
+  int array[]=new int[5];
+  Arrays.fill(array,8);
+  Arrays.fill(array,1,3,8)
+  Arrays.sort(array);
+  int newarray[]=Arrays.copyOf(array,5);
+  Char ch=sring1.charAt(5);
+  int m=string1.indexOf('s');
+  str1.startsWith();
+  str1.endsWith();
+  str1.toLowerCase();
+  upper
+  String[] m=str1.split(",|.");
+  replaceall
+  
+  字符串生成器：
+  StringBuilder sb=new StringBuilder("ahahah");
+  sb.appends("hhee");
+  String s2 =sb.toString();
+  构造方法：
+  无惨：public book(){
+  }
+  
+  
+  
+  
+  
+  
+  public interface i1{
+public static final int m=5;（不建议变量 一半多方法）
+  float getA(float m);不需要大括号
+  }
+  public class Cnew implements i1{
+  内部必须实现接口中所有方法 而且方法名 ，返回值，类型参数 个数 等 必须和i1完全一致
+  public Class C1 extends C2{
+  子拥有父亲所有变量方法 继承的同时可以重写重。体现多态
+
+正是由于这两种机制的存在，才赋予了Java强大的面向对象能力。 abstract class和interface之间在对于抽象类定义的支持方面具有很大的相似性，甚至可以相互替换，因此很多开发者在进行抽象类定义时对于 abstract class和interface的选择显得比较随意。 
+如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。抽象概念
+抽象类通过类继承手段派生出具有具体功能的具体对象 根据需求增加功能方法
+而在interface方式的实现中，Demo只能够有静态的 不能被修改的数据成员（也就是必须是public static final的，不过在interface中一般不定义数据成员），所有的成员方法都是abstract的。从某种意义上说，interface是一种特殊 形式的abstract class。 
+
+继承了抽象类后 可以重写其中抽象方法 但是必须去掉abstract
+抽象类方法可以abs也可以非abs
+非抽象类方法不允许abs
+接口长只允许abstract方法
+
+
+
+abstract class C1 {}抽象类 用于继承
+
+构造方法无法继承
+类 或抽象类  重要的继承多态功能 
+接口强调是行为规范
+
+抽象类：声明方法的存在而不允许去实现它的类被叫做抽像类（abstract class） 通常放抽象方法
+抽象方法：只神明不实现 
+接口（interface）是抽像类的变体。在接口中，所有方法都是抽像的。多继承性可通过实现这样的接口而获得。
+无法实例化 无法new
+允许有抽象方法 但不强求  抽象类可以有构造方法，构造方法不可继承，但是可以供子类用super（）或者super（参数，参数。。。。）调用。
+java不允许多继承 但允许多实现  通过在实现接口时候再继承实现多继承
+***接口中方法默认是抽象的 但是必须写public无具体实现形式 只带形参
+非抽象类不允许抽象方法 也就是若子类没有全部实现父类抽象方法 必须定义为abstract
+
+Java
+没有多继承
+可以多实现
+
+    abstract class 在 Java 语言中表示的是一种继承关系，一个类只能使用一次继承关系。但是，一个类却可以实现多个interface。
+    在abstract class 中可以有自己的数据成员，也可以有非abstarct的成员方法，而在interface中，只能够有静态的不能被修改的数据成员（也就是必须是static final的，不过在 interface中一般不定义数据成员），所有的成员方法都是abstract的。
+    abstract class和interface所反映出的设计理念不同。其实abstract class表示的是"is-a"关系，父类和派生类在概念本质上应该是相同的interface表示的是"like-a"关系。
+    实现抽象类和接口的类必须实现其中的所有方法。抽象类中可以有非抽象方法。接口中则不能有实现方法。
+    接口中定义的变量默认是public static final 型，且必须给其初值，所以实现类中不能重新定义，也不能改变其值。
+    抽象类中的变量默认是 friendly 型，其值可以在子类中重新定义，也可以重新赋值。
+    接口中的方法默认都是 public,abstract 类型的。
+
+door抽象类继承之后重写父类抽象方法具体实现open和close 之后额外功能可以实现接口alarm方法 继承同时实现
+满足面向对象设计理念 放一起的话 门和报警没关系 违背了设计原则   
+
+总结：（抽象）类和接口
+概念：  
+1.抽象类表示面向对象 模糊抽象概念 信息不完善不够 通过继承 具体实现 附加额外功能 is a 父子概念本质一样 少量变化
+2.接口行为规范 like a 按照接口规范来 行为规范 模块之间通信契约
+共同点：面向对象 
+区别：
+1.is a  like a
+2.抽象类成员变量方法可以抽象可以不抽象 接口成员变量static final 方法默认抽象 接口中不允许有成员变量
+3.不允许多继承 多实现 
+
+非抽象类不允许抽象方法 抽象方法不允许static修饰 
+
+
+
+
+抽象类用于继承 抽象方法也用于继承重写在使用    
+abstract 的 methods 不能以 private 修饰。 abstract 的 methods 就是让子类
+implement(实现)具体细节的，怎么可以用 private 把 abstract
+method 封锁起来呢? (同理， abstract method 前不能加 final)。
+
+synchronized
+对象同步
+修饰对象 方法或者代码块
+被一个线程占用加锁 加锁时别的线程无法使用
+
+
+
+
+
+
+
+
+
+
+
+
+在 addOne method 中，参数 o 被修饰成 final。如果在 addOne method 里我
+们修改了 o 的 reference
+(比如: o = new Other();)，那么如同上例这题也是错的。但这里修改的是 o 的 member
+vairable
+(成员变量)，而 o 的 reference 并没有改变。
+一个对象引用为final 表示其所指对象地址不变 无法指向另个对象 但是所指对象内部可以改变
+
+
+内里面 final int i;是错误的必须赋值
+ int i;正确 默认类加载时候 会赋值为i=0
+ 
+ 
+ 正确。从来没有人说过 Java 的 Class 名字必须和其文件名相同。但 public class 的
+名字必须和文件名相同。
+
+反射 用时候再看
+Class CN=object.getClass()
+
+
+
+不是的，java的8大基本数据类型分别是：
+逻辑类 boolean
+文本类 char
+整数类 byte, short, int, long
+浮点类 double, float。
+String不是原始类型，而是一个类（class），它被用来表示字符序列。
+不是，是类，但是是java语言自带的，在java.lang.String中
+
+ java基本数据类型在栈中怎么存放的？
+int a = 3; 首先它会在栈中创建一个变量为a的引用，然后查找有没有字面值为3的地址，没找到，就开辟一个存放3这个字面值的地址，然后将a指向3的地址？
+
+
+Java把内存分成两种，一种叫做栈内存，一种叫做堆内存
+
+在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配。当在一段代码块中定义一个变量时，java就在栈中为这个变量分配内存空间，当超过变量的作用域后，java会自动释放掉为该变量分配的内存空间，该内存空间可以立刻被另作他用。
+
+堆内存用于存放由new创建的对象和数组。在堆中分配的内存，由java虚拟机自动垃圾回收器来管理。在堆中产生了一个数组或者对象后，还可以在栈中定义一个特殊的变量，这个变量的取值等于数组或者对象在堆内存中的首地址，在栈中的这个特殊的变量就变成了数组或者对象的引用变量，以后就可以在程序中使用栈内存中的引用变量来访问堆中的数组或者对象，引用变量相当于为数组或者对象起的一个别名，或者代号。
+
+引用变量是普通变量，定义时在栈中分配内存，引用变量在程序运行到作用域外释放。而数组＆对象本身在堆中分配，即使程序运行到使用new产生数组和对象的语句所在地代码块之外，数组和对象本身占用的堆内存也不会被释放，数组和对象在没有引用变量指向它的时候，才变成垃圾，不能再被使用，但是仍然占着内存，在随后的一个不确定的时间被垃圾回收器释放掉。这个也是java比较占内存的主要原因，实际上，栈中的变量指向堆内存中的变量，这就是 Java 中的指针! 
+从堆和栈的功能和作用来通俗的比较,堆主要用来存放对象的，栈主要是用来执行程序的.而这种不同又主要是由于堆和栈的特点决定的: 
+
+栈有一个很重要的特殊性，就是存在栈中的数据可以共享。假设我们同时定义：
+
+　　int a = 3;
+
+　　int b = 3;
+
+　　编译器先处理int a = 3;首先它会在栈中创建一个变量为a的引用，然后查找栈中是否有3这个值，如果没找到，就将3存放进来，然后将a指向3。接着处理int b = 3;在创建完b的引用变量后，因为在栈中已经有3这个值，便将b直接指向3。这样，就出现了a与b同时均指向3的情况。这时，如果再令a=4;那么编译器会重新搜索栈中是否有4值，如果没有，则将4存放进来，并令a指向4;如果已经有了，则直接将a指向这个地址。因此a值的改变不会影响到b的值。要注意这种数据的共享与两个对象的引用同时指向一个对象的这种共享是不同的，因为这种情况a的修改并不会影响到b, 它是由编译器完成的，它有利于节省空间。而一个对象引用变量修改了这个对象的内部状态，会影响到另一个对象引用变量 
+
+方法栈：　我们知道,某个线程正在执行的方法称为此线程的当前方法.我们可能不知道,当前方法使用的帧称为当前帧。当线程激活一个Java方法,JVM就会在线程的 Java堆栈里新压入一个帧。这个帧自然成为了当前帧.在此方法执行期间,这个帧将用来保存参数,局部变量,中间计算过程和其他数据.这个帧在这里和编译原理中的活动纪录的概念是差不多的. 
+
+
+修改java代码需要重新编译开关服务器因为需要重新编译 否则只是启动之前的编译结果 修改暂时无效
+需要确认的 
+
+个人经验：
+
+
+基本数据类型
+和引用数据类型
+
+类是引用数据类型
+基本数据类型就是那么几种
+byte,int ,float,double，
+这么说吧。首字母小写的都是基本数据类型。首字母大写的都是引用类型
+
+另外基本数据类型都有相应的包装类(Wrapper)，比如Integer之于int, Double之于double。这些包装类是类了，也就是引用类型了。
+
+java数据类型图：
+                                             ┏数值型━┳━整数型：byte short int long
+              ┏基本数据类型━━┫              ┗━浮点型：float double
+              ┃                            ┣字符型：char                                          
+数据类型╋                            ┗布尔型：boolean              
+              ┃                            ┏类（class）
+              ┗引用数据类型━━╋接口（interface）
+                                             ┗数组（array）
+java的数据类型分基本数据类型（原始数据类型）和引用数据类型；
+1.基本八大类，图中可以很清楚的看到；这种类型的数据变量在声明之后java就会立刻分配给他内存空间。如：short a;  java会在可使用的内存空间寻找一个占两个字节的块给a变量；
+2.引用数据类型就那三种，类似C/C++的指针，它以特殊的方式指向对象实体（具体的值），这类变量声明时不会分配内存，只是存储了一个内存地址，想具体知道看看数据结构就好了。
+
+
+
+
+
+虚拟机包括：
+方法区(静态区 非堆)：线程私有 存储唯一的东西，例如存储虚拟机加载的类信息，常量（存储在方法区组成部分运行时常量池里面），静态变量 编译期常量等等
+堆：线程共有 主要用于存储 速度慢 体积大 gc 对象仓库
+栈：线程私有 包括基本变量 对象引用 方法栈栈帧 等 每个方法执行时候创建一个方法栈栈帧 方法执行过程数据 例如局部变量 操作数等 方法每一个步骤对用数据不断入栈出栈
+速度快 小空间 用于操作  线程私有，每个方法执行时候会产生一个方法栈栈帧，存储局部变量表，操作数栈，方法出口等信息，每个方法执行过程，就是虚拟机里面一个方法栈栈帧不断入栈
+到出栈过程，出战完了，方法估计就执行完了。
+程序计数器：线程私有 当前线程访问对象（run）方法体字节码行号指示器 例如多线程 a线程执行一半给b b完了返回a位置 恢复到正确的位置
+运行时常量池：编译期间生成的数据 例如常量等 
+
+对象定位：如何找到具体对象
+1.句柄池 栈中引用 指向堆中句柄池 句柄池中句柄对应对象具体堆中地址 优点：gc等导致对象位置变动 栈中引用句柄指针地址 只需变动句柄池中指针 不变缺点：定位对象多一次定位 费时空间 
+2.直接指针 引用直接执行堆地址   
+
+堆溢出：对象不断增加 内存不够
+
+
+
+
+java虚拟机传值问题：
+1.基本类型在栈，也有引用，例如int a=5；在栈中先找5，有 那么建立a引用指向5 否则创建5 a指向 此时a引用和5实体都在栈中
+对象不一样 引用在栈 实体在堆
+java传值都是传递的拷贝 （按值传递（值拷贝） 引用传递（对象引用地址拷贝））例如基本类型拷贝 或者引用拷贝
+基本类型和对象引用的共享机制并非不一样， 其实一样 引用例如person p1=new person();person p2=p1;那么两个p引用指向一个对象，改变p1则改变p2 例如p1.setPersonnanme("newname")，那么p2也改变
+本质因为对象引用p1和p2都指向person首地址 地址内容变了 外部不知道 所以不变 
+但是如果p1=new person(“another”)； 那么p2和p1指向不一样的堆对象 地址不一样 但是如果直接从内部改变person对象值 那么外部察觉不到 p1和p2还是一样 
+所以引用指向首地址的本质 无论基本变量 还是对象引用 都本质一样  共享机制相同 
+stringbuffer的append方法是从内部直接修改值 
+而p2=p1 之后p2指向别的对象 那么从外部修改引用对象 
+另外strings1="aa"如果已存在aa字符传 那么直接s1指向aa  类似于int m=5；int n=m；差距是n和m的5都在栈 而aa字符串属于字符串常量 在运行时常量池
+
+strings1="aa"无论写在全局 局部方法内 静态等编译器绑定到常量池 字符串常量写在常量池 引用strings1在栈
+int a=5  a是变量  加了final static才是常量 只是赋值 str不可变 是常量  5是常数 存在栈 
+a++在5的基础上+1 可变 string1=string1+“bb” 不可百年 在计算结果重新寻找定位指向 
+
+
+
+=的本质是引用 不要用相等来理解
+所有string s1=“aa”和string s1=new string（aa）区别：
+string s1会创建字符串引用在栈中
+int m也会在栈创建int型引用m 具体指向什么 得根据后面来判断 
+前者在栈创建引用s1 常量池找已存在的aa 无责创建 有则指向  
+后者  在栈创建引用s1 堆中无条件不管是否存在 创建aa后指向 引用在栈 字符串值在堆 
+
+ 非常基础的一个问题因为传递的是变量或者对象拷贝 无论是对象还是基本变量 两个引用指向一个地方 变1的时候2不变 不会引起2同步变化 除非1所致的值内部修改 这时候1和2都变 因为内部修改之后1和2都不知道
+一般面试题中都会考Java传参的问题，并且它的标准答案是Java只有一种参数传递方式：那就是按值传递，即Java中传递任何东西都是传值。如果传入方法的是基本类型的东西，你就得到此基本类型的一份拷贝。如果是传递引用，就得到引用的拷贝。
+
+    一般来说，对于基本类型的传递，我们很容易理解，而对于对象，总让人感觉是按引用传递，看下面的程序：
+
+    public class ObjectRef {
+
+    //基本类型的参数传递
+
+        public static void testBasicType(int m) {
+
+             System.out.println("m=" + m);//m=50
+
+             m = 100;
+
+             System.out.println("m=" + m);//m=100
+
+        }
+
+    //参数为对象，不改变引用的值
+
+        public static void add(StringBuffer s) {
+
+            s.append("_add");
+
+        }
+
+    //参数为对象，改变引用的值
+
+       public static void changeRef(StringBuffer s) {
+
+           s = new StringBuffer("Java");
+
+       }
+
+    public static void main(String[] args) {
+
+        int i = 50;
+
+        testBasicType(i);
+
+        System.out.println(i);//i=50
+
+        StringBuffer sMain = new StringBuffer("init");
+
+        System.out.println("sMain=" + sMain.toString());//sMain=init
+
+        add(sMain);
+
+        System.out.println("sMain=" + sMain.toString());//sMain=init_add
+
+        changeRef(sMain);
+
+        System.out.println("sMain=" + sMain.toString());//sMain=init_add
+
+    }
+
+}
+
+以上程序的允许结果显示出，testBasicType方法的参数是基本类型，尽管参数m的值发生改变，但并不影响i。
+
+    add方法的参数是一个对象，当把sMain传给参数s时，s得到的是sMain的拷贝，所以s和sMain指向同一个对象，因此，使用s操作影响的其实就是sMain指向的对象，故调用add方法后，sMain指向的对象的内容发生了改变。
+
+    在changeRef方法中，参数也是对象，当把sMain传给参数s时，s得到的是sMain的拷贝，但与add方法不同的是，在方法体内改变了s指向的对象（也就是s指向了别的对象,牵着气球的绳子换气球了），给s重新赋值后，s与sMain已经毫无关联，它和sMain指向了不同的对象，所以不管对s做什么操作，都不会影响sMain指向的对象，故调用changeRef方法前后sMain指向的对象内容并未发生改变。
+
+    对于add方法的调用结果，可能很多人会有这种感觉：这不明明是按引用传递吗？对于这种问题，还是套用Bruce Eckel的话：这依赖于你如何看待引用，最终你会明白，这个争论并没那么重要。真正重要的是，你要理解，传引用使得（调用者的）对象的修改变得不可预期。
+
+但是int a=5，int b=a，a。b指向同一个5，但是假如a=8，编译系统发现此时ab不同了 就会分开 不会那么a是8 b还是5 并不会同时改变
+对象引用类型的也会改变 但是append内部改变值 不会导致外部引用指向目标变化
+http://blog.csdn.net/z69183787/article/details/21123605 详细
+ 定义方法：  public static void testBasicType(int m) {syso(m) m=5；syso(m)}打印的为先3后5 但是i还是3 刚开始 i的拷贝引用指向5 
+ 调用方法：i=3；testBasicType(i);i的值会创建一个拷贝( 引用对应引用拷贝) 副本传到m里面进行操作，或者说m就是拷贝引用，开始两个都指向3，当m变了 就分开了 所以m边了 但是i的值不变，
+
+
+对象引用：
+  public static void changeRef(StringBuffer s) {
+
+           s = new StringBuffer("Java");
+
+       }
+ main：StringBuffer sMain = new StringBuffer("init"); changeRef(sMain);
+
+ 
+
+八个基本数据类型都有对应的包装类，包装类就是对象了。比如Integer j = new Integer（10）。j属于对象的引用，引用放在栈中，而实际的数据10 则放在堆中。 
+
+
+java传值总结：
+
+按值传递和按引用传递（在方法调用时候参数传递方式） 
+基本数据类型作为参数传递，传递值的拷贝 无论怎么改变拷贝 原值不变
+引用对象作为参数传递，对象内存地址传递过去给参数（也可以成为引用拷贝）
+string'不可修改 每一次修改 都会通过计算 重新创建一个对象 放弃之前对象内存空间  重新指向引用
+new string（）创建的string对象不是常量池中 在堆 不在编译期间确定 实例化才确定  
+string对不可变 内部改变 重新创建并定位 不是在以前基础上变化
+
+strbuilder.append
+student.age=
+char a[]
+a[0]='a'
+这些改变过程中拷贝引用不重定向 只是修改内部值 所以影响以前数据
+
+记住传递额是地址副本 新引用指向原引用的内存地址 而非原引用 
+
+
+
+
+
+
+
+程序计数器：虚拟机多线程是多个线程轮流切换交替获取处理器资源占用cpu时间，同时刻只有一个线程，java类编译成字节码之后存下来，然后程序计数器占用很小的内存，而且线程私有，每个线程独立
+拥有一个程序计数器，当前线程所需要执行的字节码的行号指示器。
+
+
+
+继承和组合：
+继承例如animal有breath（） beat（）
+bird类继承animal 多了个fly dog多个bark（）
+体现多态
+interace car 有getname getprice方法声明
+class bmw implement car 具体化getname伟return name+“bmw“
+class audi implement car 具体化getname伟return name+“audi“
+
+组合：第二个类里面把第一个类的对象当做成员变量 
+直接调用对象方法实现复用
+
+
+父类型指向子类型不需要强制转换。 
+
+像这样在子类中添加一个int age=10; 就把父类的age覆盖掉了，结果就没问题了。
+继承过后子类中就有了age这个属性，用int age覆盖掉原来的定义，怎么不叫多态。。只是不提倡属性的覆盖罢了。
+
+
+，反正重写的方法是属于子类自己的，父类看不到。继承过后如果没有覆盖，那么子类从父类继承来的变量与父类的变量指向同一个域，覆盖之后。系统会给子类变量重新开辟一个存储空间。
+
+
+
+
+
+
+java虚拟机内存
+
+在Java里都是通过快栈中的引用来操纵对象的。
+对象实体存放在慢堆里面 
+A a=new A();
+a是对象引用 在队中执行new对象 栈中放a指向new的对象
+ 类在编译时候项目启动时候初始化其中的静态变量 非静态实例变量不管
+ 创建对象时候初始化值，例如属性为0 string为null等
+
+StringBuffer  s = new StringBuffer("Hello World!");
+s = new StringBuffer("Java")
+两个stringbuffer对象helloword和jaba存放在不同的堆位置，s引用后来指向第二个 ，那么第一个对象每人指向没人引用，就会被gc
+既然两个引用指向同一个对象，那么不管使用哪个引用操纵对象，对象的内容都发生改变，并且只有一份，通过s1和s得到的内容自然也一样，
+栈存放基本类型和对象引用 堆中存放对象实体 
+
+
+类是一个抽象的概念，对象才是具体的，子类的动作只会影响到父类的对象，你父类的属性是不受影响的。
+
+super只能用在子类的方法中
+this用在当前类的方法中
+this不可使用static
+
+
+构造方法：（）
+重载：形参名称 个数 类型 返回值
+构造器无返回值 非void 特殊之处
+构造器通过重载实现多种初始化模式
+如果不存在构造方法那也就创建不了类的实例。
+构造方法，在new对象的时候就会自己调用，也是对象的初始方法，如果你自己不写构造方法默认的会自动加上一个无参的构造（jvm自己添加）
+在没有给构造函数的时候 JVM 给你的类加了一个这样的函数
+public entity(){
+  this.id=0;
+  this.userName=null;
+}
+其实构造函数是用来对一个类以及变量进行实例化。
+当一个类声明了构造函数以后，JVM 是不会再给该类分配默认的构造函数。
+
+
+
+final
+无法更改 属性无法更改 方法无法继承 引用一旦指向 无法执行别的
+允许空白final 类里面属性未初始化  但是雷初始化对象时候必须给该对象的该属性赋值  且之后不变 但是累创建时候不赋值
+优势：性能（内嵌调用 之后不被提倡 ）+无法覆盖
+final修饰类 无法被继承 
+
+private
+类所有private方法被隐士制定为final
+	·
+
+类的访问限制付和其内部方法变量是一致的 
+可以访问类的话 就可以访问内部变量和方法 除非private
+如果类public 而方法private则可以访问类 就是Classname c=new Classname（）但是无法c.field  c.method1();
+类 public >protected>default（friendly）>private
+default 包中都可以访问该类 就是a和b类同包 a的方法中可以进行b类的实例化 
+默认 包和包外的继承的子类
+private 本类 只有在本类的方法中可以classname bean =new classname();进行实例化本类
+
+如果修饰方法或者变量：
+private或者public
+private表示只有自己类的方法可以调用该静态方法或属性  就体现了封装 只哟自己可以调用 通常加private体现了类的封装性 别人访问类的属性通过get方法获取 不推荐直接对象.field
+private控制属性或者方法 表示该属性方法只有在本类的其他方法中可以调用 
+private控制类 表示只有自己的类可以使用自己的类 然后只有方法可以使用类 也就是自己类的方法可以获取自己类 例如在类方法里面Strdent st=new sTUDENT();
+也只有自己的类可以import自己的泪 但是一个包 不需要import 所以可以直接在自己类的方法里面调用自己来创建对象
+如果是public 可以在外包import 但不一定可以在外包的类的方法里面引用该类创建该类bean 因为创建bean需要调用该类构造函数 得看该构造函数不是private 
+
+static：
+static变量为静态变量
+非static为实例变量
+static的变量独立于对象 和类绑定的 在类加载（只有一次加载）时候就确定分配了地址
+但是非dtatic属性在实例化的时候 有多少个对象 就有多少个非static变量所在的地址 但是static变量的地址永远只有那一个 别的对象的该static变量地址都指向他 
+对于静态变量在内存中只有一个拷贝（节省内存），JVM只为静态分配一次内存，在加载类的过程中完成静态变量的内存分配，可用类名直接访问（方便），当然也可以通过对象来访问（但是这是不推荐的）。 
+　对于实例变量，没创建一个实例，就会为实例变量分配一次内存，实例变量可以在内存中有多个拷贝，互不影响（灵活）。 
+
+所以一般在需要实现以下两个功能时使用静态变量：
+  在对象之间共享值时
+  方便访问变量时 不需要对象就可以访问
+
+静态方法实际意义：类直接调用 方便 当类只有操作方法没有状态属性 静态方便 如果有状态 无法静态 因为类加载完毕可以确定方法 但是无法确定属性值
+只有对象才可以既可以拥有独自的属性又有操作
+j 
+
+3、static代码块 
+
+　static代码块也叫静态代码块，是在类中独立于类成员的static语句块，可以有多个，位置可以随便放，它不在任何的方法体内，JVM加载类时会执行这些静态的代码块，如果static代码块有多个，JVM将按照它们在类中出现的先后顺序依次执行它们，每个代码块只会被执行一次。
+
+
+public class Test5 { 
+private static int a; 
+private int b; 
+
+static{ 
+Test5.a=3; 
+System.out.println(a); 
+Test5 t=new Test5(); 
+t.f(); 
+t.b=1000; 
+System.out.println(t.b); 
+} 
+static{ 
+Test5.a=4; 
+System.out.println(a); 
+} 
+public static void main(String[] args) { 
+// TODO 自动生成方法存根 
+} 
+static{ 
+Test5.a=5; 
+System.out.println(a); 
+} 
+public void f(){ 
+System.out.println("hhahhahah"); 
+} 
+}  
+
+运行结果： 
+3 
+hhahhahah 
+1000 
+4 
+5 
+
+　利用静态代码块可以对一些static变量进行赋值，最后再看一眼这些例子，都一个static的main方法，这样JVM在运行main方法的时候可以直接调用而不用创建实例。 
+
+
+static代码块写在类里面，
+项目启动的时候就会自动记载类 这时候静态代码块就会自动加载 以及静态变量 而且只加载这一次，经常用来初始化类中属性，所以所有实例对象共享这个静态代码快的属性值 
+编译时执行，对象创建前就已执行静态代码块只会执行一次，一般会用来初始化一些值，并且在所有对象中全局共享。
+类装载步骤
+在Java中，类装载器把一个类装入Java虚拟机中，要经过三个步骤来完成：装载、链接和初始化，其中链接又可以分成校验、准备和解析三步，除了解析外，其它步骤是严格按照顺序完成的，各个步骤的主要工作如下：
+装载：查找和导入类或接口的二进制数据；
+链接：执行下面的校验、准备和解析步骤，其中解析步骤是可以选择的；
+校验：检查导入类或接口的二进制数据的正确性；
+准备：给类的静态变量分配并初始化存储空间；
+解析：将符号引用转成直接引用；
+初始化：激活类的静态变量的初始化Java代码和静态Java代码块。
+初始化类中属性是静态代码块的常用用途，但只能使用一次。
+（简单来讲就是项目加载的时候就执行静态代码块，你想了解更清楚的话就写点代码测试一下
+直接类.静态变量名 会一直占用唯一的内存地址知道结束 但是如果非static 的方法 每个对象都有 但是每个对象的get方法也会指向该类中内存地址
+因为定义为静态了，就直接类名点成员名（如你在类string定义static int number,那你可以直接string.number就行了，但会占内存直到程序结束）
+
+
+
+
+
+
+
+
+继承时候：
+不一定，可以没有，没有就是默认的。。。
+如果子类的构造方法中没有显示的调用父类的构造方法，则系统默认的调用父类的无参的构造方法。前提是父亲有无参构造，不管是自己家的还是jvm加的都算
+如果父类有有参构造 子类必须super（int a）显式调用 
+如果父类的构造方法没有参数，这个SUPER是可以省略的 父类又存在无参构造方法，例如什么都没写 就是默认的无参构造 子类你就可以不使用super 第一行不谢super（）
+会自动添加super（）
+如果父类super（int a）{}
+那么子类必须super（a）
+
+像这样在子类中添加一个int age=10; 就把父类的age覆盖掉了，结果就没问题了。重写的方法是属于子类自己的，父类看不到。
+继承过后如果没有覆盖，那么子类从父类继承来的变量与父类创建时候对象的继承变量指向同一个域（或者同一个引用），同步改变，但是注意是父类的对象，而不是父类。不影响类。覆盖之后。系统会给子类对象中的覆盖变量重新开辟一个存储空间，而不再是引用同一区域。
+继承过后子类中就有了age这个属性，用int age覆盖掉原来的定义，怎么不叫多态。。只是不提倡属性的覆盖罢了。
+
+
+T1 extends T2
+子类对象(大的)可以赋值给父类对象(小的)
+T2 t2=new T1();
+反过来编译报错
+例如父类人 子类1中国人 子类2美国人
+子类包含父类的任何属性方法 包括private 只是隐藏不可见
+同时子类比父类更详细 多余的属性 越详细 范围越小 子类区域完全被父类包含 属于子类必定属于父类 
+子类对象必定是一个特殊的父类对象 所以子类可以赋值给父类对象 反过来父类对象不一定属于子类 因为人不一定都是美国人 
+
+
+加入t1和t2中都有int field=1；和=2 如果父类中field是private 那么子类中public也无法覆盖 子类中看不见父类field 和父类field不存在一样  
+如都不是private 那么子类将覆盖父类field 子类中出现两个field 默认的是子类.field 访问父类field通过super.field
+
+java中子类对父类属性方法的继承或者覆盖分类：
+
+个人总结大致5种情况：
+
+父子都有 父有子无 父无子有大标(时间煮雨)
+1.最普通 父类有非private的field子类无field 直接继承 指向相同存储空间 this.field和super.field指向同一
+2. 父类有field 但是private 子类无field 直接继承 但是field隐藏在子类不可见 无法访问子类field 理解为子类不存在field
+3.父子都有field 父类field属性非pirvate 经典覆盖（重写） 无法继承父类field 默认用自己的 子类中有两个field空间  this.field和super.field分别执行子类field和父类field
+4.父子都有field 但是父类pirvate 子类有父类private修饰的field变量 但是父类field不可见 只有自己的field可见  无法继承 无法重写  super.field出错 类似于第5种  子类中field纯属额外属性 
+5.父无field 子有field 额外附加属性方法
+
+另外java向上转型 ：
+例如shape s=new  circle（）；
+meth（fatherclass ff）
+meth（son）允许 因为son是father的而增强版 特殊版  
+  
+
+1、如果new的Class未加载，则先加载.class文件
+2、在堆区分配内存空间，并全部置为二进制0
+3、静态成员初始化
+4、执行构造函数，如果有继承关系，则最先执行父类的构造函数并依此类推
+5、执行完父类构造函数后进行实例成员初始化
+6、执行构造函数其余操作
+
+在此过程中使用到其他类时，如果类未加载则都会先进行加载，然后再继续
+
+不要觉得
+Sub s=new Sub(5.6,"测试对象","红色");
+System.out.println(s.size+"--"+s.name+"--"+s.color); 那么就是5.6,"测试对象","红色"
+分两步看
+1.new Sub(5.6,"测试对象","红色");
+2.Sub s=
+
+如果普通类 考虑构造函数Sub方法 具体赋值语句 加入另this。x=x+1呢？
+再把new好的赋值给s
+如果是继承的子类
+还要考虑sub方法 中调用的父类构造（没写 默认调用无惨构造 写了调用写的）
+
+
+
+
+
+
+ java中向上转型，向下转型，强制类型转换的原理？
+分享| 2013-03-26 10:13 鼄俊傑 | 浏览 2031 次
+
+......
+class B extends A
+......
+A x ; B y;
+// x=new B();                        (1)
+// y=new A();                        (2)
+// x=new A();  y=(B)x;           (3)
+// y=new B();  x=(A)y;           (4)
+ 
+请问：
+1，（1）-（4）四条语句，哪些能正确编译，哪些能正确运行？为什么？
+2，对象声明（A x;）和创建（ x=new A();）有什么区别？
+3，强制类型转换是什么原理？什么时候可以使用强制类型转换？它会导致哪些内存分配方面的变化？
+ 
+我对对象声明和创建，以及转型等导致的关于内存分配等方面的具体变化一直不太懂，希望能说得更清楚一些？，非常感谢。
+
+
+第一个OK，可以正确编译，可以正确运行，因为X是A，A是B的父类，所以当然你构造一个B，相当于也就是构造了一个A所以，X可以赋值到一个B的实例。最简单理解，就是任何一个对象都是Object的子类，你可以定义一个Object来看。
+第二个就不行，不能编译，也不能运行。都是要求你要做强制转换
+第三个可以编译，也可以运行，只是有可能在你使用y的时候报错
+第四个也可以编译，也可以运行，因为这个B就是A的子类，所以当然可以当作一个A来用。
+
+第2个，声明对象只是说x,是A这个类型的。但是构建的时候，才是创建实例的时候。好比你声明一个x是A 类，这个时候，你就可以后面给他赋值到所有A类当中的任何一个实例。而new A()；只是创建一个A的实例，来赋值，这是众多赋值方法的一种
+
+第三个，强制转换的原理，就是一个类，需要他用什么定义来使用，就转换成这个定义后，再继续使用。因为本质上一个类都是存储在内存里的，按照固定格式，有些时候程序自身是不知道的，只有你自己清楚。最常用的地方，就是把一个类放入Map里面，再取出来的时候，只有你自己知道里面放的是什么，所以要强制类型转换后，才可以接着用。内存分配方面不会有任何变化，你基本不用操心。
+
+
+为什么属性设为private 通过public方法访问
+如果设为public field 那么field可以直接新建obj 对obj.field直接赋值或者读取 可读可写 
+private之后无法通过对象.field操作 不可读不可写 开放getfield读 set写 
+需要对对象field的格式做控制 不可以随便赋值 所以在setfield方法设置控制 控制field形式 如果防止不该看的人getfield 在getfield方法内部添加判断来访者访问权限 再return this.field
+另外pirvate'之后继承可以获取field但是不发可见 隐藏的 该属性为类私有
+ 
+  为了不让其示例对象直接通过 对象.属性名 来使用和修改，而是通过set属性名,get属性名，更安全，这样属性就不会随意的被赋值上任何非法的值了，可以在set属性名的方法中进行控制。比如说：
+private String gender; //性别
+public void setGenger(String g){
+    if("男".equals(g) || "女".equals(g)){
+        gender = g;
+    }else{
+        //你是人妖？
+        gender = "男";//我们默认为男人妖
+    }
+}
+public String getGenger(){
+    if(这个用户设置了对其他人隐藏性别){
+        return "你猜";
+    }else{
+        return gender;
+    }
+}
+
+      以上有效的保证了数据的安全性与合法性，不然你不能保证别人拿到gender属性会用来干嘛，或者是要对gender属性干嘛你都不知道。
+
+      别人stu.gender = "猪",你也无法控制，你也不可能在每一个gender赋值的地方逐一判断，那样工作量多大，这样还可以省事，减少工作量。
+
+      你也许会天真的以为你自己写的东西我自己难道不知道嘛，那你就错了，很多时候你写的东西是要给很多人用的，或者你要用别人实现的很多东西。
+
+
+里分字段和属性，都是成员变量，字段是私有的，在程序内部使用，而属性则是对外提供访问字段的权限（外是指这个类以外的其他类），可能你会问为什么不直接把字段写成PUBLIC的对外公开，如果这样做了就失去了可控性，比如要让一个字段，在外部访问时只能读取而不能修改，那么就可以只写get。又比如，赋值的时候不是什么值都能赋的，要做限制就可以在set中控制。不然的话，别人给这个段赋值多少就是多少。要是你写的程序被人破解，那你这值就被随便改了。没安全性可言，一点也不可控。说白了属性就是用来控制外部访问的。
+
+构造方法：
+除了静态方法，一般都必须对象才可以调用方法属性，但是创建bean的构造方法调用时候对象还不存在，但是new关键字让系统自动开辟内存，创建个对象，方法加上去，属性为0复杂类型为null 作为对象 如果没手动就默认无惨，写了无惨就没效果了。
+java的构造函数其实很简单。
+一个类 被实例化 也就是被new的时候 最先执行的是 构造函数，如果你有留心。你会发现很多类里面根本没有写构造函数。
+在java类中，如果不显示声明构造函数，JVM 会给该类一个默认的构造函数。一个类 可以有多个构造函数。构造函数的主要作用 一是用来实例化该类。二是 让该类实例化的时候执行哪些方法，初始化哪些属性。当一个类声明了构造函数以后，JVM 是不会再给该类分配默认的构造函数。
+比如一个实体类
+public class entity{
+      private int id;
+      private String userName;
+     get...set..方法
+}
+如果这样写该类就是默认的构造函数。该类实例化的时候 id 和 username 就是默认值 即 id=0,username=null.
+如果在里面加入这样一个方法
+public entity(int id,String userName){
+     调用get..set..
+}
+如果这样写 该类实例化的时候 必须给出 id  和username参数。 JVM不会再给这个类默认构造函数
+你也可以理解成 在没有给构造函数的时候 JVM 给你的类加了一个这样的函数
+public entity(){
+  this.id=0;
+  this.userName=null;
+}
+其实构造函数是用来对一个类以及变量进行实例化。
+
+
+list 和set 有共同的父类 它们的用法也是一样的 唯一的不太就是set中不能有相同的元素 list中可以 序列 集合
+list和set的用途非常广泛 list可以完全代替数组来使用
+map 是独立的合集 它使用键值对的方式来储存数据 键不能有重复的 值可以用 
+map不像上边两种集合那个用的广泛 不过在servlet 和jsp中 map可是绝对的重中之重 页面之间传值全靠map
+   list set map
+   list有序可重复 set无需不可重复
+   list有arraylist(随机存取非常搞笑 便于查找)和linkedlist(便于删除增加 不方便查找 从第一个开始) vector 
+   arraylist        和            vector区别：
+   线程不安全（同时同一个）   安全（允许多个线程一起）
+   高效                                       低效
+   扩容慢 一次一半                    一次一倍
+   
+   
+  java api
+List
+基本信息
+boolean 	isEmpty()
+
+int 	        size()
+
+boolean 	contains(Object o)
+
+Iterator<E> 	iterator()
+
+增删改查（序号 以及序号的数据）
+
+void            add(E e)
+
+boolean 	remove(Object o)
+
+Entryobject 	        get(int index)
+
+int 	        indexOf(Object o) 默认firstindex
+
+int 	        lastIndexOf(Object o)
+
+操作
+
+Object[] 	toArray()  注意是object类型
+
+
+Set
+
+基本信息：
+boolean 	isEmpty()
+
+int 	        size()
+
+boolean 	contains(Object o)
+
+Iterator<E> 	iterator()
+
+增删改查 set没有任何差 除了迭代其
+
+boolean 	add(E e)
+
+boolean 	remove(Object o)
+
+操作
+
+Object[] 	toArray()
+
+
+Map
+基本信息：contains键或者值
+int 	size()
+
+boolean 	isEmpty()
+
+boolean 	containsKey(Object key)
+
+boolean 	containsValue(Object value)
+
+增删改查：可以修改replace
+Valueobject 	        get(Object key)
+
+Valueobject 	        put(K key, V value)
+
+Valueobject 	        replace(K key, V value)
+
+Valueobject 	        remove(Object key)
+Removes the mapping for a key from this map if it is present (optional operation).
+
+default boolean 	remove(Object key, Object value)
+Removes the entry for the specified key only if it is currently mapped to the specified value.
+
+
+
+操作：
+Set<K> 	keySet()  set可以toarray
+
+Collection<V> 	values()
+
+Set<Map.Entry<K,V>> 	entrySet()
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    set ，map有hashmap和treemap
+   List<String> list=new LinkedList<String>();
+   list.add("");
+   Iterator<sTRING> it=LIST.iterator();
+   while(it.hasNext()){
+   System.out.print(it.next()+"");
+   };
+  List <>list2=new ArrayList<>();
+  list2.add();
+  list2.indexOf("")等 不需要迭代器可以遍历
+  
+  无论哪种set都需要迭 代器 
+ Set<> set =new HashSet<>();
+ Iterator<> it = set.iterator();
+ it.hasNext()
+ it.next();
+ String[] s1=set.toArray();
+ 
+ Map <String,String>map = new HashMap<,>();
+ map.put("1","aaa");
+ ...
+ map.get("1")键值对
+  Set set =map.keySet();
+ 
+  }
+ File file =new File("d:/...");
+ if(file.exists()){
+ String name=file.getName();
+ boolean b =file.isHidden();
+ long m =file.length();
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ file.delete();
+ }
+ else{
+ try{
+ file.creatNewFile();
+ ...
+ 
+ }
+ catch(Exception e){
+ e.printStackTrace();}
+ 
+ }
+ if(file.isDirectory())
+  File file[]=file.listfiles(new filefilter(){});按过滤器过滤文件夹内部哪些文件放入文件数组
+  File file[]=file.listfiles也可以不加过滤器 所有的都加入到文件数组
+  
+  
+  
+ 不带缓存普通输出输出： 1.字节2.字符
+ 对于内存是输入输出 对于file是读或者写
+ 输入流 fileinputstream filereader 从file读取到文件夹或者，。。  读file
+ 输出流 fileoutputstream filewriter 写到文件file           写到file
+ File file =new File("d:/d.text");
+ fileinputstream fis = new fileInputSream(file);
+ Byte[] b= new Byte[1024];  输出：byte c[]=string1.getBytes();   fos.write(c);  fos.close();
+ int length=fis.read(b);// 读很特殊 必须要返回值
+ fis.close();
+ 
+ fileReader fl =new fileReader(file);
+ Byte[] b= new Byte[1024];
+ int length=fl.read(b)  输出:fos.write(string1);  fos.close();不需要s1变成byte
+   fis.close();
+  
+ 带缓存：
+ File file =new File("d:/d.text"); 
+ fileReader fl =new FileReader(file);
+  
+ BufferedReader bf =new BufferedReader(fl);
+ while((s=fl.readLine())!=null){syso s }
+ 或者while((s=fl.read())!=-1){syso s }  bufferedinoutStream
+ 
+ fileWriter fw =new fileWriter(file)；
+ BufferedWiter bfw= new BufferedWiter(fw);
+ bfw.write(string1);
+ bfw.newLine();写入换行
+ bfw。close
+ fw.close();
+ (加了缓存之后 写的时候有个newline 读的时候有readLIne 和read判断 不加缓存的话 一次读完了 无法做判断或者对读入内容进行筛选)
+  
+   
+  filereader里面可以接file也可以是System。in类似于scanf（system。in）表示从终端键盘输入  
+    
+  1.精 探班不会的 必须有专精的
+  java基础：
+   java.UTIL.SCANNER SCANNER
+   Scanner scan =new Scanner(System.in)
+   nextLine()一样 而且是字符串 enter间隔
+   next表示一个字符串 空格间隔 
+   nextint 为一个int格式 空格间隔 换行也可以读取 enter和空格都可以
+   另外协同操作 不同的处理不同位置 但不是独立处理
+  continue 是跳过此次。继续循环。 
+  break是一层
+  
+  
+  java.lang.Math 类包含的方法进行基本的数字操作，如基本的指数，对数，平方根和三角函数等. 
+    
+  Scanner scan =new Scanner(System.in);  
+  String s1=scan.nextLine();
+  
+  for(int x:arr){
+  String[5] m=new String[]{"","","",....}
+  int[][] s=new int[][]{(),(),(),,,}
+  for(int[] t:s){
+  for(int q:t){...}c
+  
+  }
+  A 65 Z90
+  a97 z122
+  小写比大写多32
+  string1.equals("")
+  
+  //数组操作
+  int array[]=new int[5];
+  Arrays.fill(array,8);
+  Arrays.fill(array,1,3,8)
+  Arrays.sort(array);
+  int newarray[]=Arrays.copyOf(array,5);
+  
+  
+  
+  字符串操作
+  string1.length（）
+  string1.replaceAll();
+  string1.toupperlowwercase()
+  
+  Char ch=sring1.charAt(5);
+  int m=string1.indexOf('s');
+  str1.startsWith();
+  str1.endsWith();
+  str1.toLowerCase();
+  upper
+  String[] m=str1.split(",|.");
+  replaceall
+  
+  字符串生成器：
+  StringBuilder sb=new StringBuilder("ahahah");
+  sb.appends("hhee");
+  String s2 =sb.toString();
+  构造方法：
+  无惨：public book(){
+  }
+  public interface i1{
+  final int m=5;
+  float getA(float m);不需要大括号
+  }
+  public class Cnew implements i1{
+  内部必须实现接口中所有方法 而且方法名 ，返回值，类型参数 个数 等 必须和i1完全一致
+  public Class C1 extends C2{
+  子拥有父亲所有变量方法 继承的同时可以重写重。体现多态
+
+abstract class C1 {}抽象类 用于继承
+反射 用时候再看
+Class CN=object.getClass()
+
+   list set map
+   list有序可重复 set无需不可重复
+   list有arraylist和linkedlist set，map有hashmap和treemap
+   List<String> list=new LinkedList<String>();
+   list.add("");
+   Iterator<sTRING> it=LIST.iterator();
+   while(it.hasNext()){
+   System.out.print(it.next()+"");
+   };
+  List <>list2=new ArrayList<>();
+  list2.add();
+  list2.indexOf("")等 不需要迭代器可以遍历
+  
+  无论哪种set都需要迭代器
+ Set<> set =new HashSet<>();
+ Iterator<> it = set.iterator();
+ it.hasNext()
+ it.next();
+ String[] s1=set.toArray();
+ 
+ 迭代器是给set和linkedlist准备的
+ 1.set 迭代 一迭代器 2set。array（）
+ 2。list 迭代 1.link的迭代器 2.array的indexof
+ 3.map的put get keyset
+ Map <String,String>map = new HashMap<,>();
+ 
+ map.put("1","aaa");
+ ...
+ map.get("1")键值对
+ Set set =map.keySet();
+ 
+  }
+ File file =new File("d:/...");
+ if(file.exists()){
+ String name=file.getName();
+ boolean b =file.isHidden();
+ long m =file.length();
+ 
+ 
+ 
+ 
+ file.delete();
+ }
+ else{
+ try{
+ file.creatNewFile();
+ ...
+ 
+ }
+ catch(Exception e){
+ e.printStackTrace();}
+ 
+ }
+  
+ 不带缓存普通输出输出： 1.字节2.字符 
+ import java.io.filereader
+ 输入流 fileinputstream filereader 从file读取到文件夹或者，。。  读file
+ 输出流 fileoutputstream filewriter 写到文件file           写到file
+ File file =new File("d:/d.text");
+ fileinputstream fis = new fileInputSream(file);
+ Byte为字节类型 
+ Byte[] b= new Byte[1024];  输出：byte c[]=string1.getBytes();   fos.write(c);  fos.close();
+ int length=fis.read(b);// 读很特殊 必须要返回值
+ fis.close();
+ 
+ fileReader fl =new fileReader(file);
+ Byte[] b= new Byte[1024];
+ int length=fl.read(b)  输出:fos.write(string1);  fos.close();不需要s1变成byte
+   fis.close();
+  
+ 带缓存：
+ File file =new File("d:/d.text"); 
+ fileReader fl =new FileReader(file);
+  
+ BufferedReader bf =new BufferedReader(fl);
+ while((s=bf.readLine())!=null){syso s }
+ 或者while((s=fl.read())!=-1){syso s }  bufferedinoutStream
+ 注意区别：filereader的int length=fl.read(b)和bufferedreader的bf.readLine()和fl.read())!=-1 两者作用功能不一样前者直接读取所有文件内容  一次性存入位数组 返回数组长度 而后者一次获取一行或一个字符 -1 not null 然后对每行进行操作
+ fileWriter fw =new fileWriter(file)；
+ BufferedWiter bfw= new BufferedWiter(fw);
+ bfw.write(string1);
+ bfw.newLine();写入换行
+ bfw。close
+ fw.close();
+ (写的时候有个newline 读的时候有readLIne 和read判断)
+  sunstring 含头不含尾巴
+   
+  filereader里面可以接file也可以是System。in类似于scanf（system。in）表示从终端键盘输入  
+  
+  
+  
+  特殊字符：就3个
+      \"：双引号
+     \'：单引号
+     \\：反斜线 
+ \n换行
+ 特殊字符直接打印打不出来 必须转移为表示本身形状的字=】
+ 
+ 
+    
+    当浏览器最初显示这两个框架的时候，左边这个框架包含目录，右边这个框架包含前言。
+
+这是 "toc.html" 的源代码：
+
+<h3>Table of Contents</h3>
+<ul>
+  <li><a href="pref.html" target="view_frame">Preface</a></li>
+  <li><a href="chap1.html" target="view_frame">Chapter 1</a></li>
+  <li><a href="chap2.html" target="view_frame">Chapter 2</a></li>
+  <li><a href="chap3.html" target="view_frame">Chapter 3</a></li>
+</ul>
+
+请注意，在文档 "toc.html" 中，每个链接的目标都是 "view_frame"，也就是右边的框架。
+
+当用户从左边框架中的目录中选择一个链接时，浏览器会将这个关联的文档载入并显示在右边这个 "view_frame" 框架中。当其他链接被选中时，右边这个框架中的内容也会发生变化，而左边这个框架始终保持不变
+    
+   
+   
+   
+   char表示字符
+   包括数字自负 字母 汉字 符号字符等
+   char s='哈'
+   s='-'
+   s='9'
+   s='a'
+   S='0'
+SYSO((INT)S)   表示字符0对应的ascii 48 汉字自负的ascii都是几万
+   char改为int表示字符对应ascii值u
+   
+   
+   string字符串变为字符数组 不会字节数组
+   每个汉字两个字符 英文一个字符
+   
+   a-z：97-122
+
+A-Z：65-90
+
+0-9：48-57
+
+char m;
+m>='0' && m<='9'数字字符 ascii判断
+m>='a' && m<='z'  ||  m>='A' && m<='Z' 65-90 97-122  
+字符无法比较大小 所以自动转化为ascii数字比较
+
+   
+   
+<script type="text/javascript">
+		function doDelete(){
+			if (confirm("您确定要删除该行的数据信息吗？"))
+			{
+				return true;
+			}else
+			{
+			return false;
+			}
+		}
+	</script>   
+   
+   <a onclick="return doDelete();" href="product.do?method=productDelete&pid=${product.proId}">&nbsp;删除</a>
+   
+   vo就是javabean。
+用途不同而已。
+
+vo一般是作为数据库持久化层的bean
+
+vo （value object）他是一个值对象 是由pojo+xml配置文件组成的(pojo古老的java对象只有getter和setter方法)xml是他对应的一些字段的映射vo一般都是用在数据持久上面的 
+你注意看许多的持久框架都是使用到了vo 
+
+没区别,喊法不同是为了区分BEAN的功能,别的没有区别?明白?什么VO,BO,POJO都是BEAN,不过在项目中作用的层面不太一样,有的处理业务有的处理持久等等,就这么喊上了..
+
+其实vo也是一个java bean。
+vo一般用来在不同的层之间传递数据，
+比如说struts的action调用service的时候，一般不会直接把form传过去，
+而是先把form中的数据放到一个vo中，然后把vo传给service。
+
+vo的主要作用是为了解耦，就是尽量减少不同层之间的耦合性。
+java bean的范围就比较广了，只要符合bean的规范的java类都可以称做java bean。
+   
+   
+vo:
+1.value object:pojo+xml
+
+2.action获取jsp的表单 将其表单封装到vo 中间层 然后让service调用去实现方法 vo的结构可能和bean不一样 他和页面格式相吻合
+   
+   
+   一． .properties 文件的形式
+
+# 以下为服务器、数据库信息
+
+dbPort = localhost
+databaseName = mydb
+dbUserName = root
+dbPassword = root
+
+# 以下为数据库表信息
+
+dbTable = mytable
+
+# 以下为服务器信息
+
+ip = 192.168.0.9
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    多进程：
+    
+    Thread类实现了runnable runnable自带run方法， 但是没有start等线程方法 所以仅仅实现了runnable不是正常的线程类 只有run 没有运行开机暂停等方法
+    必须重新Thread t1=new Thread(threadsource)（threadsource是线程资源对象） 
+    这时候t1是正常的线程类 可以创建线程对象：
+    
+    创建线程：
+    1.先根据Thread基类创建线程类 再创建线程对象
+    public class Mythread extends Thread{
+    
+    ...
+    run(){
+    }
+    Myread(){
+    }
+    
+    } 
+    这时候mythread是个完整的线程类
+    Mythread t1=new Mythread(name1);
+    Mythr ead t2=new Mythread(name2);
+    Mythread t3=new Mythread(name2);
+    t1 t2 t3三个线程 名字不一样 且独立 不共享run的内容
+    
+    2. 先写线程资源类(实现runnable即可) 再根据资源类对象(而不是Thread基类)创建线程类 在根据线程类创建线程对象
+    public class Mythreadsource implements runnable{
+    
+    ...
+    run(){
+    }
+    Mythreadsource(String name){
+    this.name=name;
+    }
+    
+    } 
+    
+    
+    
+    Mythreadsource source1=new Mythreadsource(name);
+    
+    
+    Thread t1=new Mythread(source1);
+     Thread t2=new Mythread(source1);
+     Thread t3=new Mythread(source1);
+    因为这儿的t1,2,3全部来自source1一个资源 所以多线程共享run里面的资源
+    
+    
+    综上：
+    实现runnable方式比继承Thread类优点：
+    1.java不支持多继承 如果遇到需要继承另外类的具体线程类 只能使用实现接口形式
+    2.实现runnable可以多线程共享资源 并发共享空间 例如多窗口火车购票 共享票总量这个资源
+    
+   当持有锁的时间相对较长或者请求锁的平均时间间隔较长，应该使用公平锁。在这些情况下，插队带来的吞吐量提升（当锁处于可用状态时，线程却还处于被唤醒的过程中）可能不会出现。 
+ 生活中例子
+ 手机qq不耐烦狂点 10个进程打开qq  
+不会同时弹出10个qq账号密码登录框  第一个过去同步锁 别的无法打开界面 执行完 后面想打开 但是全局变量设置打开状态为true 所以不打开了 因为run方法设置了状态判断 false时候才执行run   
+    线程几个常用方法：
+    1.sleep()方法
+　　在指定时间内让当前正在执行的线程暂停执行，但不会释放"锁标志"。不推荐使用。例如同步锁还在 不释放锁 别人无法使用
+　　sleep()使当前线程进入阻塞状态，而不是就绪态，无法获取系统资源进行执行，在指定时间内不会执行。
+    sleep可以使更低级别进程获得机会执行，而yield只能让比较高和同级别的执行
+　　2.wait()方法
+wait（time）到时候自动唤醒 或者wait（）靠notify唤醒 阻塞时间过程释放锁 
+　　在其他线程调用对象的notify或notifyAll方法前，导致当前线程等待。线程会释放掉它所占有的"锁标志"，从而使别的线程有机会抢占该锁。
+　　当前线程必须拥有当前对象锁。如果当前线程不是此锁的拥有者，会抛出IllegalMonitorStateException异常。
+　　唤醒当前对象锁的等待线程使用notify或notifyAll方法，也必须拥有相同的对象锁，否则也会抛出IllegalMonitorStateException异常。
+　　waite()和notify()必须在synchronized函数或synchronized　block中进行调用。如果在non-synchronized函数或non-synchronized　block中进行调用,学什么技能好就业，虽然能编译通过，但在运行时会发生IllegalMonitorStateException的异常。
+　　3.yield方法
+　　暂停当前正在执行的线程对象。
+　　yield()只是使当前线程重新回到可执行状态，所以执行yield()的线程有可能在进入到可执行状态后马上又被执行。
+　　yield()只能使同优先级或更高优先级的线程有执行的机会。
+　　4.join方法
+　　等待该线程终止。
+　　等待调用join方法的线程结束，再继续执行。如：t.join();//主要用于等待t线程运行结束，若无此句，main则会执行完毕，导致结果不可预测。
+主线程生成并起动了子线程，而子线程里要进行大量的耗时的运算(这里可以借鉴下线程的作用)，当主线程处理完其他的事务后，需要用到子线程的处理结果，这个时候就要用到join();方法了。
+join方法的作用
+在网上看到有人说“将两个线程合并”。
+    5.start方法
+    start完了进就绪态，获取资源就进入执行态
+  
+  单线程时候按照java代码顺序执行
+  多线程时候按照优先级 顺序不一样了
+  
+  suspend：线程阻塞 释放锁 互斥锁 一直占用 别人无法使用 
+  同步锁枷锁的地区为临界区和互斥去
+  
+    
+     stop：暴力停止 使用stop方法强行终止线程（这个方法不推荐使用，因为stop和suspend、resume一样，也可能发生不可预料的结果）。
+    
+   final static常量存档在方法去运行时常量吃 包括基本常量类型 还有饮用型 常量也算  
+    
+   interrupt（）中断线程  但是不会中断正在执行的 加入一个判断条件 打一个停止标记 
+    isinterrupted（）查询是否中断 
+     interrupted（）查询是否中断 丙消除中断状态
+    susp]end（）挂起但是仍然独占资源 别人无法访问 容易不同步
+    
+    
+    
+  
+    
+ 线程安全和非线程安全：针对多线程并发时候线程切换占用未同步run方法结果不会超出预期 不会出错 纪委安全 多线程访问一个方法时候 避免数据交叉  脏读 读的数据已经更改过了 但是没及时更新 
+   线程安全：线程同步 线程之间数据同步 也就是多个线程访问时候共享数据（例如静态变量 全局变量）是同步的 a的变化及时传达给b 不存在
+   信息时间差 i-- 加入ab同时执行 或许a不知道b来了 b不知道a来了 最终都以为i只该减一次 
+ 线程安全：（常规创建方式 变量在mythread类中 run在mythread中 run调用变量）
+ 线程不安全通常来源于对静态全局变量。 私有必定安全 
+ 全局不一定不安全 对全局的只读安全 写不安全
+ 1.方法内的私有（局部）变量是永远线程安全的   ThreadLocal线程局部变量 线程私有（私有方法栈 方法体的副本 各自的操作数 局部变量）互相隔离 自己线程的改变不影响别的线程不冲突
+ 2.静态方法中如果没有静态变量 也是线程安全的 因为静态方法会在每个线程的私有方法栈中存放方法数据（操作数等） 不影响
+  通常 run方法 线程对全局静态的读不影响线程安全性  写影响
+ 3.全局类（静态）变量共享修改 不安全  静态变量全线程共享 一旦改变 均可见 所以不安全
+ 4.实例变量： 只有一个对象实例时候 线程不安全 类似于静态共享  除非多个实例对象 每个线程独自占有一个实例 则安全
+  
+  当一个线程得到一个对象锁（对象可以是方法）
+ 同步锁额外消耗
+ 不断判断共享方法是否已经被占用  
+  只有资源共享才需要设置同步锁
+  synchronized线程同步锁 互斥区 临界区 
+  同步锁synchronized弊端：a执行方法 完了b才执行 加入a执行很久 b等很久
+  可以使用同步代码块
+  为报追线程安全 可以使用同步互斥（各种同步锁volatile syn锁 syn代码块 reen 等） 非阻塞同步（从底层） 
+  在使用同步锁基础上 等待方案 自旋询问或者常规等待解锁或者自适应自旋  
+  
+  轻量级性能好 轻微附加
+  
+  main也是个线程
+  main和别的线程是异步的 
+  main里面开启a1.start a1和main异步 或许main比a1早结束 main不会等a1完了再执行
+  
+  
+  
+  volatile是现成同步轻量级实现：表示变量在多线程之间变量的可见性
+  只可以修饰变量
+  表示该值是同步的 不会出现脏读 从公共堆栈取该变量值 取代私有堆栈
+  syn可以修饰代码块和方法
+  
+  synchronized（this）{
+  
+  }同一时间只有一个线程可以访问
+  
+  一半同步一半异步（不加synchronized纪委异步）
+run方法中关系到数据共享的同步 不关系的异步
+当一个线程访问object的一个synchronized(this)同步代码块时，另一个线程仍然可以访问该object中的非synchronized(this)同步代码块。
+当一个线程访问object的一个synchronized(this)同步代码块时，它就获得了这个object的对象锁。结果，其它线程对该object对象所有同步代码部分的访问都被暂时阻塞。
+
+  
+  线程里面setpriority（）设置优先级 大的先执行
+  main中假如设置多个线程 访问同一块 代码顺序（线程开始调用顺序和谁先执行完没关系） 不是说先调用start的先执行完 再调用别的 
+  他只是给a一个命令 你已经进入就绪态 丙设置优先级 然后继续执行main下面方法 
+ 优先级具有规律性  总体上 优先级高的执行早 不完全 特例
+  
+  cpu尽量将资源然给你优先级高的
+  线程优先级具有随机性 并不是优先级高的 现在先执行完run 
+  
+  java线程
+  守护线程（保姆 例如垃圾会首先从 gc 非没了 守护就销毁）和非守护线程（用户线程 ）
+  
+  非公平所是默认的（根据优先级）
+  在公平的锁上，线程按照他们发出请求的顺序获取锁，但在非公平锁上，则允许‘插队’：当一个线程请求非公平锁时，如果在发出请求的同时该锁变成可用状态，那么这个线程会跳过队列中所有的等待线程而获得锁。     非公平的ReentrantLock 并不提倡 插队行为，但是无法防止某个线程在合适的时候进行插队。
+     非公平锁性能高于公平锁性能的原因：
+Java中线程同步锁和互斥锁差不多
+自旋锁和互斥锁区别：
+互斥锁，一般的synchronized，ReentrantLock就是互斥锁，ReadWriteReentrantLock中的写锁也是互斥锁，读锁不是互斥锁。
+
+synchronized和reentrantlock都是互斥锁 （当前线程已经占据该所 执行方法再次需要躲去锁 栈 +1 释放则-1 知道重入数目到0 表示释放锁 绑定了多个condition）
+重入锁（ReentrantLock）是一种递归无阻塞的同步机制。以前一直认为它是synchronized的简单替代，而且实现机制也不相差太远。不过最近实践过程中发现它们之间还是有着天壤之别。
+volatile也是轻量级互斥锁 修饰变量 从共同变量池
+以下是官方说明：一个可重入的互斥锁定 Lock，它具有与使用 synchronized 方法和语句所访问的隐式监视器锁定相同的一些基本行为和语义，但功能更强大。ReentrantLock 将由最近成功获得锁定，并且还没有释放该锁定的线程所拥有。当锁定没有被另一个线程所拥有时，调用 lock 的线程将成功获取该锁定并返回。如果当前线程已经拥有该锁定，此方法将立即返回。可以使用 isHeldByCurrentThread() 和 getHoldCount() 方法来检查此情况是否发生。
+
+它提供了lock()方法：
+如果该锁定没有被另一个线程保持，则获取该锁定并立即返回，将锁定的保持计数设置为 1。
+如果当前线程已经保持该锁定，则将保持计数加 1，并且该方法立即返回。
+如果该锁定被另一个线程保持，则出于线程调度的目的，禁用当前线程，并且在获得锁定之前，该线程将一直处于休眠状态，此时锁定保持计数被设置为 1。 
+
+互斥是实现同步的手段
+
+当线程需要获取锁的时候，而此时锁不可用，该线程就需要等待，这个等待该如何实现呢？（基于互斥锁的基础）
+1、自旋：a线程进来发现被b占用时候 不关闭a 而是不断用循环不断的轮询锁的状态，锁可用的时候就退出。或许询问一定次数之后推出 。这就是自旋锁，众所周知，这样里面基本不做什么事情的循环是非常耗CPU的，消耗性能 如果等待锁的时间很长，用这种方式是不合适的
+2、常规：利用操作系统的指令，让a线程等待，先挂起a 当锁可用时，让线程a恢复醒过来。这种适合需要等待长时间的。如果等待的时间短，这个操作是非常耗时的  
+在恢复一个被挂起的线程与该线程真正运行之间存在着严重的延迟。 相对而言 挂起和恢复过程消耗时间多 
+3.自适应自选：根据前科判断使用自旋还是常规 如果上一次或经常该线程获取该对象（方法）锁成功 那就自旋 自选次数可以适当增加   否则常规
+
+
+
+
+    
+   GC
+   GC的基本原理
+ 自述：电脑运行时 操作系统软件管理 java在虚拟机运行时 gc线程也在管理对象的状态
+ 在慢堆中创建的对象在快栈中 有引用，创建对象那一刻，gc管理对象状态 ，引用和对象之间类似于有向图，当不可达对象 没有引用 长时间不用 死亡，则死亡，finalize
+ 可手动执行，不推荐 
+ 开发好的gc工作原理机制：1.系统不卡 不能太频繁去检查占cpu2.要找出可用空间，释放无用内存  
+  sysytem.gc()gc线程主动调出运行
+   
+ 可达性算法：
+ gc 多个root根节点 每个节点开始相关搜索遍历 最终多个对象相关图 不在其内即为不可达对象 死亡对象
+ root来源：
+ 1.栈中对象引用所指为root
+ 2.方法区的静态对象引用   存放的是静态引用 具体对象在堆 
+ 3.常量池 finali static 静态对象引用 存放的是常量引用 具体对象在堆 
+ 
+ 判断对象存货：根据引用
+ 1．强引用
+本章前文介绍的引用实际上都是强引用，这是使用最普遍的引用。如果一个对象具有强引用，那就类似于必不可少的生活用品，垃圾回收器绝不会回收它。当内存空 间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足问题。
+
+2．软引用（SoftReference）
+
+如果一个对象只具有软引用，那就类似于可有可物的生活用品。如果内存空间足够，垃圾回收器就不会回收它，如果内存空间不足了，就会回收这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存。
+软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。
+
+3．弱引用（WeakReference）
+如果一个对象只具有弱引用，那就类似于可有可物的生活用品。弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它 所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程， 因此不一定会很快发现那些只具有弱引用的对象。
+弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。
+
+4．虚引用（PhantomReference）
+"虚引用"顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。
+虚引用主要用来跟踪对象被垃圾回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列（ReferenceQueue）联合使用。当垃 圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是 否已经加入了虚引用，来了解
+
+被引用的对象是否将要被垃圾回收。程序如果发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。
+
+在本书中，"引用"既可以作为动词，也可以作为名词，读者应该根据上下文来区分"引用"的含义
+    
+    
+    
+ 无用类：不一定会回收
+ 1.class堆中无对象
+ 2.classloader已经没了
+ 3.没有地方引用该类（例如静态方法） 无法反射
+   
+内存泄露：
+  不被使用的对象或变量存在内存无法被gc回收 占据内存
+  不被使用的对象变量之间相互引用 无法gc
+  生命周期长的对象持有短周期对象引用 短的没用了 想死gc 却死不了 白占地方
+   
+
+   
+   
+局部变量前不能放置任何访问修饰符 (private， public，和 protected)。 final 可
+以用来修饰局部变量   
+
+Java的内存管理实际上就是对象的管理，其中包括对象的分配和释放。
+
+对于程序员来说，分配对象使用new关键字；释放对象时，只要将对象所有引用赋值为null，让程序不能够再访问到这个对象，我们称该对象为\"不可达的\".GC将负责回收所有\"不可达\"对象的内存空间。
+
+对于GC来说，当程序员创建对象时，GC就开始监控这个对象的地址、大小以及使用情况。通常，GC采用有向图的方式记录和管理堆（heap）中的所有对象（详见 参考资料1 ）。通过这种方式确定哪些对象是\"可达的\"，哪些对象是\"不可达的\".当GC确定一些对象为\"不可达\"时，GC就有责任回收这些内存空间。但是，为了保证GC能够在不同平台实现的问题，Java规范对GC的很多行为都没有进行严格的规定。例如，对于采用什么类型的回收算法、什么时候进行回收等重要问题都没有明确的规定。因此，不同的JVM的实现者往往有不同的实现算法。这也给Java程序员的开发带来行多不确定性。本文研究了几个与GC工作相关的问题，努力减少这种不确定性给Java程序带来的负面影响。 
+   
+   
+ 增量式GC（ Incremental GC ）
+
+GC在JVM中通常是由一个或一组进程来实现的，它本身也和用户程序一样占用heap空间，运行时也占用CPU.当GC进程运行时，应用程序停止运行。因此，当GC运行时间较长时，用户能够感到 Java程序的停顿，另外一方面，如果GC运行时间太短，则可能对象回收率太低，这意味着还有很多应该回收的对象没有被回收，仍然占用大量内存。因此，在设计GC的时候，就必须在停顿时间和回收率之间进行权衡。一个好的GC实现允许用户定义自己所需要的设置，例如有些内存有限有设备，对内存的使用量非常敏感，希望GC能够准确的回收内存，它并不在意程序速度的放慢。另外一些实时网络游戏，就不能够允许程序有长时间的中断。增量式GC就是通过一定的回收算法，把一个长时间的中断，划分为很多个小的中断，通过这种方式减少GC对用户程序的影响。虽然，增量式GC在整体性能上可能不如普通GC的效率高，但是它能够减少程序的最长停顿时间。
+
+Sun JDK提供的HotSpot JVM就能支持增量式GC.HotSpot JVM缺省GC方式为不使用增量GC，为了启动增量GC，我们必须在运行Java程序时增加-Xincgc的参数。HotSpot JVM增量式GC的实现是采用Train GC算法。它的基本想法就是，将堆中的所有对象按照创建和使用情况进行分组（分层），将使用频繁高和具有相关性的对象放在一队中，随着程序的运行，不断对组进行调整。当GC运行时，它总是先回收最老的（最近很少访问的）的对象，如果整组都为可回收对象，GC将整组回收。这样，每次GC运行只回收一定比例的不可达对象，保证程序的顺畅运行。 
+   
+   
+   
+   
+详解finalize函数
+
+finalize是位于Object类的一个方法，该方法的访问修饰符为protected，由于所有类为Object的子类，因此用户类很容易访问到这个方法。由于，finalize函数没有自动实现链式调用，我们必须手动的实现，因此finalize函数的最后一个语句通常是super.finalize（）。通过这种方式，我们可以实现从下到上实现finalize的调用，即先释放自己的资源，然后再释放父类的资源。
+
+根据Java语言规范，JVM保证调用finalize函数之前，这个对象是不可达的，但是JVM不保证这个函数一定会被调用。另外，规范还保证finalize函数最多运行一次。
+
+很多Java初学者会认为这个方法类似与C++中的析构函数，将很多对象、资源的释放都放在这一函数里面。其实，这不是一种很好的方式。原因有三，其一，GC为了能够支持finalize函数，要对覆盖这个函数的对象作很多附加的工作。其二，在finalize运行完成之后，该对象可能变成可达的，GC还要再检查一次该对象是否是可达的。因此，使用 finalize会降低GC的运行性能。其三，由于GC调用finalize的时间是不确定的，因此通过这种方式释放资源也是不确定的。
+
+通常，finalize用于一些不容易控制、并且非常重要资源的释放，例如一些I/O的操作，数据的连接。这些资源的释放对整个应用程序是非常关键的。在这种情况下，程序员应该以通过程序本身管理（包括释放）这些资源为主，以finalize函数释放资源方式为辅，形成一种双保险的管理机制，而不应该仅仅依靠finalize来释放资源。   
+    一些Java编码的建议
+
+根据GC的工作原理，我们可以通过一些技巧和方式，让GC运行更加有效率，更加符合应用程序的要求。以下就是一些程序设计的几点建议。
+
+1.最基本的建议就是尽早释放无用对象的引用。大多数程序员在使用临时变量的时候，都是让引用变量在退出活动域（scope）后，自动设置为null.我们在使用这种方式时候，必须特别注意一些复杂的对象图，例如数组，队列，树，图等，这些对象之间有相互引用关系较为复杂。对于这类对象，GC回收它们一般效率较低。如果程序允许，尽早将不用的引用对象赋为null.这样可以加速GC的工作。
+
+2.尽量少用finalize函数。finalize函数是Java提供给程序员一个释放对象或资源的机会。但是，它会加大GC的工作量，因此尽量少采用finalize方式回收资源。
+
+3.如果需要使用经常使用的图片，可以使用soft应用类型。它可以尽可能将图片保存在内存中，供程序调用，而不引起OutOfMemory.
+
+4.注意集合数据类型，包括数组，树，图，链表等数据结构，这些数据结构对GC来说，回收更为复杂。另外，注意一些全局的变量，以及一些静态变量。这些变量往往容易引起悬挂对象（dangling reference），造成内存浪费。
+
+5.当程序有一定的等待时间，程序员可以手动执行System.gc（），通知GC运行，但是Java语言规范并不保证GC一定会执行。使用增量式GC可以缩短Java程序的暂停时间。
+    
+ 
+java中：
+==比较的是对象的地址，也就是是否是同一个对象；
+
+equal比较的是对象的值。
+
+Integer r1 = new Integer(900);//定义r1整型对象
+Integer r2 = new Integer(900);//定义r2整型对象
+System.out.println(r1==r2);//返回false
+System.out.println(r1.equal(r2));//返回true
+
+
+客户端需要访问摸个服务器资源 例如js html 图片 servelt等时候 web。xmlweb容器对其url进行拦截处理
+java 过滤器filter 和servlet
+web。xml中配置filter和servlet
+通常先filter链过滤 多权限访问控制 乱码处理 敏感词汇处理等 符合条件在chain。dofilter（）执行下面的filter直到目标servlet
+
+Filter可认为是Servlet的一种“变种”，它主要用于对用户请求进行预处理，也可以对HttpServletResponse进行后处 理，是个典型的处理链。它与Servlet的区别在于：它不能直接向用户生成响应。完整的流程是：Filter对用户请求进行预处理，接着将请求交给 Servlet进行处理并生成响应，最后Filter再对服务器响应进行后处理。
+
+fliter implements Filter 。init dofilter（chain。dofilter）  destroy
+servlet extends Httpservlet init 到service到doget or post 到 destroy
+filter做拦截操作 进行权限控制 乱码处理 敏感词汇等拦截 举例：
+知网 内网 获取访问ip 如果在高校ip段进入免费下载叶 否则进入收费下载叶
+web不同权限用户 点了修改。。session获取用户查权限 够就修改 否则跳转到权限不足页面
+
+web项目一开始先读取web。xml 但是是否立马启动创建servlet对象呢 还是第一次访问servlet请求产生时候再初始化 根据load on startup
+ servlet配置load on startup
+ load-on-startup标记容器是否在启动的时候实例化并调用其init()方法的优先级。
+
+它的值表示servlet应该被载入的顺序
+
+当值为0或者大于0时，表示容器在应用启动时就加载并初始化这个servlet；
+
+如果值小于0或未指定时，则表示只有在第一次请求的容器才在该servlet调用初始化函数
+
+正值越小，servlet的优先级越高，应用启动时就越先加载。
+
+值相同时，容器就会自己选择顺序来加载。
+
+filter的
+
+
+
+load-on-startup  web已启动 toncat已启动就加载
+设置某项的启动顺序，一般像数据库连接池等模块需要优先启动的，就在web.xml中设置启动优先级。如：
+<load-on-startup>1</load-on-startup>
+
+中间的值越小，优先级就越高。
+
+web。xml中任何filter servlet等都可以配置load on startup 不写表示用时候再启动 
+这是启动次序，假如你配了一个servlet，写上了<load-on-startup>0</load-on-startup>,
+那么，如果你再配一个filter或其它什么，<load-on-startup>0</load-on-startup>就应该是：
+<load-on-startup>1</load-on-startup>
+看看你的web.xml中，有没有重复的。
+
+
+
+
+
+
+
+
+
+自己写的过滤器肯定放前面 因为filter。dofilter 后面也会处理
+struts的过滤器
+FilterDispatcher是struts2.0.x到2.1.2版本的核心过滤器.
+StrutsPrepareAndExecuteFilter是自2.1.3开始就替代了FilterDispatcher的.
+StrutsPrepareAndExecuteFilter是StrutsPrepareFilter和StrutsExecuteFilter的组合
+如果我们自己定义过滤器的话, 是要放在strtus2的过滤器之前的, 如果放在struts2过滤器之后,你自己的过滤器对action的过滤作用就废了,不会有效!
+那我现在有需求, 我必须使用Action的环境,而又想在执行action之前拿filter做一些事, 用FilterDispatcher是做不到的.!
+那么StrutsPrepareAndExecuteFilter可以把他拆分成StrutsPrepareFilter和StrutsExecuteFilter,可以在这两个过滤器之间加上我们自己的过滤器.!
+给你打个比喻, 现在有病人要做手术, 现在struts2要做两件事, 搭病床(环境),执行手术.! 那么打麻药的工作呢.? 不可能要病人站着打吧, 所以必须有病床的环境,打完麻药之后再动手术.! 这个比喻非常形象了.!
+
+这两个都是struts过滤器 都可以对。action等进行过滤并跳转到struts。xml进行处理 但是加入我希望在之前先自己在自定义过滤器处理一次 如果前者 那可以 但是自定义的过滤器没有action的环境 因为此时没调用struts过滤器呢
+后者可以拆分strutspreparedfilter和strutsexcutefilter之间加上自己的过滤 保证既可以处理 有有action环境 所以功能上更好
+
+
+
+
+
+session为HTTPSESSION
+request为Httpservletrequest
+request通常由actioncontext或者servletactioncontext。getrequest得到
+
+在servlet里面直接写request.getparam。。。因为doPost(HttpServletRequest request, HttpServletResponse response)已经传递过了Httpservletequest和rsponse
+
+
+而如果不是servlet类 是普通action类 需要引入request和session等web内置对象  
+HttpServletRequest request = ServletActionContext.getRequest();
+
+
+拦截器获取session
+ActionInvocation ac
+actioncontext it=ac.getinvocationcontext
+it。getsession()
+...
+return invocation.invoke();
+
+
+
+
+
+
+ js：
+ ==值等
+ ===全等
+ 
+ jquery：
+ $("").change(function({}))表示前面内容 多用于input
+ $("span","#form")[1].innerHTML=""
+ 
+ 
+$(this).hide()
+    演示 jQuery hide() 函数，隐藏当前的 HTML 元素。
+$("#test").hide()
+    演示 jQuery hide() 函数，隐藏 id="test" 的元素。
+$("p").hide()
+    演示 jQuery hide() 函数，隐藏所有 <p> 元素。
+$(".test").hide()
+    演示 jQuery hide() 函数，隐藏所有 class="test" 的元素。 
+ 
+
+
+jquery用于下拉列表
+ jQuery("#info_roletype")[0].options.add(new Option(data[i].rolename,data[i].userroleID));
+ 
+ 
+ 
+ 
+jQuery 元素选择器
+
+jQuery 使用 CSS 选择器来选取 HTML 元素。
+
+$("p") 选取 <p> 元素。
+
+$("p.intro") 选取所有 class="intro" 的 <p> 元素。
+
+$("p#demo") 选取所有 id="demo" 的 <p> 元素。
+ 
+ 
+ $("p").css("background-color","red");逗号不是冒号
+ 
+ 
+ jQuery 使用 $ 符号作为 jQuery 的简介方式。
+ 
+ jQuery 事件
+
+下面是 jQuery 中事件方法的一些例子：
+Event 函数 	绑定函数至
+$(document).ready(function) 	将函数绑定到文档的就绪事件（当文档完成加载时）
+$(selector).click(function) 	触发或将函数绑定到被选元素的点击事件
+$(selector).dblclick(function) 	触发或将函数绑定到被选元素的双击事件
+$(selector).focus(function) 	触发或将函数绑定到被选元素的获得焦点事件
+$(selector).mouseover(function) 	触发或将函数绑定到被选元素的鼠标悬停事件
+ 
+ $(selector).hide(speed,callback);
+
+$(selector).show(speed,callback);
+
+可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒
+ 
+ toggle：切换
+ 通过 jQuery，您可以使用 toggle() 方法来切换 hide() 和 show() 方法。
+ 
+ jQuery fadeIn() 方法
+
+jQuery fadeIn() 用于淡入已隐藏的元素。
+语法：
+
+$(selector).fadeIn(speed,callback);
+ jQuery fadeOut() 方法
+
+jQuery fadeOut() 方法用于淡出可见元素。
+语法：
+
+$(selector).fadeOut(speed,callback);
+ $(selector).slideUp(speed,callback);
+ 
+ jQuery slideToggle() 方法
+
+jQuery slideToggle() 方法可以在 slideDown() 与 slideUp() 方法之间进行切换。
+
+如果元素向下滑动，则 slideToggle() 可向上滑动它们。
+
+如果元素向上滑动，则 slideToggle() 可向下滑动它们。
+
+$(selector).slideToggle(speed,callback);
+ 
+ 下面的例子把 css(), slideUp(), and slideDown() 链接在一起。"p1" 元素首先会变为红色，然后向上滑动，然后向下滑动：
+
+$("#p1").css("color","red").slideUp(2000).slideDown(2000);
+ 获得内容 - text()、html() 以及 val()
+
+三个简单实用的用于 DOM 操作的 jQuery 方法：
+
+    text() - 设置或返回所选元素的文本内容
+    html() - 设置或返回所选元素的内容（包括 HTML 标记）
+    val() - 设置或返回表单字段的值  等价于attr(value"")
+    attr（）
+ $("#btn1").click(function(){
+  alert("Value: " + $("#test").val());
+});
+ 获取id=test中的value的值 通常test元素类型为input类型 带有value值 获取value值
+ <p>姓名：<input type="text" id="test" value="米老鼠"></p>
+ <p id="test">这是段落中的<b>粗体</b>文本。</p>
+ 
+ $(document).ready(function(){
+  $("button").click(function(){
+    alert($("#w3s").attr("href"));
+  });
+  <p><a href="http://www.w3school.com.cn" id="w3s">W3School.com.cn</a></p>
+ <script src="/jquery/jquery-1.11.1.min.js"></script>
+<script>
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    
+$("#w3s").attr("href","http://www.w3school.com.cn/jquery");  设置attr属性值
+alert($("#w3s").attr("href"));
+  });
+});
+</script>
+ 
+ 可以写入一个返回字符串的毁掉函数 return value
+ <script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#w3s").attr("href", function(i,origValue){
+      return origValue + "/jquery"+i; 
+ 
+    });
+alert($("#w3s").attr("href"));
+alert($("#w3s").attr("href"));
+  }); 
+});
+i的值不变 oriValue
+$("p").prepend("Some prepended text.");
+$("p").prepend("Some prepended text.");
+</script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Javascript可以放在页面的任何地方，它的加载顺序与页面的加载顺序一致，页面加载时，先加载head部分，后加载body部分，所以当把javascript代码块放在HTML前面时，它将先于head被加载，当放在head里面时，它将先于body被加载，当放在页面最后的的html之外时，它将最后被加载。
+  是的，没有关系。只需要记住：你的这行JS如果要控制DOM，请确保该DOM已经在这行JS执行之前已经存在于HTML的DOM树中即可。
+  看情况，选择合适的加载情况。
+
+一般来说，为了避免页面被js脚本阻塞，最好是放在body末尾。
+ dom：文档对象模型 
+ dom就是html文件看成节点数 节点树中的节点彼此拥有层级关系。
+
+父（parent）、子（child）和同胞（sibling）等术语用于描述这些关系。父节点拥有子节点。同级的子节点被称为同胞（兄弟或姐妹）。
+
+    在节点树中，顶端节点被称为根（root）
+    每个节点都有父节点、除了根（它没有父节点）
+    一个节点可拥有任意数量的子
+    同胞是拥有相同父节点的节点
+ 
+ 
+ 
+ document.getElementById("xx").innerHTML="abc";配合div
+  
+  通用格式：
+  $('xx').xxx(function(){}) 
+  过滤被删除的元素
+
+jQuery remove() 方法也可接受一个参数，允许您对被删元素进行过滤。
+
+该参数可以是任何 jQuery 选择器的语法。
+
+下面的例子删除 class="italic" 的所有 <p> 元素：
+实例
+
+$("p").remove(".italic");
+  
+ $(function(){})=$(document).ready(function(){})符合上面格式   $(function(){})是缩写
+
+ 
+  $(function(){
+  $("#button").click(function(){   
+  
+  $("#text").empty();情况text文档
+  $("#div").html("可以使字符串 表格的话 是表格字符串");
+    $("#div2").hide();
+  $(this).hide();jquery中调用自己对象$(this).
+  }) 
+ 
+ 
+ 
+$("h1,h2,p").toggleClass("blue");
+ removeclass
+ addclass
+ remove
+ $("p").css("background-color","yellow");
+ 
+  设置多个 CSS 属性
+
+如需设置多个 CSS 属性，请使用如下语法：
+
+css({"propertyname":"value","propertyname":"value",...});
+
+下面的例子将为所有匹配元素设置 background-color 和 font-size：
+  $("button").click(function(){
+  $("#div1").width(500).height(500);
+});
+ 
+ 下面的例子返回每个 <span> 元素的的直接父元素：
+实例
+
+$(document).ready(function(){
+  $("span").parent();
+});
+ 
+ 下面的例子返回所有 <span> 元素的所有祖先：
+实例
+
+$(document).ready(function(){
+  $("span").parents();
+});
+ 
+ 下面的例子返回所有 <span> 元素的所有祖先，并且它是 <ul> 元素：
+实例
+
+$(document).ready(function(){
+  $("span").parents("ul");
+});
+ 
+ 下面的例子返回类名为 "1" 的所有 <p> 元素，并且它们是 <div> 的直接子元素：
+实例
+
+$(document).ready(function(){
+  $("div").children("p.1");
+});
+ 下面的例子返回 <h2> 的所有同胞元素：
+实例
+
+$(document).ready(function(){
+  $("h2").siblings();
+});
+
+亲自试一试
+
+您也可以使用可选参数来过滤对同胞元素的搜索。
+
+下面的例子返回属于 <h2> 的同胞元素的所有 <p> 元素：
+实例
+
+$(document).ready(function(){
+  $("h2").siblings("p");
+});
+ 
+ jQuery next() 方法
+
+next() 方法返回被选元素的下一个同胞元素。
+
+该方法只返回一个元素。
+
+下面的例子返回 <h2> 的下一个同胞元素：
+实例
+
+$(document).ready(function(){
+  $("h2").next();
+});
+ 
+ 下面的例子选取首个 <div> 元素内部的第一个 <p> 元素：
+实例
+
+$(document).ready(function(){
+  $("div p").first();               last
+});
+ 
+ 下面的例子返回带有类名 "intro" 的所有 <p> 元素：
+实例
+
+$(document).ready(function(){
+  $("p").filter(".intro");
+});
+ $(document).ready(function(){
+  $("p").not(".intro");
+});
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  ajax详解：
+  两种方式
+  一种原生js
+  一种使用了jquery封装的ajax
+  本质相同 第二章形式简单 内部封装了
+  
+  
+  
+ jquery 是JS的一个框架
+
+JS是网页的脚本语言
+
+AJAX是指一种创建交互式网页应用的网页开发技术
+
+ajax包括了xml css js 3个技术
+
+jquery 中也集成了ajax 用他做不用考虑浏览器的不兼容性 封装了一些麻烦的东西
+
+AJAX和PHP结合起来就和做到页面不刷新 和服务器交互 就这样  
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  源生ajax：异步的 JavaScript 和 XML
+   在不更新整个页面的情况下，web和服务器进行交互，交换数据并更新部分网页的技术和方法
+   
+   XMLHttpRequest 对象
+   创建 XMLHttpRequest 对象
+
+所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。
+   创建 XMLHttpRequest 对象的语法：
+
+variable=new XMLHttpRequest();
+
+老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象：
+
+variable=new ActiveXObject("Microsoft.XMLHTTP");
+
+为了应对所有的现代浏览器，包括 IE5 和 IE6，请检查浏览器是否支持 XMLHttpRequest 对象。如果支持，则创建 XMLHttpRequest 对象。如果不支持，则创建 ActiveXObject ：
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+
+向服务器发送请求
+
+如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：
+
+xmlhttp.open("GET","test1.txt",true);    尽量为ture才是ajax 为true是ajax需要加onreadystatuschange 如果false不加onreadystatuschange
+xmlhttp.send();
+
+
+
+
+ajax get和post区别：
+
+
+2、 对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据。两种方式的参数都可以用Request来获得
+、 get是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。post是通过HTTP post机制，将表单内各个字段与其内容放置在HTML HEADER内一起传送到ACTION属性所指的URL地址。用户看不到这个过程。
+】
+
+get：数据量小   安全性低   不能使用缓存数据，同url等幂 从服务器获取的是上次的缓存                    地址显示     服务器接收request.QueryString    url加参数send为null  本质是将参数按照元素属性名对应值&&+?接在后面 暴露
+post：大         高               可以对服务器or数据库进行，想获取最新的             地址不显示    服务器接收request.Form                   本质是发送一个http消息封装发过去 必须设置setrequestheader 告诉服务器你是post方法 让他获取其中参数
+  
+1:GET访问 浏览器 认为 是等幂的
+就是 一个相同的URL 只有一个结果[相同是指 整个URL字符串完全匹配]
+所以 第二次访问的时候 如果 URL字符串没变化 浏览器是 直接拿出了第一次访问的结果
+
+POST则 认为是一个 变动性 访问 （浏览器 认为 POST的提交 必定是 有改变的）
+
+防止 GET 的 等幂 访问 就在URL后面加上 ？+new Date();，[总之就是使每次访问的URL字符串不一样的]
+
+设计WEB页面的时候 也应该遵守这个原则  
+  
+  2:一.谈Ajax的Get和Post的区别
+
+Get方式:
+用get方式可传送简单数据，但大小一般限制在1KB下，数据追加到url中发送（http的header传送），也就是说，浏览器将各个表单字段元素及其数据按照URL参数的格式附加在请求行中的资源路径后面。另外最重要的一点是，它会被客户端的浏览器缓存起来，那么，别人就可以从浏览器的历史记录中，读取到此客户的数据，比如帐号和密码等。因此，在某些情况下，get方法会带来严重的安全性问题。
+
+Post方式:
+当使用POST方式时，浏览器把各表单字段元素及其数据作为HTTP消息的实体内容发送给Web服务器，而不是作为URL地址的参数进行传递，使用POST方式传递的数据量要比使用GET方式传送的数据量大的多。
+
+总之，GET方式传送数据量小，处理效率高，安全性低，会被缓存，而POST反之。
+  
+  使用Post方式需注意：
+1.设置header的Context-Type为application/x-www-form-urlencode确保服务器知道实体中有参数变量. 通常使用XmlHttpRequest对象的SetRequestHeader("Context-Type","application/x-www- form-urlencoded;")。例：
+
+xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+2.参数是名/值一一对应的键值对,每对值用&号隔开.如 var name=abc&sex=man&age=18，注意var name=update.php?
+
+abc&sex=man&age=18以及var name=?abc&sex=man&age=18的写法都是错误的;
+3.参数在Send(参数)方法中发送,例： xmlHttp.send(name); 如果是get方式，直接 xmlHttp.send(null);
+  
+ 如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：
+
+xmlhttp.open("POST","ajax_test.asp",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("fname=Bill&lname=Gates");
+ 让服务器知道我是post过来的 我携带的http实体中有参数 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+onreadystatechange 	存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+
+readyState 	
+存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+
+    0: 请求未初始化
+    1: 服务器连接已建立
+    2: 请求已接收
+    3: 请求处理中
+    4: 请求已完成，且响应已就绪
+
+status 	
+
+200: "OK"
+
+404: 未找到页面  
+  
+  
+  
+  
+  
+  
+   看url的类型是tetx或者xml responsse类型不一样
+   xmlhttp.responseText;
+   xmlhttp.responseXml;
+   
+自述：  
+var xhr= new xmlhttprequest();
+根据浏览器设置  
+xhr.open(get or post,url,true or false)
+xhr.send()
+如果是post 需要多个对发送的http增加请求头 setrequestheader
+
+xhr.status 
+xhr.readystate
+xhr.onreadystatechange=function(){
+if  status=200 && readystate=4
+$("#id").html(xhr.responsetext);
+}
+
+
+xhr.responsexml(responsetext)
+
+   
+   一个实例：  
+   <html>
+<head>
+<script type="text/javascript">
+function showHint(str)
+{
+var xmlhttp;
+if (str.length==0)
+  { 
+  document.getElementById("txtHint").innerHTML="";
+  return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","/ajax/gethint.asp?q="+str,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<h3>请在下面的输入框中键入字母（A - Z）：</h3>
+<form action=""> 
+姓氏：<input type="text" id="txt1" onkeyup="showHint(this.value)" />
+</form>
+<p>建议：<span id="txtHint"></span></p> 
+
+</body>
+</html>
+ 这是 "/ajax/gethint.asp?中内容：q=ucase(request.querystring("q")) 
+ 
+    
+    
+    
+    
+        
+   jquery封装ajax：
+   Query对Ajax操作进行了封装，在jQuery中$.ajax()方法属于最底层的方法，
+第2层是load(),$.get()和$.post()方法 第三层是$.getScript()和$.getJSON()
+方法。
+前面用到的$.load(),$.get(),$.post(),$.getScript()和$.getJSON()这些方法 都是
+基于$.ajax()方法构建的。$.ajax()方法是jQuery最底层的Ajax实现，因此可以替代前
+面的所有方法。
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   send的参数放在 load get post方法里面 作为形参
+   onreadystatechange的操作毁掉函数放在load get等的callback回调函数里面 封装简写
+   
+   
+  var jq= $.noconflict() 创建简写
+  
+  
+ 1.$.ajax（大量键值对 常用的就那几样
+ 
+ 
+ 
+ $.ajax({
+            type:"GET",
+            url:"test.json",
+            data:{ username:$("#username").val(), content:$("#content").val() },//???这个data是发送到服务器的数据么
+            dataType:"json",
+            success:function(data){//???这个data又是什么意思，和上面的那个data一样么
+                $('#restText').empty();//清空resText里面内容
+                var html='';
+                $.each(data, function( commentIndex, comment ){
+                    html+='<div class="comment"><h6>'+comment['username']+':</h6><p class="para">'+comment['content']+'</p></div>';
+                });
+                $('#resText').html(html);
+            }
+        });
+
+
+第一个data就是发送给服务端的数据,success里面的data是服务器返回的数据
+你的dataType是json的话,这两个data里的数据都要是json格式的   
+  function（）里面形参的data表示服务器返回的数据 可以是别的形式  跟传过去的data写的一样 但是代表不一样
+  
+  
+
+  
+ 1.  load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
+ 返回的也是xhr
+       $(selector).load(URL,data,callback);
+        
+    $("button").click(function(){
+  $("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
+    if(statusTxt=="success")
+      alert("外部内容加载成功！");
+    if(statusTxt=="error")
+      alert("Error: "+xhr.status+": "+xhr.statusText);
+  });
+});    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+   2. $.get() 方法通过 HTTP GET 请求从服务器上请求数据。
+语法：
+
+$.get(URL,callback);
+
+必需的 URL 参数规定您希望请求的 URL。
+
+可选的 callback 参数是请求成功后所执行的函数名。
+
+下面的例子使用 $.get() 方法从服务器上的一个文件中取回数据：
+实例
+
+$("button").click(function(){
+  $.get("demo_test.asp",function(data,status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+      
+   提示：这个 ASP 文件 ("demo_test.asp") 类似这样：
+
+<%
+response.write("This is some text from an external ASP file.")
+%>
+      
+      
+      
+      
+
+      
+      
+3.jQuery $.post() 方法 
+
+
+      返回的也是xhr
+
+$.post() 方法通过 HTTP POST 请求从服务器上请求数据。
+语法：
+
+$.post(URL,data,callback);
+
+必需的 URL 参数规定您希望请求的 URL。
+
+可选的 data 参数规定连同请求发送的数据。
+
+可选的 callback 参数是请求成功后所执行的函数名。
+
+下面的例子使用 $.post() 连同请求一起发送数据：
+实例
+
+$("button").click(function(){
+  $.post("demo_test_post.asp",
+  {
+    name:"Donald Duck",
+    city:"Duckburg"
+  },
+  function(data,status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+        
+  提示：这个 ASP 文件 ("demo_test_post.asp") 类似这样：
+
+<%
+dim fname,city
+fname=Request.Form("name")
+city=Request.Form("city")
+Response.Write("Dear " & fname & ". ")
+Response.Write("Hope you live well in " & city & ".")
+%>
+        
+        
+        
+        
+    
+    
+ $.ajax $.get $.post $.load
+      
+   load是function（responseTxt,statusTxt,xhr） 回调
+   
+   gethepost和ajax是function(data){...}
+    
+    
+        
+        
+        
+    
+    
+    
+    
+    ssh：
+    自己写的过滤器肯定放前面 因为filter。dofilter 后面也会处理
+struts的过滤器
+FilterDispatcher是struts2.0.x到2.1.2版本的核心过滤器.
+StrutsPrepareAndExecuteFilter是自2.1.3开始就替代了FilterDispatcher的.
+StrutsPrepareAndExecuteFilter是StrutsPrepareFilter和StrutsExecuteFilter的组合
+如果我们自己定义过滤器的话, 是要放在strtus2的过滤器之前的, 如果放在struts2过滤器之后,你自己的过滤器对action的过滤作用就废了,不会有效!
+那我现在有需求, 我必须使用Action的环境,而又想在执行action之前拿filter做一些事, 用FilterDispatcher是做不到的.!
+那么StrutsPrepareAndExecuteFilter可以把他拆分成StrutsPrepareFilter和StrutsExecuteFilter,可以在这两个过滤器之间加上我们自己的过滤器.!
+给你打个比喻, 现在有病人要做手术, 现在struts2要做两件事, 搭病床(环境),执行手术.! 那么打麻药的工作呢.? 不可能要病人站着打吧, 所以必须有病床的环境,打完麻药之后再动手术.! 这个比喻非常形象了.!
+
+这两个都是struts过滤器 都可以对。action等进行过滤并跳转到struts。xml进行处理 但是加入我希望在之前先自己在自定义过滤器处理一次 如果前者 那可以 但是自定义的过滤器没有action的环境 因为此时没调用struts过滤器呢
+后者可以拆分strutspreparedfilter和strutsexcutefilter之间加上自己的过滤 保证既可以处理 有有action环境 所以功能上更好
+    
+   你进入HibernateDaoSupport类（或其父类daosupport）的代码，就会发现 它有一个SessionFactory属性，也有setsessionfactory方法
+spring通过 HibernateDaoSupport对SessionFactory底层进行了一些封装，以便于控制session，管理实务等等。  
+    
+  举个例子
+  	<bean id="adminDao" class="com.zhiyin.admin.dao.jdbc.AdminDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>  
+    就是说为com.zhiyin.admin.dao.jdbc.AdminDaoImpl了i创建个对象叫做adminDao，这个类有属性sessionFactory列下来了，
+    创建对象同时必须给其属性赋值，方法不需要赋值，用setpropertyname赋值，setSessionfactory(sessionfactory sessionfactory){this.sessionfactory=sessionfactory}最后的sessionfactory就来源于ref的sf，也是形参的sf。   this.sf就是该对象的属性赋值结果。
+    着一个bean2成功建立一个bean对象，其属性都赋值成功，当别人需要她，就anotherbean对象的属性ref这个bean2
+   一个bean之和一个对象有关，别人引用她，就在别人的对象bean那边ref过来。
+   
+    
+   sessionaware和requestaware 是map格式的
+    
+    modeldriven和getmodel作用：
+    三种form传值到action方式 例如user类 属性：useraccount userpasw
+   1.最传统 jsp写id=useraccount action：setandgetusername 以及String username；
+   2.封装1：jsp：user.useraccount user.userpsw 后面action：User user；setand get：直接复制到到user对象 但是前面jsp命名复杂
+   3. 加入getmodel和modeldriven 命名省去user.  但是后面action加入modeldriven
+    
+    引用标签库标签：
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%--  c标签和"<c:forEach items=${ requestScope.giftList }var="gift"> " --%>
+ 
+     标签：s elseif 
+  #age表示 var=age调用     《s：set var=age  value=#para。age{0}》简略 set完放入age进入actioncontext内部 然后通过#age读取 
+  --><s:if test="#age" >correct<s:if>
+  <s:elseif ... >error<s:elseif>
+  <s:else ... >too young<s:else>
+  
+  <s:lierater value={1,2,3,3,4} var="x">
+    <s:property value="#x.toUpperCase()">自动迭代 赋值给x 然后x大写复制给value
+ 
+循环控制 
+  1.《%嵌套 java语句 
+  2.for each items=$[list] el表达式可以和jstl《%=搭配 不和标签搭配
+  3.<s:iterater valuecept="categoies" var="cat">
+  <s:property value="#cat.id"></s:property>显示在外
+  <s:property value="#cat.name"></s:property>几层都可以循环
+  <a href="cateorydelete?id=<s:property value="#cat.id">删除category</a>"s标签和iterater 值栈value var # 搭配 而
+  </s:iterater>      
+   通配符妙用：
+package name= namespace= extends=2
+action=“*_*” class="package.{1}action" method="{2}"
+result name=success  /{1}_{2}success.jsp
+result name=error   /{1}_{2}error.jsp
+goods.add goods.delete goods.select goods.update.action  
+user.add  user.delete  user.select  user.update     
+    
+    
+  actionsupport实现了很多接口：
+  actionsupport类有execute方法，以及很多接口 例如validateable接口等
+  可以实现struts验证功能 在执行execute之前validate validate成功就sxecute 否则可以 例如：addfielderror（”account“：”账号不存在“）
+  然后不走execute 而是直接走struts.xml中action配置<result name=input >。。。jsp<result>
+  这个跳转的jsp可以读取fielderror的内容 类似于request.getattribute  
+  这里面通过s标签 获取fielderror值
+  <%@ taglib prefix="s" uri="/struts-tags"%>
+  <font color=red><s:fielderror fieldName="account"/></font>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  拦截器：
+  如果我们没有添加拦截器的话，默认的拦截器会自动添加到里面
+  拦截器栈(Interceptor Stack)类似于过滤器链。拦截器栈就是将拦截器按一定的顺序联结成一条链。在访问被拦截的方法或字段时，拦截器栈的拦截器就会按其之前定义的顺序被调用。
+
+也可以叫做拦截器链（Interceptor Stack），拦截器栈一词更明确的表名了连接器链的实现方式。
+
+Struts2的拦截器和Filter类似。在执行Action的execute方法之前，Struts2会首先执行在struts.xml中引用的拦截器，在执行完所有引用的拦截器的intercept方法后，会执行Action的execute方法。
+
+当请求到达Struts 2的ServletDispatcher时，Struts 2会查找配置文件，并根据其配置实例化相对的拦截器对象，然后串成一个列表（list），最后一个一个地调用列表中的拦截器 
+  
+   拦截器在struts。xml内配置。在package之前 
+    
+    
+   
+
+注册手动拦截器
+
+<interceptors>
+
+            <interceptor
+
+name="login" 
+
+class="com.jpleasure.teamware.util.CheckLoginInterceptor"/>
+
+            <interceptor-stack name="teamwareStack">
+
+                <interceptor-ref name="login"/>
+
+                <interceptor-ref name="defaultStack"/>
+
+            </interceptor-stack>
+
+</interceptors>
+
+将上述拦截器设定为默认拦截器：
+
+<default-interceptor-ref name="teamwareStack"/>
+
+这样在后续同一个package内部的所有Action执行之前都会被login拦截。 
+ 通常将拦截器以及栈写在package里面action前面，如果写在package外面要手动设为默认的。   
+ 
+    
+    
+    
+    
+<default-action-ref name=index>
+<action name=index......?访问不到action则访问默认index。action
+result  属性 除了name 还有type type=dispatch服务器条换 到页面 type=chain 到second。action 加上namespace和actionname 同意type=redirect重定向到另外个action 类似chain 区别 chain尽管转了 但是地址栏仍按是以前 （类似forward）但是重定向则完全叛变 地会显示新的action的结果页面 不保留以前action的地址
+最小单位result内部 type=chain时候跳转action 后面写r2表示同包内部action 异包则 
+<result name= type=chain >   
+<param name="actionName"> act2</param>
+</result  name="namespace">/name2</param>
+包内多个action共享
+<global -results>
+<result name="glo">/global.jsp<result>
+<global -results>
+package 内部 extends=“userpackage”继承另外个包全部属性 也包括default
+
+
+
+    
+  filter和servlet的过滤器在web。xml中 而拦截器在struts。xml
+  
+  
+  进行表单验证功能：
+  servlet操作配上filter的验证 成功则dofilter后续 
+  struts的action操作 配上intercepter的验证 （拦截器多用于国际化 登录验证等 ）
+  struts的表单验证 配合actionsupport的validateable接口 在执行execute之前验证   以及配置文件验证
+  以及客户端验证：ajax验证数据库 jquery。change配合正则表达式验证格式（不适用正则就使用普通判断）
+  
+  持久层，又叫数据访问层。是和数据库直接打交道的层。
+所有增删改查的操作全在这个层里
+就是dao层
+  持久层，为什么叫持久呢，也就是说这些数据是要保存下来。
+那些数据呢，比如说用户的用户名和密码，这些就需要保存下来。
+那么这个数据要保存到数据库吧，那么就是说从程序连接数据库的那一层就是持久层。
+将java对象转化到持久状态的那一层，就是把数据保存到数据库的那一层
+
+
+hibernate 简介：
+
+hibernate关联
+1-n n-1表示前面表和后面表 的关系 
+各个表或者对应类 可以通过外键关联 可以通过连接表关联
+常用的是n-1单向外键关联  其特立1-1单向外间关联 1-n双向外间关联 n-n双向关联表关联
+单向和双向 单向 双向表示两个类里面都添加对对方的引用 同时配置文件 添加配置
+类 hbm。xml db表字段列的配置
+
+
+n-1单向外键：
+
+class：
+人类加地址属性
+地址类无人 因为单向
+xml：
+人类xml配置manytoone
+地址xml无
+db：
+人类表+地址id属性
+
+1-1是n-1特立  当做n-1处理
+上面 manytoone+unique="true"
+
+
+
+n-n双向关联表：
+
+class：
+人类无
+地址类无
+关联表分别主外键
+xml：
+人类xml配置manytomany
+地址xml manytomany
+db：
+无
+
+
+
+
+1-n双向外键关联：
+
+class：
+人类加set<地址>
+地址加人属性id 
+xml：
+人类xml配置set配置
+地址xml manytoone
+db：
+人类表+null 因为多个地址是set无法配在数据库表
+地址表：人的属性id
+
+
+控制权都交给n 1那边set不好控制
+
+hibernate操作db
+session.createsqlquery
+sess.createquery
+sess.save()
+sass.delete
+sess.update
+
+
+hibernate七部有事务transaction
+事务：
+原子性 隔离性 一致性
+原子性:不可细分的最小逻辑执行体
+一致性：通过原子性来保证，事务执行成功之前，数据库处于一致性状态，例如银行转账 db一遍扣钱，一遍加钱 如果同时那么一致性 如果一遍口 一遍不加 就非一致性状态
+持久性：书屋一旦提交 数据库就发生改变 物理数据库改变
+
+隔离：并发执行的事务之前不想干扰
+
+
+
+
+三. Hibernate二级缓存的管理：
+一级是自带的 二级需要自己配置对于哪个持久层实体类实施二级缓存
+从数据库操作查询的对象按照id存在一级缓存中 查时候先查一级 再差二级
+
+
+1. Hibernate二级缓存策略的一般过程如下：
+1) 条件查询的时候，总是发出一条select * from table_name where …. （选择所有字段）这样的SQL语句查询数据库，一次获得所有的数据对象。
+2) 把获得的所有数据对象根据ID放入到第二级缓存中。
+3) 当Hibernate根据ID访问数据对象的时候，首先从Session一级缓存中查；查不到，如果配置了二级缓存，那么从二级缓存中查；查不到，再查询数据库，把结果按照ID放入到缓存。
+4) 删除、更新、增加数据的时候，同时更新缓存。
+Hibernate二级缓存策略，是针对于ID查询的缓存策略，对于条件查询则毫无作用。为此，Hibernate提供了针对条件查询的Query Cache。
+
+
+hibernate让用户面向对象的操作数据库
+低侵入性
+id=identity主键
+对属性设置lazy=“false”设置取消延迟加载 
+
+hibernate是一个开源框架，它是对象关联关系映射的框架，它对JDBC做了轻量级的封装，而我们java程序员可以使用面向对象的思想来操纵数据库。
+hibernate核心接口
+session：负责被持久化对象CRUD操作 session是事务工厂  底层封装了jdbc操作 session。add等
+sessionFactory:负责初始化hibernate，创建session对象
+configuration:负责配置并启动hibernate，创建SessionFactory
+Transaction:负责事物相关的操作
+
+
+
+  hibernate严格步骤 
+1.myeclipse hibernate derby添加数据库驱动driver驱动 （用户密码连接数据库）
+2.添加her能力 copy入 过程需要制定driver驱动 
+不创建sessionfactory class
+JDBC操作数据库 
+hibernate操作-对象-映射-数据库 需要将数据库和对象映射起来 
+3.映射表到项目中 ：选中表hi reverse engering 
+配置文件中mapping 进来
+4.再七步操作数据库  
+   本过程不需要继承hibernatedaosupport（封装spring使用）
+Configuration config = new Configuration();
+		config.configure("hibernate.cfg.xml");// 加载配置文件（表示连接db的cfg配置）
+
+		// 2. 创建SessionFactory对象
+		SessionFactory sessionFactory = config.buildSessionFactory();
+
+		// 3. 打开Session对象
+		Session session = sessionFactory.openSession();
+
+		// 4. 开启事务Transaction
+		Transaction transaction = session.beginTransaction();
+		
+		5.UserInfo userInfo = (UserInfo) session.get(UserInfo.class, "furong");
+session负责和数据库交互 session。get和数据库对应到类操作交互 （通过类交互 而非直接和db打招呼）
+（session。save等增删查改）
+		session可以操作db和创建事务
+		template模板
+
+		System.out.println(userInfo.getUserId() + "-"
+				+ userInfo.getUserPassword() + "-" + userInfo.getUserName()
+				+ "-" + userInfo.getUserSex() + "-" + userInfo.getUserTel()
+				+ "-" + userInfo.getUserAge() + "-" + userInfo.getUserAddress()
+				+ "-" + userInfo.getUserMail() + "-" + userInfo.getUserDesc());
+
+		// 6. 提交事务
+		transaction.commit();
+
+		// 7. 关闭session
+		session.close(); 
+    
+    
+    
+上述为单纯hibernate过程
+这个过程产生hibernate.cfg.xml 而没有hibernate.revenge.xml    
+   hibernate.cfg.xml包含sessionfactory信息以及mappingresource
+    在spring整合hibernate之后 hibernate.revenge.xml 替代hibernate.cfg.xml，hibernate.revenge.xml中
+    仅存放逆向的所有mapping的详细信息，那个表对应哪个类以及字段。applicationcontext.xml中存放cfg的sesseionfactory以及resourcemapping信息 以及大量的beans
+    
+    
+ transaction 事务 是不可再分的最小逻辑执行体 一个事务里面多个数据库操作 
+ 一部或者几步基本操作组成的逻辑单元 成为一个整体 要么全部执行 或者取消 不能部分执行
+ 一个业务对应一个session 例如一个转账一个session 然后对应一个事务 事务凯奇和关闭之间 包括a账户加钱 b减钱 
+ 一个事务是基本操作单元 所以要么执行要么不执行 不会执行一半  导致数据库异常
+ 事务 原子性 隔离性 一致性   
+   
+一，Spring为Hibernate的DAO提供工具类：HibernateDaoSupport。该类主要提供了两个方法：
+
+　　public final HibernateTemplate getHibernateTemplate() ；
+
+　　public final void setSessionFactory(SessionFactory sessionFactory) ； 
+也有SessionFactory sessionFactory这个属性：
+spring容器会把session对象注入；
+    
+    HibernateDaoSupport  
+    
+    jpa annotation
+annotation和xml作用用一样 方式不同个 管理持久化泪和数据库表关系 一个实体po=需要两个文件 pojo类+beanname。hbm。xml
+使用annotation po=pojo类+@annotation
+使用注解久不需要classname。hbm。xml 但是在bean类中添加各种@。。。   以及修改hi。cfg。xml中不需要mapping对应的class！=hbm。xml 而是class=“classpath”对应的类 
+清楚bi。cfg。xml和beanname。hbm。xml的结构
+hi。cfg。xml中写好数九信息和 mapping对应的classpath（非注解）或者hbm。xml（注解方式）
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  这个项目没运行  springContext。xml不启动，要手动运行 类似于main函数调试 
+    ApplicationContext context = new ClassPathXmlApplicationContext(
+				"springContext.xml");
+		（接口名称）IUserDao userDao = (IUserDao)context.getBean("userDao");将接口和具体实现类绑定：Iuser接口和userDao绑定
+		A+B： 才可以实现成功
+    
+    
+   hibernate七步法 用多个是session操作db 
+   session.save()
+   session.delete()
+   session.update() 主键相同则修改 不同则添加
+ Query query =  session.createsqlquery("")   quey.uniqueresult() 或者query.list();
+   Query query =  session.createquery("") 
+    
+ spring封装hibernate
+ this.gethibernatetemplate().find()...
+ ...
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ oracle操作：
+ varchar2（）
+ number（3，5）
+  create table tablename(
+  sex char2（2） check（sex in （'男'，'女'）
+  ...
+   )
+  commit;
+  rollback;  
+    
+    
+   数据结构：
+   逻辑结构：集合 线性结构（一对一：线性表 站队列 数组 ） 非线性（树图 一对多 多对多）
+   物理存储结构：顺序（逻辑结构相邻物理相邻 存在碎片 随机存取） 链式（不碎片 占用空间大 顺序存取） 索引 散列hash
+   操作：adus 男男女女难男男女女男男女女                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+ 逻辑机构：实验室关系信息 多对多 用图表示 这是逻辑结构 但是具体物理 存储才是物理结构 
+ 实验室各人身份证信息表 逻辑结构是线性结构 但是存储可以顺序表 可以链表 可以链表 东一个系一个 这是物理结构
+ 时空复杂度
+ 最深层循环频度
+ 
+ 顺序表：数据类型相同：随机存取 移动代价大
+ c：结构体 定义数组 和 长度
+ java：
+ 
+ 链表：数据类型相同：带头节点
+ 节点：结构体：next指针和数据data
+ 表：多个节点
+ 站和队列 操作首先的线性表
+ 栈底不变-1 为空 顶加减 队列rear front
+ 循环队列消除 front只想前一个 rear尾巴 防止假溢出
+ 栈应用 中缀变成后缀表达式： 然后鸭到站 操作数就入展 操作符号就出战两个操作数进行运算 再进展
+ 中缀按照计算优先顺序转后缀 然后后缀操作数入栈操作出战计算 计算结果入栈 求值 将多操作转化为一部部操作
+  
+ 
+ 站应用 递归：    一层过一层
+括号拍匹配：左边入栈  右的话则出战比较 同样则消除 不通则格式不正确
+后缀值计算
+
+队列：打印机系统 主机快 打印机慢 速度不协调匹配 缓冲系统 主机给缓冲放满 放置到缓冲区就 是队列 先进的内容先打印
+层次便利：跟入 跟出左右入 再出 在左右入 再出。。。
+
+
+
+链表和数组
+链表：额外内存开销指针 碎片少  插入删除方便 
+（顺序表）数组：创建是偶大小确定 太小放不下 太大浪费空间溢出 可扩充数组 每次固定增量  随机存取 
+
+
+ 栈：
+ 数组模拟栈（线性栈）：
+push arr[++top]=data
+pop  data=arra[top--]
+
+ 链栈：top指针 类似于头插法单链表 将first命名为top 
+ 
+ 
+ 链表队列：一个头front 尾巴rear 删除在头 插入在尾 队列从头向尾巴延伸
+ 
+
+死循环 庞氏骗局
+
+递归：概念上简化了问题 效率其实很低 
+
+排序记得注意数组下标的合理 必须》=0
+
+基数排序  不需要比较操作
+1.格式化 没有就写0
+2.从最末尾位排序 小在前 大在后 同样的一组 组内元素顺序随意
+3.位升 这时候注意该位排序 时候 同位不同数据项写在同组 顺序按照下级位顺序来  也就是遵守上一次排序的结果（遵守上一次组外排序顺序 组内无序不管）  
+
+每一位数组复制到链表 按位排序后再回复制到数组 
+
+对于任意一棵二叉树，如果其叶结点数为N0，而度数为2的结点总数为N2，则N0=N2+1；
+(4) 具有n个结点的完全二叉树的深度为 log2（n+1）
+
+
+二叉排序树或者是一棵空树，或者是具有下列性质的二叉树：
+（1）若左子树不空，则左子树上所有结点的值均小于它的根结点的值；
+（2）若右子树不空，则右子树上所有结点的值均大于它的根结点的值；
+（3）左、右子树也分别为二叉排序树；
+（4）没有键值相等的节点。
+ 
+ 
+ 二叉排序树（Binary Sort Tree）又称二叉查找树（Binary Search Tree），亦称二叉搜索树。
+
+
+
+
+
+
+
+
+
+ 
+数据库：   
+
+关联查询的内连接select * from w_bankinfo_tab a INNER JOIN w_userinfo_tab b ON a.BANKID=b.BANKID
+和
+普通连接查询  select * from w_bankinfo_tab a ， w_userinfo_tab b where a.BANKID=b.BANKID
+结果一样 但是效率不同 
+
+
+
+
+语法:alter table 表名 add constraint FK_ID foreign key(你的外键字段名) REFERENCES 外表表名(对应的表的主键字段名);
+ ALTER TABLE table-name DROP FOREIGN KEY key-id;
+总结：所谓的级联更新，就是更新主键表（gh_student ）的同时，外键表(grade)同时更新。
+
+所谓的级联删除，就是删除主键表（gh_student ）的同时，外键表(grade)同时删除。  父表中删除了 子表中对应删除项记录自动删除
+级联更新 父表中主键 例如学生id 1改了2 那么字标中外键也将所有1的记录id改为2 更新起来比较快 但是级联容易牵一发而动全身 错误删除可能导致数据
+破坏 需要提前安排好 级联删除之后需要检查是否破坏 
+这里还要注意：当学生表（gh_student ）中没有('001','gh','101')这条记录时，成绩表(grade)中这三条插入语句是插不进去的，会报冲突，成绩表会自动判断没有001这个学生。
+alter table gh_grade add constraint FK_StudentNo foreign key (grade_stuno) references gh_student (stuno) ON UPDATE CASCADE
+
+mysql char()和varchar()区别
+char是一种固定长度的类型，varchar则是一种可变长度的类型
+　　char(M)类型的数据列里，每个值都占用M个字节，如果某个长度小于M，MySQL就会在它的右边用空格字符补足．（在检索操作中那些填补出来的空格字符将被去掉）在varchar(M)类型的数据列里，每个值只占用刚好够用的字节再加上一个用来记录其长度的字节（即总长度为L+1字节）．
+
+
+
+mysql
+创建表
+create table course(
+ID int(10) PRIMARY KEY not null ,
+Cname VARCHAR(10)
+)
+不需加引号
+最后一行不需要，
+表物理关联：
+当然可以不关联，在物理设计上关联 是为了防止错误和垃圾数据的产生
+（比如你一个项目表里有个外键是单位的id，那么这个id就必须在单位表里的主键id上，这样如果你写的不对就插不进去，很好的防止了输入错误等）
+如果你能保证你的操作完全没有问题 那就不要这个关联 影响性能
+
+
+
+最好物理表不管了 逻辑关联 通过hibernate
+
+
+sql关联也可以
+
+6
+
+普通jdbc：8888888888888888888888888
+connection conn=Dbutils.getConnection();
+PreparedStatement pst=conn.prepareStatement(sql);
+pst.setString(0,);指定？
+pst.setString(1,);
+pst.setString(2,);
+pst.execute(); sql为增删改
+ResultSet rs=pst.executeQuery(); sql 为查询
+while(rs.next()){
+String s1=rs.getString(1,"")
+String s2=rs.getString(2,"")
+String s3=rs.getString(3,"")
+Good gd=new Good（）；
+gd.setGoodsName（s1）；
+。。。
+
+
+List <goods>list=new ArrayList<Goods>();
+list.add(gd);
+}
+
+
+ hibernate七步法 用多个是session操作db 
+   session.save()
+   session.delete()
+   session.update() 主键相同则修改 不同则添加
+ Query query =  session.createsqlquery("")   quey.uniqueresult() 或者query.list();
+   Query query =  session.createquery("") 
+    
+ spring封装hibernate:
+ this.gethibernatetemplate().find()...
+
+
+
+
+struts2的校验
+ 客户端 服务器效验
+ 例如注册页面表单 客户端效验不经过
+ 服务器效验 action建立一个actionname-validation。xml
+ 内部 
+ <validators>
+  <field name="name">
+      <field-validator type="requiredstring">
+        <param name="trim">true</param>
+        ...
+      <field-validator>
+  
+  </field>
+   <field name="age"
+  </field>
+   <field name="pass"
+  </field>
+  ...
+ 
+ 
+ </validators>
+ xml需要和action.class文件防止在同一个目录下面
+ 通过先访问服务器的action对应xml来效验 成功则继续action。class
+ 
+ 客户端效验
+ jsp true表示立马效验 就是在客户端
+ 增加1<s:fielderror/>
+  <s:form action="regist" 增加2 validate="true">
+  <s:textfield name="name" label="用户名"/>
+   <s:textfield name="pass" label="密码"/>
+   <s:textfield name="age" label="年龄"/>
+    <s:textfield name="birth" label="生日"/>
+  <s:submit value="注册"/>
+  </s:form>
+  
+  
+  在使用校验 action-validation。xml中药配置校验器 
+
+
+
+regex：正则表达式
+  Eate（） validatexxx（）犯法 如果action重写了validate 那么会在execute之前执行验证 
+  validate方法会在执行action任何犯法之前对action的变量field做验证 如果成功久跳转到第=strtus中对应方法 如果失败 可以写个addfielderror方法 自动返回=input 所以struts中必须配置input的处理 如果需要支队注册做验证 对登陆不验证 只需要添加validateRegist（）方法 固定格式 validate+方法名（）   然后成功则进入regist 否则input 如果其余方法不会经过这个validatexxx方法 前提继承actionsupport
+  fielderror是系统值栈属性 
+  直接class中addFieldError（“user”，“出错”）会自动终止程序 并返回input 
+regex：正则表达式
+  Eate（） validatexxx（）犯法 如果action重写了validate 那么会在execute之前执行验证 
+  validate方法会在执行action任何犯法之前对action的变量field做验证 如果成功久跳转到第=strtus中对应方法 如果失败 可以写个addfielderror方法 自动返回=input 所以struts中必须配置input的处理 如果需要支队注册做验证 对登陆不验证 只需要添加validateRegist（）方法 固定格式 validate+方法名（）   然后成功则进入regist 否则input 如果其余方法不会经过这个validatexxx方法 前提继承actionsupport
+  fielderror是系统值栈属性 
+  直接class中addFieldError（“user”，“出错”）会自动终止程序 并返回input 
+  
+  jsp中
+  <s:fielderror/>表示在页面输出类型转换提示或者校验失败提示
+  struts的校验 校验器（xwork2）和自定义检验（继承support 重写validatexxx 通过利用addefieldrror 失败则返回input 并阻止进入下一层xxx方法 成功则自动进入对应方法 虽然返回值为void 内部操作不用管）
+  
+  
+  文件上传 
+  form 中 enctype="multipart/form-data" 
+  file name="filename" 
+  
+  action中
+  File filename
+  nchronous java
+  String filenameFileName
+  String filenameContentType以及set get
+  
+  struts框架拦截器 ： 解析请求参数 将请求参数赋值给action属性 数据校验 文件上传 拦截器可以执行插拔式操作
+  
+持久层，又叫数据访问层。是和数据库直接打交道的层。
+所有增删改查的操作全在这个层里
+就是dao层
+  持久层，为什么叫持久呢，也就是说这些数据是要保存下来。
+那些数据呢，比如说用户的用户名和密码，这些就需要保存下来。
+那么这个数据要保存到数据库吧，那么就是说从程序连接数据库的那一层就是持久层。
+将java对象转化到持久状态的那一层，就是把数据保存到数据库的那一层
+
+
+
+
+spring：
+解耦和（di ioc）通过xml 不需要通过原始的class2中方法 class1 bean1=new class1（）来创建实例 这种方式class2引用了class1 高耦合 导致效率低下  类与类之间紧密相互关联 我中有你 你中有我 ref实现内部类的使用 解耦和
+IOC：
+id=p1 class=“”
+property=“Pname” value=“yll”自动创建一个对象在容器 ioc控制反转 通过容器的property来设置对象结构 而不是类设置 控制转移了 而且对象的值shift通过xml的value设置 设置有哪些属性列 以及每个属性列的值 全部通过配置文件 而不是通过类操作 就是ioc
+ApplicationContext ctx=new ClassPathXmlAppliactionContext（bean.xml）新建appliacatoncontext容器
+Person p =ctx。getbean（“p1”，“”）
+syso（p。name）
+DI；
+1，使用property的setter方法 对poperty注入 例如ref其他类作为一个属性 通过新类的setter方法（必须有午餐构造但是默认就有 可以不写  ）
+2.构造注入
+DI；
+1，使用property的setter方法 对poperty注入 例如ref其他类作为一个属性 通过新类的setter方法（必须有午餐构造但是默认就有 可以不写  ）
+2.构造注入
+a类调用了B类 叫做依赖关系
+面向借口变成：xm里面写借口
+spring的xml使用了schema
+通常的方式a调用b b适用c等 二spring使用xml表示iguanxi
+jsp里面：<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+srpingcontext.xml中xml中：
+xsd为xml schema类型 非dtd类型
+xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+依赖注入：不是通过new来知道对象，而是依赖容器进行注入对象
+1.构造器诸如:必须有参构造函数 缺点 构造器臃肿
+
+2.setter设值注入：简单明了，只需要无惨构造 可以省略 ，过程为先通过无惨构造创建个对象，空的其实，然后setpropertyname赋值 
+类中不需要写有参构造函数
+  bean id=stone class=“stoneclass”
+   bean id=steal class=“stealclass”
+  
+   bean id=“person” class=“personclass”
+  property=“material” ref=“stone或者steal”更换时候只需要修改本处 不需要删改两个stone steal类 等 
+  
+  构造注入
+  bean id=“” class=“”
+  《consructor-arg ref=“axe2” index=0 ref=“” idnex=1 ref=“”表示多参数构造函数
+  表示对构造函数传入一个axe2的对象 而构造函数axe2为传入的axe值 this。axe=axe给对象赋值 不同之处 类中必须写有参构造函数 事实上构造函数就是用来初始化兑现的  多参数构造 导致构造器臃肿 
+  spring整合hi之后 必须自动给hi的sessionfact datasource自动注入 在xml中
+  reference libraties重点包里面的类 表示自动import 直接使用其方法 不需要import f3直接查看任何类的位置以及属性
+  org。springframework。beans。factory。beanfactory。class里面的getbean方法 在spring中必备 区别于sessionfactory存在于hi中
+  org。springframework。context的ApplicationContext类 ApplicationContext context = new ClassPathXmlApplicationContext(
+				"springContext.xml");
+  context类中继承了beanfactory 具备器全部方法等 public abstract interface org.springframework.context.ApplicationContext extends org.springframework.beans.factory.ListableBeanFactory, org.springframework.beans.factory.HierarchicalBeanFactory, org.springframework.context.MessageSource, org.springframework.context.ApplicationEventPublisher, org.springframework.core.io.support.ResourcePatternResolver {
+  一般使用ctx。getbean（） 而不是beanfactory的getbean
+  appliationEvent为一个父类 class1继承了他 就是有别于普通类 为一个事件类 然后xml中实例化或者直接类中new 在创建event实例时候 不会自动激发 只有创佳完成然后发布时候 激活xml中定义的listener监听器  applicationcontext类具有publishEvent方法  ctx。publishEvent（event1） 表示applicacontext发布这个事件bean 一发布 这时候自动激活监听器 然后执行监听器类onApplicationEvent方法 当然监听器类必须实现applicationlistener接口
+   
+  bean 的作用于
+  singlton（默认）一个bean 容器跟踪实例的状态 负责维护bean的生命周期  销毁实例时候回收内存（主要）  全程管理
+  prototype   创佳为难不跟踪 不维护生命周期 第一次getbean和第二次不一样 销毁代价大（主要2）每次getbean都会创建一个 只有创建时候控制  事后全然不知道去哪里
+  bean的生命周期省略
+  session
+  request
+  globalsession
+  
+  beanfactory和applicationcontext都可以作为bean容器 都有getbean
+  区别 
+  beanfactory基本的spring容器
+  spring上下文就是appliaitoncntext。xml 是其子接口 比他功能强大 
+ 1 （推荐）applicaioncontext在new classpathxmlapplicaitoncontext时候就预初始化容器所有bean 消耗内存大 系统开销 但是完毕之后 后面直接从容器提取速度快
+ 2 beanfactory只有在程序需要时候创建 耗内存小 但是后面慢 
+  
+  
+  bean中 假如设置lazy-init=true 表示取消预初始化 即使applicaontext时候也不预初始化 只有程序需要才初始化
+ 构造和setter都是普通无依赖注入
+  spring的配置类似于strtus的 可以yogaxm 注解等（在类中添加@等）
+  显式依赖注入：通过ref 合作类 依赖关系
+  自动依赖注入：autowire=“byname 等”
+ 1 byname 自动根据a类的setB方法 搜索所有id为b的bean
+ 2 bytype 根据a类的setb 找出所有使用了B作为接口（即类型为B的class的bean）bean 注入 如果有多个同一类型的bean 注入失败 只有有且仅有一个才注入成功
+ 两者同时出现 优先显示依赖注入
+ 
+ 类对象写autowire=byname bytype 同时在该类内部写个setname或者settype方法
+  
+ bean的property的值可以是set map list等 
+ 写spring注解：
+ @Configuration
+ public class appConfig{
+ @Value("孙悟空") String personName;
+ @Bean (name="chinese") name为新建的bean的id 下面的类为返回一个bean 下面的class为执行方法 获取一个bean（新建加赋值）再返回
+ public Person person(){
+     Chinese p =new Chinese();（可见方法内部执行的方法是其他已知类中的方法 ）
+     p.setAxe(stoneAxe());stoneAxe（）为下面一个方法 返回的是一个内部类对象 
+     p.setName(personName); 对应value
+     return p;
+ 
+ }
+ @Bean（name=“stoneAxe”）bean配合方法的返回值 表示建立一个对象 name 为对象名 返回值为其值 会自动执行下列方法来获取对象值 而该方法 也可以在其他地方调用 
+ pubic Axe stoneAx（）{
+ return new StoneAxe（）；匿名 也可以写成stoneAxe stoneaxe =new stoneaxe（）； return stoneaxe；
+ }
+ @Bean （name=“stealAxe”）
+ public Axe stealaxe（）{（建立一个方法 不要和下面搞混）
+ 
+ return new  stealaxe（）；（执行com。etc。stealaxe类）
+ }
+ 
+ }
+ 
+  
+  @（第一个字母都大写）Lazy 等
+  @Bean
+  @Value
+  @Configuration
+  等
+  构造器就是classname objectname = new classname（）；构造器
+  创建bean方式：
+  构造器 最多 常 用 例如构造方法和设置注入 
+  静态工厂  factory-method=“”
+ 实例工厂 比静态工厂多个 ：需要工厂实例 就是多个bean-factory=“personfactory”什么的
+  
+抽象bean（继承父亲的所有属性以及部分配置 实现类 同事可以属性名重复可以重写 不重复的就是在前面基础上增加）
+id=“abstractperson” class=“” abstract=“true”
+id=“person1”  parent=“abstractperson”  class不需要写 自动继承其实现类
+加入同一个实现类多个bean 只是属性不同 可以建立个抽象bean 然后parent 修改个自己的property值 简化了属性注入
+把其他类的属性或者类field或者方法返回值注入个i另外个bean
+《id=bean1 class=》
+property name=“”
+bean id=bean2。age。name class=“工具支持类路径” 把bean2的属性注入给bena1的属性
+或者《bean id=classpath。fieldname class=“”
+  
+  
+  
+  
+记住cat dog being接口 以及工厂类以及工厂方法 配置好    factory-bean=“表示工厂类”  factory-method=工厂对象 传进来参数constructor-arg value=“”
+再加个property value（ref）=对具体类进行实例化 
+
+
+  
+spring3.0支持spel表达式
+spel可以用于在类中使用 也可以在注解中 或者 xml中 可以简化作用
+1.再类中通常接口 exprssionParesr Expression接口
+2.在xml中 #开头 
+<bean id=class=>
+p:（属性名）name="#{T(方法名)}" 调用方法赋值给属性
+p:axe="#{classpath.steelaxe()方法}"
+<property name=books">
+ <list>
+ <value>#{bean2.booksname}</value>引用其他类bean的属性值
+ <value>#{bean2.booksnum}</value>
+ </list>
+
+深层spring
+spring后处理器 
+xml中增加个<bean id="beanPostProcessor" class="org.crazyit.app.util.MybeanPostProcessor"/>
+然后对该类写好具体调用方法
+在容器所有bean实例化之后执行类的方法 实例化之后做增强处理
+。。。
+
+AOP：aspect object programming 
+spring默认使用AspectJ语法
+advice：增强处理 有before after around等
+切点pointcut 目标方法
+切面aspect 一个增强的切片
+连接点（jointpoint）：方法的调用 例如异常抛出 方法执行发错人′
+aop代理方式：默认采用jdk动态代理（实现接口（面向接口编程 推荐）） 也有cglib代理（不识闲接口）
+编译时增强（AspectJ）
+运行时增强
+代理对象的方法=增强处理+被代理兑现过的方法
+spring1.0曹勇定义切入点和增强处理 过时
+目前使用aspectJ定义且点和增强
+通常可以使用before和after的不需要around
+1.基于annotation（零配置）在类中写@Aspect @Pointcut@Annotation定义切入点和增强 忽略 
+2.基于xml spring配置文件
+定义切点pointcut 
+几个关键字 
+execution（特定一个方法或者连接点）摸一个特定的
+within（多个连接点都使用，内部可以使用通配符*等） 例如aop:after pointcut="within(com.baidu.*)"com。baidu所有类方法都为连接点
+this限定目aop代理必须的类型的实例 和下面的区别就是代理 不是接口
+target：限定目标对象必须的类型的实例  写接口路径com。。。。Classname 表示实现了该classname接口的所有类的对象（实例）的所有方法（连接点）
+args：根据方法参数选择连接点
+bean：指定bean（特定类名或者连接点）
+
+而且上面关键字内部可以使用|| && !等
+execution（修饰符可省略 返回值 类名 方法名 参数列表（*或者..表示任何参数列表））都可以使用通配符 * 表示切入点指示符 表示对哪一个方法进行增强
+execution（* org.crazyit.app.service.AccoubtService.*(..或者*)）表示任何返回值 类 类名大写 任何方法的任何返回值类型 为切点
+我们只是用方法执行为连接点
+ 
+ 传统地方法：
+ 先写好Hello的sayhello方法 只是个普通的类 要对其进行增强
+ public aspect txaspect（）{
+ void around（):call(void Hello.sayHello()){
+ system.out...
+ proceed();（原方法照做）
+ syso...
+ 
+ }
+这就是增强以后的效果 增强后同方法多了两个syso 
+ 
+ }
+
+现代方式：
+注解（0省略） 或者 spring的xml方式
+<aop:config>
+<aop:aspect id="名字" ref="引用bean" order=""> 
+   <aop:after pointcut="execution(...)" method="表示切面里面指定的方法 不要误以为是切点里面方法 切点里面方法卸载exe中">
+
+
+</aop:config>
+<bean id="引用beanname" class="..写好一个类 执行其方法.">
+
+spring整合struts
+需要夹包：struts2-spring-plugin。
+  首先action 要在springxml中定义bean 产生一个傀儡 然后strtus中的action就写这个傀儡  （伪类）
+  好处：产生傀儡之后可以在springxml对其进行自动装配 自动注入对象
+  然后 在springxml中添加业务逻辑层bean（service） 这样spring自动装配（通过setter方法给action的property也就是service装配servicebean）
+
+
+spring整合hibernate
+hibernatedaosupport包涵下面方法getsession hibernatedaosupport是整合hi在spring中 省略了一堆失误 cofig sessionfactsession等方法 封装在daosupport中 但是可以通过这个获取内部疯转股的sessionfactory 实质就是sessionfactory。open（begin）session（）（另外一种是currentsession）
+setsessionfactory 和springxml中sessionfactory bean相引用 所以在daoimpl类不需要添加set和get方法 但是奇怪的是不需要定义个sessionfactory变量 而且daosupport中不存在sessionfactory变量
+getsessionfactory
+gethibernatetemplate 创建hibernatetemplate对象 然后调用其增删改查 
+而创建hibernatetemplate对象具备update find save delete 以及hiberncallback回调函数 拥有dohibernate接口
+
+使用hibernatetemplate的增删改查很方便但是封装后灵活性不足 所以增加了灵活方式 通过这种方式可以完全使用hibernate的操作方式 两个方法如下
+object  execute （hibernateCallback action）
+List executeFind（hibernateCallback action）
+格式如下 
+List list=this.getHibernatetemplate().executefind(new hibernateCallBack)
+{public object doInHibernate(Session session) throws HibernateException.SqlException{
+//引用hibernate操作 但是不需要建立config 事务等？
+//hibernatecallback是个接口 必须实现doinhibernat方法 但是不清楚这的session是怎么获取的
+//
+List result = session.cerateQuery(hql)
+                   .setFirstresult(offset)
+                   .setmAXresult(pageSize)
+                   .list();
+               result result;
+}
+result list;
+
+}
+
+
+企业框架的思考：
+良好的可扩展性必须高度解耦
+xml避免修改代码 优秀解耦
+依赖注入是更高层次解耦 讲各模块之间的调用从代码中分离出来 通过配置文件装配组建 （除了spring依赖注入容器很多）
+在spring中 action模块调用service模块 或者service调用dao模块 dao调用sessionfactory（datasource）模块 都没有使用传统的 ：在类里面Dao dao= new Dao（）等 然后在方法里面调用dao的方法
+而是仅仅定义了个dao属性 和set get方法 没有new 就减少了耦合 （private Dao dao）；最终需要其对象时候不通过new  而是容器的setter方法注入 
+a调用b类的接口 （面向借口变成的道路）然后c d e f都可以实现b类 具体实现那个看spring配置的bean的ref 这样要修改代码时候只需要建立一个实现类 和bean id 不需要修改以前的代码 工厂就是大量生产bean的容器
+
+代理模式：当客户端需要调用某个对象时候 不关心实际上是否获得该对象 而是只需要一个提供该功能的对象即可 我们只需要返回该对象的代理（proxy）
+系统会自动为某个对象生成一个代理对象 由代理对象控制源对象的引用 代理就是一个proxy对象代理源对象采取行动 在客户端不想或不能直接调用源对象时候 代理起中介作用
+客户端无需也不能分辨出代理和源对象的区别
+通常传统的a使用b类的方法 只需要a中通过b的构造方法创建b实例 然后b。方法 两步
+建立个代理类挡在源对象前面（挡子弹），当创建类对象时候 先创建代理对象实例（代理对象的构造函数）  然后执行方法  方法里面才真正调用真实源类方法 这样建立对象时候不需要加载各种方法 延迟了开销
+1.把创建真实源对象延迟到真正需要他的方法时候才创建 保证前面流畅 减少源对象在内存中存活时间 节省内存开销 甚至某些情况程序不会真正调用源对象类的方法 
+2.另外代理可以对目标对象方法功能欠缺进行扩充
+否则系统加载a实体时候访问关联实体 大系统开销
+
+  debug 双击家断电 
+  debug as 
+   f5 进入具体方法内部 包括很多调用的系统方法库
+   f6 跳出方法 进入下一层
+   f7 跳出方法 进入下一层
+   terminate后relaunch 
+   箭头表示正调试完上一条 查看valibles 看属性值
+  使用Pd画数据库个表之间模型以及主外建关系图 然后自动生成数据库文件
+  使用xvn进行团队开发
+  string.substring(2)表示除掉前两个
+  string.substring(a,b)index 序列从1开始 a为头（不包括） b为尾巴（包括）
+ "hamburger".substring(3,8) returns "burge"
+"smiles".substring(0,5) returns "smile"
+参数：
+beginIndex - 开始处的索引（不包括）。
+endindex 结尾处索引（包括）
+  
+  <a onclick="return doDelete();" href="gift_delete.action?giftId=${ gift.giftId }" >&nbsp;删除</a>
+<form action="giftUpdate.jsp" method="post">   
+  form到action自动传递所有表单属性值 到cation。class的对象  通过modeldriven 和getmodel 不需要set 自己动注入
+  而没有form则需要加？传制定值 到action 仅仅是一个属性（？giftId=${id}） 也会穿进去 自动加入对象或者九大基本类型（需要set和初始化 int m 不需要model） 如果是对象类型 自动注入    其他属性为空 （删除只需要id 但是hibernate需要一个完整类对象）    
+  
+  
+  
+  
+  多种处传值方式
+  一个页面到另一个页面 传值 ：request。gateparameter  转发
+  或者隐藏表单与 根据hidden的name 和另一个页面的￥{para。name} 两页面form提交到  转发关系
+  servlet。class到页面 set到attribute  跳转到jsp用getattri获取 或者EL ${requestscope。attributename} jsp和class联系 转发关系
+ strtus的传值 action。class和strtus。xml ￥{}OGNL表达式 
+  
+  
+  strtus传值 页面和class之间 （属性注入方式）
+  页面 action？userid=1&userpsw=psw 
+  通过过滤到class 如果存在类例如userinfo 直接使用modeldriven<userinfo>和getmodel获取并存储到userinfo内部
+  如果是无封装类  例如action？currentpage=1 class中获取必须定义int currentpage =1 以及 set方法 自动调用赋值
+  setpara getattribute 和session（request）aware都可以
+  
+  action。class 中值通过action 到result 到jsp 可以实现get。setattribute 如果结构复杂 只能用map （session）requestAware
+  重写getrequest方法 必须map参数 最终使用map参数 map。put传值 和 jsp页面的${requesetscope。keyname}获取值 或者${requesetscope。atributekeyname}
+  
+  
+   
+  
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  c标签和<c:forEach items="${ requestScope.giftList }" var="gift">
+  requestaware引用条件  自动注入req值
+  private Map<String, Object> req;
+	public void setRequest(Map<String, Object> req) {
+		// TODO Auto-generated method stub
+		this.req = req;   requestAware必须实现setRequest方法
+	}和requestAware 配合 对于复杂类型无法使用request。setattribute 只能用这个 req是map类型 后面对req进行put  使用时候req。get（keyname）获取value 跟getattri一个功能
+  
+  
+  
+  
+  
+  
+  
+  
+  ${param.name}=requestscope。getpara（name）
+  。class中//注释
+  jsp xml标签化中shift crl /
+  alt+/自动补全 
+
+  
+  
+  strtus上查的文件是个tmp临时文件 fileUtiles。必须转换成非temp
+ ongl 表达式访问值：
+ 集合名字。{0}表示第一个元素
+ 类名字。{fieldname}表示类所有该属性的集合 
+ 集合名字。{条件判断 例如？#this.age=2}表示一条或者多条数据 
+  值栈：《s：property value=@com。csu。pack。classname@field method》
+ list：《s；property value=users。{age}。{0}》users每个user类的age属性的集合的第一个元素 
+     《s；property value=mapname。keys
+           《s；property value=mapname。size（）
+  投影 过滤：《s；property value=users。{？#this。age==0 }》得到集合 
+  users。{？#this。age==0 }。{0}集合第一个
+  &{}也叫ongl
+  标签：s elseif 
+  #age表示 var=age调用     《s：set var=age  value=#para。age{0}》简略 set完放入age进入actioncontext内部 然后通过#age读取 
+  --><s:if test="#age" >correct<s:if>
+  <s:elseif ... >error<s:elseif>
+  <s:else ... >too young<s:else>
+  
+  <s:lierater value={1,2,3,3,4} var="x">
+    <s:property value="#x.toUpperCase()">自动迭代 赋值给x 然后x大写复制给value
+    theme主题 控制样式
+    拦截器？intercept
+    拦截器 基于安全 保护 细化到类方法 
+    1.写拦截器类 myintercept。class
+    init destroy  主要写itercept类 
+    2.strtus配置 指定包内
+  <package .....>
+     <intercepts>
+     配置拦截器<intercept name="my" class="com...."><intercept>
+     </intercept>
+   
+   </package>
+   
+  3.   使用拦截器
+  <action name="" class="">
+  <result name=>....<result>
+  使用拦截器
+  <interceptor-ref name="my"></interceptor-ref>
+  <interceptor-ref name="defaultstack"></interceptor-ref>
+   </action>
+    
+    
+   valuestack和s：property和value var的使用
+  循环控制 
+  1.《%嵌套 java语句 
+  2.for each items=$[list] el表达式可以和jstl《%=搭配 不和标签搭配
+  3.<s:iterater valuecept="categoies" var="cat">
+  <s:property value="#cat.id"></s:property>显示在外
+  <s:property value="#cat.name"></s:property>几层都可以循环
+  <a href="cateorydelete?id=<s:property value="#cat.id">删除category</a>"s标签和iterater 值栈valuestack var # 搭配 而
+  </s:iterater>
+  
+  
+
+  框架未产生质变 原理不变 只是对一些操作进行封装 由框架自动完成  简单化 
+  类里面任何对象 只要不是常亮（对象） 都要不管是类还是八大基本  都必须set and get方法
+   常量必须final 不要set get   
+struts：
+核心：
+strtus配置 servlet的简单化 利用strtus。xml pack action result 简化业务逻辑 简化跳转以及类 方法的制作相似类方法可以利用通配符实现 可以mm。action？a=&b=传值给制定class 方法 
+constant devmode=true namespace表示模块 区分 默认地址项目名+namespace+actionname
+
+namespace=“空” 只要项目名后面找到 action都可以访问 处理其他package处理不了的action 最后放置 result后面/*.jsp 
+actionsupport 内部有execute方法 默认方法  找不到对应包和action 则访问welcome index。jsp
+jsp内部加入basepath 《base = 《%=basepath>index.jsp jsp路径根据包 一层一层 。action路径类似于。servet 根据配置文件过滤访问特定的action 然后特定类 到特定jsp 实质是一个过程 结果是jsp 非实物 且a href=“mm。action”或者浏览器内部 都是根据namespace过滤  任何action结尾后缀的文件 会自动调用strtus。xml过滤  访问结果是页面
+user！add 表示xml里面的actionmae=user method=“add” user。action的add方法
+通配符妙用：
+package name= namespace= extends=2
+action=“*_*” class="package.{1}action" method="{2}"
+result name=success  /{1}_{2}success.jsp
+result name=error   /{1}_{2}error.jsp
+goods.add goods.delete goods.select goods.update.action  
+user.add  user.delete  user.select  user.update
+一个pack多action时候 匹配顺序 先匹配精确地 少*的 
+1.action！add？useri=a&psw=111 传值  制定class内部必须存在user和psw属性 以及set get 类似于servlet？和getpara获取 
+2. 但是如果属性很多 则写起来麻烦 可以使用与模型 新建类usernfo 然后class中建private userinfo usf对象；set and get  action？usf。username=&usf。psw= 实现传值  
+3.modeldriven 实现自动首先调用getmodel获取对象 getmodel + user usf =new user（）；需要初始化 add操作 但是省略了get set方法 getmodel已经实现初始化 不需要自动set 
+表单验证 this。addfielderror不会
+s：debug
+访问web元素
+include=”login。xml“
+package
+<default-action-ref name=index>
+<action name=index......?访问不到action则访问默认index。action
+result  属性 除了name 还有type type=dispatch服务器条换 到页面 type=chain 到second。action 加上namespace和actionname 同意type=redirect重定向到另外个action 类似chain 区别 chain尽管转了 但是地址栏仍按是以前 但是重定向则完全叛变 地会显示新的action的结果页面 不保留以前action的地址
+最小单位result内部 type=chain时候跳转action 后面写r2表示同包内部action 异包则 
+<result name= type=chain >
+<param name="actionName"> act2</param>
+</result  name="namespace">/name2</param>
+包内多个action共享
+<global -results>
+<result name="glo">/global.jsp<result>
+<global -results>
+package 内部 extends=“userpackage”继承另外个包全部属性 也包括default
+值栈：动态结果集 OGNL表达式 单纯用于strtus配置文件中的 类似于eL表达式 class中返回true到strtus中跳转jsp 类似于attribute作用范围 所以可以使用el 而execute中 if（username=admin r=“/succsee.jsp”  ） else （r=“/error。jsp”）return true； 前面result中写${r}可以获取r值 用不多 ${特殊之处：普通变量名而非attribute属性名}
+
+
+
+
+依赖注入：包括设值注入和构造器注入888 
+
+spring容器 中多个bean之间可能依赖关系：
+显示依赖注入   ref 一个bean的property ref另一个bean
+自动依赖注入：或者隐士 byname bytype 
+byName：bean1写个autowire=byname bean1的类中写个setbean2name方法
+在写好bean2对象
+
+
+byType ：bean1中写个autowire=bytype 在类中写个settype方法
+写个bean2对象 但是bean2对象必须所属的类实现了一个接口type（就是类型的意思）
+比buname要求高 必须多个类型
+
+
+aop：
+
+advice增强处理 表示after before around 等
+aspect切面 一个切面为一个切面类 可以包含很多方法 使用时候指定哪个方法
+pointcut切点 在哪个类的哪个方法出添加切面的方法
+
+
+aop可以通过xml容器配置 也可以通过注解形式
+过程：
+连接点joint point：方法的调用
+先写切面类 包含多个方法 例如 例如事务处理 日志天价等
+如下为spring容器：
+切面需要顶一个bean 然后从bean引入aop:aspect 而切点不需要 
+<aop:config>
+<bean id=aspectname class=切面类>   先将切面类定义一个bean
+<aop:aspect id="aspectname" ref="aspectname" order="">
+<aop:after method="例如日志添加方法 注意是切面中方法 切点中方法在execution中确定了" pointcut=execution(....包含类地址和方法)>
+<aop:before method="例如日志添加方法 注意是切面中方法 切点中方法在execution中确定了" pointcutref="pointcutid">
+在外面定义一个pointcut
+<aop:pointcut id="pointcutid"   expression="execution"(src)>
+...
+
+
+
+</aop:aspect>
+</aop:config>
+
+
+
+
+
+spring容器除了用xml还可以用类装 用的时候加载类
+&Configuration
+public class appConfig(){
+&Value("angel") String name；
+&bean(name="beanname") 后面接一个方法 return的值就是bean的对象值 
+public person person(){
+
+...
+Person p=new ...
+p.setName("...");
+
+return p;
+}
+}
+加载时候：
+applicationcontext ctx=new annotationconfigapplicationcontext（appconfig.class）;
+
+
+
+
+
+
+Spring创建Bean实例的3种方式
+
+    |
+    浏览：4898
+    |
+    更新：2014-07-02 09:56
+
+创建Bean实例的方式：
+
+
+附加方法：设值注入
+   1) 通过构造器(有参或无参) 
+
+      方式: <bean id="" class=""/>
+
+   2) 通过静态工厂方法
+   
+   
+   
+   
+   
+使用工厂类的静态工厂方法可以初步创建个bean 然后对立面bean进行赋值特性化
+      方式: <bean id="" class="工厂类" factory-method="静态工厂方法"/>
+      静态方法的参数如下
+      <constructor-arg value="dog">
+      property为该对象 或者初步对象的msg值为狗
+      <property name="msg" value="狗">
+
+      注: 工厂类实例没有创建
+
+   3) 通过实例工厂方法(非静态方法)
+
+      方式:
+
+        <bean id="factory" class="工厂类"/>
+
+        <bean id="" factory-bean="factory" factory-method="实例工厂方法"/>
+           实例工厂方法的参数如下
+      <constructor-arg value="dog">
+      property为该对象 或者初步对象的msg值为狗
+      <property name="msg" value="狗">
+
+      注: 工厂类实例被创建
+
+
+spring动态代理：
+
+继承和实现都可以附加新的
+一个普通类或者代理类可以实现一个接口。假如接口方法变了，那么每个类都的改变。
+写一个动态代理类dynamicproxy了实现一个invoking handle接口 重写里面的invoke()方法 里面自己控制整个调用过程
+具体不懂
+
+springMVC：
+springmvc和struts是一个层次的概念，均属java web mvc框架，只是ssh中第2个s的技术。
+springmvc开发比较轻，性能也不错，在我的开发的web项目中，均使用springmvc作为web mvc框架，用的久了就知道比struts2有多轻便了。
+
+作者：javaniu
+链接：http://www.zhihu.com/question/22014461/answer/23125867
+比较这两个框架：
+1.易用性
+Spring MVC上手简单，并且可以与Spring无缝结合，毕竟都是一个公司的产品，学习起来也比较简单，比如从前端给对象填充值，他的处理就比Struts2简单多了，再比如对Restful风格的URL的支持，这些Spring MVC都比Struts2做的好N倍。
+2.安全性
+说到安全性，我也不想多提Struts2了，我在一家游戏公司工作，之前公司的老项目是用的Struts2，他今年出了不少漏洞，并且是致命性漏洞，每出一次漏洞，我需要加班一次，好吧，我想说我加了4次班了，最可恶的是Struts2有漏洞后，还把攻击方法放到网上。Spring MVC到目前为止还没有发现比较严重的漏洞。
+3.可扩展性
+Spring MVC依靠Spring这颗大树，Spring的实力我想大家不用怀疑吧，包括版本的更新、迭代这些都是经过历史见证的。
+
+作者：郭蕾
+链接：http://www.zhihu.com/question/22014461/answer/20047638
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。来源：知乎
+
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
+
+spring和struts和hibernate的整合
+http://blog.csdn.net/chaosbead/article/details/8471769
+实例
+
+spring整合struts就是
+struts.xml中<constant name="struts.action.extention" value="action">
+
+spring整合hibername 继承hibenatedaosupput
+以及applicationcontext.xml附加sessfactory和mapping resource等bean hi.cfg.xml消失  附加hibernate.revenge.xml存放具体的对应信息。
+
+ <struts>  
+    <!--使用spring创建管理struts2的action操作 -->  
+    <constant name="struts.objectFactory" value="spring"/>  
+    <include file="struts-admin.xml"></include>  
+</struts>
+同时在spring容器中配好action的bean 在struts。xml中用该bean代替对应的类地址 
+
+
+
+
+
+
+
+
+
+ 在web。xml中配置一个spring监听器springfranmework和一个struts过滤器strtusprepareandxexcutefilter或者filterdispatcher 
+   <!-- 指定spring的配置文件，默认从web根目录寻找配置文件，我们可以通过spring提供的classpath:前缀指定从类路径下寻找 -->  
+    <context-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>classpath:applic*.xml</param-value>  
+    </context-param>  
+    <!-- 对Spring容器进行实例化 -->  
+    <listener>  
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+    </listener>  
+  
+    <!-- struts2 的配置 -->  
+    <filter>  
+        <filter-name>struts2</filter-name>  
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+    </filter>
+
+
+
+
+总结：
+不适用开发工具：
+1.导入ssh包
+2.struts。xml中constant springobject表示spring整合struts   以及package action rsult
+3.applicationcontext.xml中sessionfactory和datasource mappingresource表示哪些xml文件 pojo和数据库的映射xml 再加入人工bean 包括action service dao
+4.写类 先写bean类=pojo 以及对应的xml 还有daoimpl类需要引入hibernatedaosupport
+5.web。xml中struts过滤器和spring监听器
+
+
+使用工具：
+导入能力 就是引入包 等
+
+
+
+
+mvc：
+设计原则：
+1.开闭原则 开放扩展 关闭修改 
+例如设计时候抽象父类确定不改 如果一改  例如增加抽象方法 子类都得改去实现 需要什么再子类增加
+2.多用组合（黑盒复用 a对象组合了b对象 但是a看不见b结构） 少用继承（白盒复用 耦合高 父类变 子类变）
+3.高内聚 低耦合
+
+
+单例模式： 单件模式
+
+懒汉
+public class Singleclass{
+    private static Singleclass singleinstance(=null);
+    private Singleclass(){
+    
+    }
+    public Singleclass getINstance(){
+    if(singleinstance==null){
+    singleinstance=new Singleinstance();
+    
+    }
+    return singleinstance;
+    }
+
+}
+
+线程不安全
+1.public static synchronized singleinstance getInstance()
+线程安全 但是性能低 创建万后每一次getin都同步锁 
+2.双重锁定 性能好 同步 缺点：
+原因在于：instance = new Singleton()这行代码在不同编译器上的行为是无法预知的。一个优化编译器可以合法地如下实现instance = new Singleton():
+
+1. instance  = 给新的实体分配内存
+
+2. 调用Singleton的构造函数来初始化instance的成员变量
+
+现在想象一下有线程A和B在调用getInstance，线程A先进入，在执行到步骤1的时候被踢出了cpu。然后线程B进入，B看到的是instance  已经不是null了（内存已经分配），于是它开始放心地使用instance，但这个是错误的，因为在这一时刻，instance的成员变量还都是缺省值，A还没有来得及执行步骤2来完成instance的初始化。
+
+当然编译器也可以这样实现：
+
+1. temp = 分配内存
+
+2. 调用temp的构造函数
+
+3. instance = temp
+
+如果编译器的行为是这样的话我们似乎就没有问题了，但事实却不是那么简单，因为我们无法知道某个编译器具体是怎么做的，因为在Java的memory model里对这个问题没有定义。 
+public static  singleinstance getInstance(){
+if(singleinstance==null){
+synchronized(){
+if(singleinstance==null){
+singleinstance=new Singleinstance();
+}
+}
+}
+return singleinstance;
+
+}
+
+
+
+
+静态内部类形式（类似于恶汉形式）
+ 1 public class Singleton {  
+ 2     private static class SingletonHolder {  
+ 3     private static final Singleton INSTANCE = new Singleton();  
+ 4     }  
+ 5     private Singleton (){}
+ 6     public static final Singleton getInstance() {  
+ 7         return SingletonHolder.INSTANCE;  
+ 8     }  
+ 9 }  
+10 
+
+
+饿汉
+二、饿汉式单例
+
+[java] view plain copy
+print?在CODE上查看代码片派生到我的代码片
+
+    //饿汉式单例类.在类初始化时，已经自行实例化   
+    public class Singleton1 {  
+        private Singleton1() {}  
+        private static final Singleton1 single = new Singleton1();  
+        //静态工厂方法   
+        public static Singleton1 getInstance() {  
+            return single;  
+        }  
+    }
+
+
+
+
+工厂模式：
+统一管理对象的创建过程
+降低耦合 将多个创建不同对象整合到一个类里面 根据传入值不要返回对应的不同的对象
+
+
+
+
+二、简单工厂模式
+
+简单工厂模式又称静态工厂方法模式。重命名上就可以看出这个模式一定很简单。它存在的目的很简单：定义一个用于创建对象的接口。
+
+在简单工厂模式中,一个工厂类处于对产品类实例化调用的中心位置上,它决定那一个产品类应当被实例化, 如同一个交通警察站在来往的车辆流中,决定放行那一个方向的车辆向那一个方向流动一样。
+        先来看看它的组成：
+
+         1) 工厂类角色：这是本模式的核心，含有一定的商业逻辑和判断逻辑。在java中它往往由一个具体类实现。
+
+         2) 抽象产品角色：它一般是具体产品继承的父类或者实现的接口。在java中由接口或者抽象类来实现。
+
+         3) 具体产品角色：工厂类所创建的对象就是此角色的实例。在java中由一个具体类实现。
+
+
+
+抽象工厂：
+一个具体的工厂类 变为一个工厂接口或者抽象类 以及多个继承实现了的 工厂类型类（或者实现了接口的特定类型工厂类） 每个里面有create方法
+代码：
+//抽象产品角色
+public interface Moveable {
+    void run();
+}
+//具体产品角色
+public class Plane implements Moveable {
+    @Override
+    public void run() {
+        System.out.println("plane....");
+    }
+}
+
+public class Broom implements Moveable {
+    @Override
+    public void run() {
+        System.out.println("broom.....");
+    }
+}
+
+//抽象工厂
+public abstract class VehicleFactory {
+    abstract Moveable create();
+}
+//具体工厂
+public class PlaneFactory extends VehicleFactory{
+    public Moveable create() {
+        return new Plane();
+    }
+}
+public class BroomFactory extends VehicleFactory{
+    public Moveable create() {
+        return new Broom();
+    }
+}
+//测试类
+public class Test {
+    public static void main(String[] args) {
+        VehicleFactory factory = new BroomFactory();
+        Moveable m = factory.create();
+        m.run();
+    }
+}
+
+
+代理模式： 
+代理类和实现类实现同样的接口 通常代理类的方法内部就是实现类方法
+但是特定时候需要特定步骤 不允许修改实现类 开闭原则 可以额外操作写在代理类方法中 
+
+
+
+难受打球 女式买水 多个男生  具体花钱男生钱 动作是女的去买
+潘金莲西门庆王婆 考虑假如武松和西门亲和感一样 也想约会 新建一个接口 男人 具体谁主子 找王婆 王婆类存放接口 需要时候指定
+ 模式中包含的角色及其职责
+
+Subject：抽象主题角色，抽象主题类可以是抽象类，也可以是接口，是一个最普通的业务类型定义，无特殊要求。
+
+RealSubject：具体主题角色，也叫被委托角色、被代理角色。是业务逻辑的具体执行者。
+
+Proxy：代理主题角色，也叫委托类、代理类。它把所有抽象主题类定义的方法给具体主题角色实现，并且在具体主题角色处理完毕前后做预处理和善后工作。（最简单的比如打印日志）
+
+4.  代码实现
+
+(1)    Subject
+
+package com.jackie.designpatterns.proxy;
+
+/**
+
+ * 抽象主题，定义主要功能
+
+ */
+
+publicinterface Subject {
+
+   publicvoid operate();
+
+}
+
+(2)    RealSubject
+
+package com.jackie.designpatterns.proxy;
+
+/**
+
+ * 具体主题
+
+ */
+
+publicclass RealSubject implements Subject{
+
+ 
+
+   @Override
+
+   publicvoid operate() {
+
+        System.out.println("realsubject operatestarted......");
+
+   }
+
+}
+
+(3)     Proxy
+
+package com.jackie.designpatterns.proxy;
+
+/**
+
+ * 代理类
+
+ */
+
+publicclass Proxy implements Subject{
+
+ 
+
+   private Subject subject;
+
+ 
+
+   public Proxy(Subject subject) {
+
+        this.subject = subject;
+
+   }
+
+ 
+
+   @Override
+
+   publicvoid operate() {
+
+        System.out.println("before operate......");
+
+        subject.operate();
+
+        System.out.println("after operate......");
+
+   }
+
+}
+
+(4)     Client
+
+package com.jackie.designpatterns.proxy;
+
+/**
+
+ * 客户
+
+ */
+
+publicclass Client {
+
+   /**
+
+    * @param args
+
+    */
+
+   publicstaticvoid main(String[] args) {
+
+        Subject subject = new RealSubject();
+
+        Proxy proxy = new Proxy(subject);
+
+        proxy.operate();
+
+   }
+
+}
+
+
+
+观察者模式：发布订阅模式
+双向耦合
+多个观察者对象同时监听某一个主题对象，这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。
+
+观察者模式所涉及的角色有：
+
+　　●　　抽象主题(Subject)角色：抽象主题角色把所有对观察者对象的引用保存在一个聚集（比如ArrayList对象）里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象，抽象主题角色又叫做抽象被观察者(Observable)角色。
+
+　　●　　具体主题(ConcreteSubject)角色：将有关状态存入具体观察者对象；在具体主题的内部状态改变时，给所有登记过的观察者发出通知。具体主题角色又叫做具体被观察者(Concrete Observable)角色。
+
+　　●　　抽象观察者(Observer)角色：为所有的具体观察者定义一个接口，在得到主题的通知时更新自己，这个接口叫做更新接口。
+
+　　●　　具体观察者(ConcreteObserver)角色：存储与主题的状态自恰的状态。具体观察者角色实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题的状态 像协调。如果需要，具体观察者角色可以保持一个指向具体主题对象的引用。
+
+
+public abstract class subject｛｝
+或者public interface subject｛｝
+List<observer> obslist=new Arraylist<observer>(); 
+String subjectstate;
+addobs
+removeobs
+changestate(Str state){
+this.state=state
+notify();
+}
+notifyobs(){
+
+for(observer obs:obslist ){
+obs.update(this.subjectstate);
+}
+
+
+
+}
+
+public abstract class observer(){
+public subject referringSubject;
+private string obsstate;
+public void update(String obsstate){
+this.obsstate=obsstate;
+
+}
+
+
+}
+
+
+
+
+
+生产器模式：建造者模式
+导演模式 
+
+角色
+在这样的设计模式中，有以下几个角色：
+1 builder：为创建一个产品对象的各个部件指定抽象接口。
+2 ConcreteBuilder：实现Builder的接口以构造和装配该产品的各个部件，定义并明确它所创建的表示，并 提供一个检索产品的接口。
+3 Director：构造一个使用Builder接口的对象。
+4 Product：表示被构造的复杂对象。ConcreteBuilder创建该产品的内部表示并定义它的装配过程，包含定义组成部件的类，包括将这些部件装配成最终产品的接口。
+例子
+编辑
+Builder
+public interface PersonBuilder {
+void buildHead();
+void buildBody();
+void buildFoot();
+Person buildPerson();
+}
+//具体建造工具
+ConcreteBuilder
+public class ManBuilder implements PersonBuilder {
+Person person;
+public ManBuilder() {
+person = new Person();
+}
+public void buildbody() {
+person.setBody("建造男人的身体");
+}
+public void buildFoot() {
+person.setFoot("建造男人的脚");
+}
+public void buildHead() {
+person.setHead("建造男人的头");
+}
+public Person buildPerson() {
+return person;
+}
+}
+//建造者
+Director
+public class PersonDirector {
+public Person constructPerson(PersonBuilder pb) {
+pb.buildHead();
+pb.buildBody();
+pb.buildFoot();
+return pb.buildPerson();
+}
+}
+Product
+public class Person {
+private String head;
+private String body;
+private String foot;
+public String getHead() {
+return head;
+}
+public void setHead(String head) {
+this.head = head;
+}
+public String getBody() {
+return body;
+}
+public void setBody(String body) {
+this.body = body;
+}
+public String getFoot() {
+return foot;
+}
+public void setFoot(String foot) {
+this.foot = foot;
+}
+}
+public class Man extends Person {
+}
+Test
+public class Test{
+public static void main(String[] args) {
+PersonDirector pd = new PersonDirector();
+Person person = pd.constructPerson(new ManBuilder());
+System.out.println(person.getBody());
+System.out.println(person.getFoot());
+System.out.println(person.getHead());
+}
+}
+result
+建造男人的身体
+建造男人的脚
+建造男人的头
+
+
+类似于工厂模式
+增强版
+builder接口 定义公共方法 例如buildpart1 2 3或者抽象方法buildhead buildbody等 表示构建的组件
+concretebuilder 具体的 例如创建大人 小人 瘦人 胖人等 重写抽象方法
+写directory类 指导构建 contruct方法 表示构建过程 组件组装的过程  返回穿件好的对象product 传入一个具体的builder 根据builder类型来具体化哪种创建方式（高矮胖瘦） 然后构建创造过程顺序 
+最终return product 那么builder内必须有product
+接口不鼓励使用成员变量 最好多是方法 需要方法写在实现的具体类中
+另外最好实现类的方法都写在接口中 这样通过父亲接口继承实现多态机制直接调用子类方法
+
+好处：组件内部表示和创建过程分离 达到一个同样的创建过程生产不同的产品表示  封装内部创建细节 创建顺序稳定固定使用 接口 便于扩展
+导演模式  导演知道所有产品内部制造细节 导演安排零件制造顺序过程 强调组装过程
+
+
+
+
+
+外观模式：
+多只股票 都有buy和sell
+fund写buy和sell sell把多个股票一起sell fund里面存放多汁股票对象
+一个统一的界面方法去调用子系统多个组件方法
+
+
+
+
+
+
+
+
+单例模式：
+spring的xml 里bean默认单例模式 scope="singleton"
+因为一个普通的类 ，多个实例，因为不同实例的属性值等不一样，用户状态不一样。但是spring里面的bean 无论service
+dao action的bean 都没有属性值 只有方法 ，例如service接口 或者sericeimpl类都只有方法 没有属性 就是没有用户状态
+所以 所有调用该bean都是一样的 没有差异 可以只创建一个 供所有人使用 spriung默认单例 初始化时候初始化所有bean 不会因为不同人调用而
+重新创建bean 
+不适用框架的单例：
+一个类如果只需要创建一个对象，就单例，不允许自由创建对象 就是构造方法非public而是private  classname ojjetc=new classname();
+同时另外个public方法用于创建该类对象，可以返回一个本人的实例，而且是static 因为第一次通过这个方法获取实例时候没对象调用 只能类直接调用该方法
+类必须缓存该本人的对象 而且是静态属性 因为只有一个对象 省内存 
+
+[java] view plain copy
+print?在CODE上查看代码片派生到我的代码片
+
+    //懒汉式单例类.在第一次调用的时候实例化自己   
+    public class Singleton {  
+        private Singleton() {}  
+        private static Singleton single=null;  
+        //静态工厂方法   
+        public static Singleton getInstance() {  
+             if (single == null) {    
+                 single = new Singleton();  
+             }    
+            return single;  
+        }  
+    }  
+
+
+Singleton通过将构造方法限定为private避免了类在外部被实例化，在同一个虚拟机范围内，Singleton的唯一实例只能通过getInstance()方法访问。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hadoop：
+hadoop
+离线 非实时u
+大数据
+不是数据库 Hbase是数据库
+hadoop是文分布式文件系统 和计算框架
+x86-64 64为
+x86 32位
+i386是32位的 指令集不一一样
+x86是一种指令集 8086体系 
+linux centos redhat ubuntu
+unix还是有产权的！Linux是仿Unix的一种类Unix操作系统！ linux是公开源代码的。
+虚拟机和计算机cpu不一样 没有位分别
+ 
+hadoop是一个计算平台 大数据例如网站日志是文档文件 或者其余保存在oracle mysqkl等数据库中 需要转移到hadoop平台上运算 就是数据集成sqoop（sql+hadoop） 
+虚拟机：vmware workstation和 oracle vm vitualBox 
+
+google邮件 搜索大数据 给hadoop借鉴
+道奇用java写了 luench工具 ——> 借鉴谷歌nutch-->改进 hadoop
+道奇借鉴创作了 dfs和mapreduce
+hdfs hadoop distributed file sysytem分布式文件系统
+ndfs （nutch）
+云计算 数据挖掘 大数据差不多
+
+hadoop子项目
+
+
+hadoop是Google搜索技术的翻版
+google：
+0.运营商提供dns解析 给google付钱 google使用普通机箱 如今集装箱作为大型服务器 califonia大量集装箱 无外设硬盘等 只有google机箱
+1.google节约成本 google数据存放在内存 快 万一丢失 使用冗余 丢失其他也存在 而haddop存放在硬盘外村
+2.google使用（佩奇）page-rank 对搜索结果个页面排名
+3.google如何对超大数据库进行搜索特定字段 非全表扫描 倒排索引 分词多个关键字 db中每个关键字对应一个倒排列表n项 每项表示一个特定页面的某个偏移量位置出现了这个关键字 无数个项 
+假如发现摸一个页面包含多个关键字 则排序高 显示给用户 最终根据pagerank 算值大小排序
+page rank：google核心思想 垃圾中找黄金 （数据挖掘 ）给页面评分 google矩阵  
+
+hadoop： 前身是Lucene是小工具包 （小夹包）方便程序员导入实现全文搜索功能
+java编写的软件 类似于搜索引擎全文搜索
+作者：道奇 doug cutting 开始提出Lucene 遇到类似于google同问题 所以仿照额google方法思想
+ google公布了gfs和mapreduce思想 借鉴
+
+hadoop项目家族 动物命名
+
+ chukwa（数据源）Hbase（nosql非关系型数据库 列式存储 效率高） pig（轻量级语言 命令 系统自动转换成mapreduce操作 返回结果 ） hive（自动将sql转换成mapreduce命令 去运行 理解为hadoop关系型数据库） 
+mapreduce hdfs zookeeper（节点之间的通讯协调工具）
+core（操作底层）
+master：
+namenode管理
+secondarynamenode辅助 故障 人工接入解决集群崩溃问题
+slaver：
+datanode数据节点
+jobtractor作业跟踪器位于master jobtractor是集群唯一的 将用户的job分割成多个task 每个task由一个tasktractor管理 去其datanode位置进行运行 data在哪 task在哪执行  jobtractor监控task 重启失败的task
+tasktractor每个节点只有一个tasktractor
+
+master：包含namenode和second namenode 和jobtractor 
+slave：datanode和tasktractor
+
+linux iptables和selinux关闭 防火墙
+
+dos cd。。
+cd
+cd /
+mkdir（md） haha
+rd删除目录（空目录） 删除空文件夹
+dir查看目录内部文件夹 ls
+目录+dir 表示查看
+dir+路径表示查看特定路径 
+dir /s
+dir /a隐藏
+cls
+copy（move） 文件名 路径
+copy  \11.txt C:\Users\Administrator\Desktop
+del ...<a>deltree级联删除</a>
+系统对待文件和文件夹是一样对待 改名
+ren /11.txt 22.txt
+or ren /11 22改文件夹名字
+
+netstart服务
+ipconfig /all
+shutdown /sr /t 3600
+shutdown /a
+date
+net user查看用户
+net user Administrator 199157
+net start服务
+ping -t（不停歇） -l（大小） 65550 （ip）192.
+
+用eclipse
+将项目导出成一个jar export 然后hadoop jar jarclasspath 可以运行包
+map需要<key,value>
+texyinputformat（path） 
+textoutputformat（path）设置好路径 或者 类.class
+
+pig 看做hadoop的客户端软件 （就像sql plus是orcl的客户端 操作sql plus可以操作orcl数据库 操作hive可以操作hadoop集群 map reduce）连接到hadoop集群进行数据分析
+pig方便不收悉java的用户  使用pig latin（一种类似于于sql的面向数据流语言） 
+pig为了渐变用户操作诞生 使用pig latin语言 操作hadoop的复杂命令
+pig可以排序 过滤 求和 分组关联等 面向数据分析处理的轻量级语言
+pig将 pig latin语言（操作）翻译成mapreduce语言 进行操作
+pig是pig latin到map reduce的映射器
+linux安装pig之后要在linux编辑环境变量 
+centos内部：
+修改文件 ：#.base_prifile（linux某个文件名 登陆时自动运行 可以添加环境变量）
+...
+path=pig的bin目录
+java_home=java安装目录伤及目录
+export java——home
+export path
+
+set命令 检查path home等 环境变量 G
+pig -x loca本地模式 表示pig没有和hadoop连接 用的是本地模式 练级的linux文件系统 而非hdfs
+实际工作模式 是mapreduce模式  在base-prifile path增加一个指向hadoop的bin的目录 javahome不变 pig——classpath添加一个pig_classpath 为hadoop的config路径  有可能hadoop在其他机器上
+还要修改host文件ip和地址的映射  vi /etc/hosts  例如192。168.ip对应的 master或者其他
+检测：命令行 pig不需要-local 表示工作模式  grunt为前缀 
+PIG里面命令 ：
+cat text。txt 打开 pig的pig latin（grunt）语言和linux差不多
+grunt ls
+grunt cat
+grunt fs
+copyToLocal text。txt ttt（本地文件系统 不shifthadoop系统 例如linux系统）
+ sh 。。。执行操作系统命令
+ 
+ pig数据模型
+ 和关系数据库唯一区别 行各个field数量和类型可以不一样 
+ bag 表 
+ tuple 行
+ field
+ 
+pig latin 命令
+cat打开文件
+ dump 结果显示到屏幕
+ filter 过滤 条件表达式
+ foreach逐行扫描处理
+ store 临时数据的结果保存到本地系统文件 例如pig的保存到hadoop hdfs系统 而非linux
+ load 从本地或者hadoop数据装载到pig的表中
+
+grunt>(records关系表)records=load 'input/.../sample.txt' （Using pigStorage（‘#’））缺省使用制表建作为分隔符 使用*作为分隔符  As(year:chararry,temprature:int.quality:int)
+
+dump records打开显内部所有数据
+
+describe records格式
+records:{year:characarry,temp:int,quality:int}
+
+grunt>filtered_records=filter records by temparture != 9999 And  (quality ==o or...)
+
+group
+grunt>grouped_records = group filter_records by year
+dump grouped_records
+
+一行为一组 
+
+foreach：
+grunt > max_temp = foreach grouped_records generate group,max(filter_records.temperature):
+（generate）派生出新表max_temp 遍历每行
+store 
+grunt >  store b into '...本地文件系统（hadoop）路径。txt'
+b是个表
+
+distince去重复
+udf：高级复杂的pig语言  user define function
+使用java（自定义函数） python javascript（作用有限）三种语言编写udf 
+
+hadoop出现 愿意数据分析难度大 
+期待的结果：
+解决瓶颈大数据分析
+使用过去的技能 例如sql （数据分析师必备）R方便做数据分析 封装成函数 直接操作函数 
+转移平台成本低 直接插拔式增加
+
+hive 蜂巢 sql 到m-r的映射器 pig有新语言 但是hive没有 或者就是hiveql语言 就是单纯的sql 相同都是为了简化mr操作  
+使用sql语言 而非pig latin等尖酸语法
+在hadoop直接使用sql进行操作数据 方便的不是开发者（使用mapreduce） 而是sql程序员
+离线分析 
+是sql操作mapreduce 本质映射器  hive运行很慢 
+pig的grunt shell
+hive成分：
+hive也有其shell thrift web hive的shell是hive
+thrift自动生成代码 忽略
+web浏览器通过访问控制hive 类似于浏览器控制访问hdfs mpreduce
+metastore元数据库 存放基本信息表 metastore存放在默认derby（hive的内嵌数据库） or musql内嵌是很小的数据库
+解析器 sql转化成mapreduce 类似于pig latin解析成mapreduce
+
+derby小型内潜性数据库 
+
+hive的安装：
+内嵌模式：derby只允许一个用户同时连接 安装hive自带derby 但是a操作hive其他人无法连接hive
+本地独立模式 mysql在本地
+远程模式 mysql在外地
+
+安装hive
+环境变量：hive_home path classpath 
+export hive_home=/home/.../*bin($表示在以前的基础上外加)
+export path=$path:hive_home/bin 
+classpath
+set
+vi 和cat都是打开文件
+ hive命令进入hive
+ hive>show tables ;
+ 
+
+mahout: 象夫 和R等平齐 为数据分析工具
+mapreduce化：写论文好题材：提供n种常用map reduce算法 封装成一个个命令 直接执行 操作mapreduce
+
+下载 
+wget +连接
+
+解压
+
+tar xzf 包
+mahout几个环境变量
+hadoop_home
+hadoop_conf_dir
+mahout_local
+mahout_java_home
+
+
+mahout模拟聚类分析
+wget下载数据
+cat 打开
+数据存到hdfs
+hadoop_1.1.2/bin/hadoop fs -mkdir ./testdata hdfs内部新建目录
+put命令拷贝  hadoop_1.1.2/bin/hadoop fs -put ./systic_control.data ./testdata
+
+mahout org.apach.mahout.clustering....Kmeans.job（固定命令 表示mahout的kmeans聚类测试）
+贝叶斯分类
+
+mapreduce是单纯java程序 使用和和hadoop客户端 例如pig hive分别使用piglatin 和 sql简化操作 
+
+hbase是一种列式存储的数据库 区别mysql等的行存储  而且mysql orc等使用sql查询 例如select add update sql针对的是行式存储 等
+使用sql的行市数据库有很多缺点 
+nosql语言 nosql or hql列式存储 
+
+zookeeper
+分布式系统 问题：协调各种服务 负载均衡 分布式事务 锁机制 防止单点失效 
+
+
+sqoop sql数据库和hadoop的hadfs之间数据交换 
+
+avro：
+
+chukwa：工具 架构在hadoop之上 进行数据采集分析的框架
+
+cassandra nosql数据库 被hbase借鉴 和hbase都借鉴google的思想 效率低下 所有节点地位一样 无管理 五中心 没有master namenode的管理 几乎淘汰
+
+bigtable的思想：不需要再数据库大量表 一个表 nosql 列示 不同行的类型不一样 
+三个列 key 所有属性field 对应的value
+
+
+hbase和行市差别 。。。适合海量 而且简单的操作 
+烈士数据库方便压缩
+
+zookeeper：
+。。。没看
+分布式系统实现锁
+实现namednode自动切换
+协调分布式系统 断点失效 负载均衡 
+不需要安装 
+ticktime 心跳 
+
+hbase安装：单机模式
+解压 
+修改conf /base-env.sh
+hbase-site.xml
+启动hbase
+验证hmaster是否启动
+进入shell
+启动hbase：bin/start-hbase.sh
+分布式安装：。。。
+
+关系型数据库弱电：
+很难进行分布式部署 一般放置在单台机器 例如分布式a表很大  分布在20台机器上 a和b之间进行连接操作 每一台机器的数据要分发给其他19台机器 
+
+
+scoop下载 
+配置环境 
+sqoop import--
+connect jdbc：mysql：//lcoalhost/hadoopguide/...
+也可以到处到hbase数据库：...
+
+
+淘宝扩大业务 海量 
+去i ibm o oracle e
+hadoop是开源的 公司使用hadoop 一般要改进 在使用
+京东 淘宝都是要修改的hadoop集群 例如单点问题 安全性 
+阿里巴巴核心技术：
+1.一版日志在浏览器日志txt或者orcl里面 阿里从orcl日志文件 数据库日志文件时二进制的 浏览器日志是txt格式  读取 不干扰数据库 
+2,。。。
+
+hadoop在百度的使用
+日志分析 例如每天热词
+
+学习hadoop开源的源代码
+
+raid5 raid1 分布式平台的备份
+ 
+centos联网 
+vm的三个服务开启
+在host的连接适配器  选一个连接 右键 共享 其他计算机通过此计算机连接
+三种方式 vm8
+所有程序 vm 虚拟网络编辑器 选择vmnet8 处理 
+centos 系统  首选 网络 自动获取dhcp
+重启
+可以设置路由器位代理dns 
+linux 联网
+1.host几个net服务开启 
+nat模式
+不需要：本地适配起 属性 允许对本计算机连接 
+shift +冒号 q返回
+exit关闭
+linux默认的是dhcp自动获取 eth0 不要修改 需要自己添加 
+ su yll
+ su
+ exit退出当前用户 
+ 文件里面 
+ 
+ yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软体包，无须繁琐地一次次下载、安装。yum提供了查找、安装、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。
+ 
+ wq！强制保存退出
+ shift +： 调出： q！
+找到文件夹 在terminate打开 再vim也可以 
+ibus-pinyin是linux中文输入法
+ /etc/sysconfig/network-scripts/ifcfg-eth0
+ DEVICE 接口名（设备,网卡）
+BOOTPROTO IP的配置方法（static:固定IP， dhcpHCP， none:手动）          
+HWADDR MAC地址
+ONBOOT 系统启动的时候网络接口是否有效（yes/no）
+TYPE 网络类型（通常是Ethemet）
+NETMASK 网络掩码
+IPADDR IP地址（静态地址）
+IPV6INIT IPV6是否有效（yes/no）
+GATEWAY 默认网关IP地址
+ 若是您java还有安装请 用下面命令安装 
+
+yum install java-1.7.0-openjdk
+vi /etc/hosts系统路由ip 地址映射
+vi /etc/sysconfig/
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+tab自动补全
+修改配置文件之后 用source立即生效
+java -version判断是否jdk
+RPM是RedHat Package Manager（RedHat软件包管理工具）类似Windows里面的“添加/删除程序”
+rpm -qa | grep httpd　　　　　 ＃[搜索指定rpm包是否安装]--all搜索*httpd*
+rpm -ql httpd　　　　　　　　　＃[搜索rpm包]--list所有文件安装目录
+1、可以安装、删除、升级和管理软件；当然也支持在线安装和升级软件；
+2、通过RPM包管理能知道软件包包含哪些文件，也能知道系统中的某个文件属于哪个软件包；
+3、可以在查询系统中的软件包是否安装以及其版本；
+RPM包里面都包含什么？里面包含可执行的二进制程序，这个程序和Windows的软件包中的.exe文件类似是可执行的
+RPM软件的安装、删除、更新只有root权限才能使用；对于查询功能任何用户都可以操作；如果普通用户拥有安装目录的权限，也可以进行安装；
+1）查询系统已安装的软件；
+
+语法：rpm -q 软件名
+
+）查询一个已经安装的文件属于哪个软件包；
+
+  保存退出， 最后运行下面命令， 使配置生效
+
+source  /etc/profile
+语法 rpm -qf 文件名
+
+注：文件名所在的绝对路径要指出
+
+ 
+查询一个已经安装的文件属于哪个软件包；
+举例：
+[root@localhost RPMS]# rpm -qf /usr/lib/libacl.la
+libacl-devel-2.2.23-8
+
+查询已安装软件包都安装到何处；
+
+ 
+语法：rpm -ql 软件名 或 rpm rpmquery -ql 软件名
+
+举例：
+
+[root@localhost RPMS]# rpm -ql lynx
+[root@localhost RPMS]# rpmquery -ql lynx
+
+查询一个已安装软件包的信息
+
+ 
+语法格式： rpm -qi 软件名
+
+查看一下已安装软件的配置文件；
+
+ 
+语法格式：rpm -qc 软件名
+
+举例：
+[root@localhost RPMS]# rpm -qc lynx
+
+
+[root@localhost beinan]#rpm -vih file.rpm 注：这个是用来安装一个新的rpm 包；
+
+2、删除一个rpm 包；
+
+首先您要学会查询rpm 包 ；请看前面的说明；
+
+[root@localhost beinan]#rpm -e 软件包名 
+
+linux彻底删除文件夹 rm（remove不是rd）-rf /usr/java
+
+VMware Network Adapter VMnet1 通常以HOST-ONLY的方式让虚拟机接入网络     VMware Network Adapter VMnet8  通常以NAT的方式让虚拟机接入网络 
+
+理论上说NAT模式下，只能虚拟机访问外网，而主机是无法访问虚拟机的，添加了这个网络适配器后，就可以从主机访问虚拟机了，楼主可以看看这个网卡的IP配置，这个IP地址是和虚拟机的IP地址属于同一网段的。因此就就可以从主机ping通虚拟机了。 
+DHCP(Dynamic Host Configuration Protocol动态主机配置协议
+DBCP(DataBase connection pool),数据库连接池。
+我们首先说一下VMware的几个虚拟设备
+
+　　bridge：VMnet0：范围最广 完全就是一台实体机器  但是需要自己配置 双向 虚拟机也可以访问另外个网络的bridge虚拟机 
+用于虚拟桥接网络下的虚拟交换机
+桥接网络是指本地物理网卡和虚拟网卡通过VMnet0虚拟交换机进行桥接，物理网卡和虚拟网卡在拓扑图上处于同等地位 那么物理网卡和虚拟网卡就相当于处于同一个网段，虚拟交换机就相当于一台现实网络中的交换机。所以两个网卡的IP地址也要设置为同一网段。
+我们看到，物理网卡和虚拟网卡的IP地址处于同一个网段，子网掩码、网关、DNS等参数都相同。两个网卡在拓扑结构中是相对独立的。
+　　在这种模式下，VMWare虚拟出来的操作系统就像是局域网中的一独立的主机，它可以访问网内任何一台机器。在桥接模式下，你需要手工为虚拟系统配置IP地址、子网掩码，而且还要和宿主机器处于同一网段，这样虚拟系统才能和宿主机器进行通信。同时，由于这个虚拟系统是局域网中的一个独立的主机系统，那么就可以手工配置它的TCP/IP配置信息，以实现通过局域网的网关或路由器访问互联网。
+
+　　host only：VMnet1：仅用于内网 连接不了外网  用于虚拟Host-Only网络下的虚拟交换机
+在Host-Only模式下，虚拟网络是一个全封闭的网络，它唯一能够访问的就是主机。其实Host-Only网络和NAT网络很相似，不同的地方就是 Host-Only网络没有NAT服务，所以虚拟网络不能连接到Internet。
+Host-Only的宗旨就是建立一个与外界隔绝的内部网络，来提高内网的安全性。这个功能或许对普通用户来说没有多大意义
+　　
+nat：VMnet8：用于虚拟NAT网络下的虚拟交换机 提供nat 最省心的 不需要自己配置 网络地址转换 可以外网 但是没有bridge自由 单向 
+NAT模式下的虚拟系统的TCP/IP配置信息是由VMnet8(NAT)虚拟网络的DHCP服务器提供的，无法进行手工修改，因此虚拟系统也就无法和本局域网中的其他真实主机进行通讯。采用NAT模式最大的优势是虚拟系统接入互联网非常简单，你不需要进行任何其他的配置，只需要宿主机器能访问互联网即可。
+在VMware的3中网络模式中，NAT模式是最简单的，基本不需要手动配置IP地址等相关参数。至于桥接模式则需要额外的IP地址，如果是在内网环境中还很容易，如果是ADSL宽带就比较麻烦了，ISP一般是不会大方的多提供一个公网IP的。
+比如在一个大型的服务器体系中，我们有网页服务器，FTP服务器，数据库服务器等等，那么这些都是通过内网的地址映射出去的。就是一个端口对应一个服务。而对方只能通过特定的端口号进来，除此之外，无法访问该主机的。
+如果你想利用VMWare安装一个新的虚拟系统，在虚拟系统中不用进行任何手工配置就能直接访问互联网，建议你采用NAT模式。
+单向访问  
+
+1a的虚拟机可以访问b
+2无法访问b的虚拟机 
+3a无法b的虚拟几
+4a可以访问b
+
+三者区别 
+共同点 内网都可以双向访问
+
+1.hostonly 最小仅内网 无法连接internet 内网自动配置 
+2.nat 中 可以外网 但是单向 虚拟机和非自己主机单向 不需要配置 
+3.bridge 大 任何 双向  需要主动配置ip dns等 而且要和host相同
+
+a和b电闹 通信 1，qq 2.微信
+3.飞秋 4.等 
+通过不同软件不同端口
+ovreride推翻 
+
+1） 临时生效，重启后复原
+开启： service iptables start
+关闭： service iptables stop
+
+2） 永久性生效，重启后不会复原
+开启： chkconfig iptables on
+关闭： chkconfig iptables off
+或者setup
+vi /etc/hosts
+ 通常情况下这个文件首先记录了本机的ip和主机名：
+172.0.0.1    localhost.localdomain    localhost
+
+3，配置文件格式说明
+
+一般/etc/hosts的内容一般有如下类似内容：
+修改完 可以直接ping slave1.hadoop相当于前面的ip 根据hostname ping
+hosts文件的作用相当如DNS，提供IP地址到hostname的对应
+Linux系统在向DNS服务器发出域名解析请求之前会查询/etc/hosts文件，如果里面有相应的记录，就会使用hosts里面的记录
+127.0.0.1   localhost.localdomain    localhost
+192.168.1.100    linumu100.com    linumu100
+192.168.1.120   ftpserver    ftp120
+ 
+ 
+ /etc/profile全局 所有变量
+这个文件是每个用户登录时都会运行的环境变量设置
+# source /etc/profile
+bashfile 局部 
+是单用户登录时比如root会运行的
+
+# yum install java-1.7.0-openjdk
+很多命令只有root有权限 所有
+
+不同虚拟机执念拷贝
+ scp /usr/local/hadoop/hadoop-1.0.1.tar.gz root@192.168.68.8:/usr/local/hadoop
+ 默认只有root可以mkdir
+chown –R hadoop:hadoop hadoop #将文件夹"hadoop"读权限分配给hadoop用户
+
+-文件所属 文件所属组 其他用户
+-普通文件 d目录
+-rwxr-xr-x
+命令看当前用户属于哪个组groups
+为了改变文件或其它文件系统对象的所有者或组，分别使用 chown 或 chgrp。这两个命令都要一个用户名或组名作参数，后面跟上一个或多个文件名。
+chown root：group1 / 该拥有者为root用户的group1组
+# chown root /etc/passwd
+# chgrp wheel /etc/passwd
+chmod改变权限
+chmod ugo +x（-w +r） /etc/... u:当前用户  g:组   o:其他用户
+chmod u=rx scriptfile.sh
+chmod 0755 scriptfile.sh
+                        rwx 7
+                        rw- 6
+                        r-x 5
+                        r-- 4
+                        -wx 3
+                        -w- 2
+                        --x 1
+                        --- 0
+  1777  1表示d 0表示-    
+  该字段中的首字符（-）指定该文件的类型，本例中它是一个常规文件。其它可能的首字符还有：
+“d”目录
+“l”符号链接
+“c”字符专门设备文件
+“b”块专门设备文件
+“p”先进先出
+“s”套接字
+三个三元组
+
+vim色调 
+vi无
+vim进入 i进入插入编辑模式 esc退出 退出后：qW！ 等 保存退出
+
+下载hadoop 解压 安装 环境变量 source 
+whereis java（hadoop） 查找java等位置
+
+
+4.jdk默认情况下jdk安装得路径
+/usr/lib/jvm 
+classpath在新版的JDK中完全没有必要了（好像是JDK1.6之后），但是其他的比方说是java home or bin path之类的还是要在配置文件里配置的，你如果用yum安装的话不知道是不是直接就写了配置文件了。我下载的是tar文件，在RH下面就需要配置config文件。
+你试下输入whereis java，看下是不是你安装的。
+因为有些系统中是自动安装了openjdk的。
+有些linux yum之后不需要修改环境变量 自动安装openjdk
+
+用rpm卸载
+第一、以root账号登录如下
+[whutsun@localhost ~]$ su root
+Password: 
+第二、查看系统已安装的jdk
+[root@localhost whutsun]# rpm -qa|grep jdk
+jdk-1.6.0_22-fcs
+第三、卸载jdk
+[root@localhost whutsun]# rpm -e --nodeps jdk-1.6.0_22-fcs
+/var/tmp/rpm-tmp.17570: line 466: /usr/java/jdk1.6.0_22/bin/java: No such file or directory
+第四、再次卸载，提示JDK已被删除，系统没有安装jdk
+[root@localhost whutsun]# rpm -e --nodeps jdk-1.6.0_22-fcs
+error: package jdk-1.6.0_22-fcs is not installed
+下面是卸载与JAVA相关的文件，命令用法与上面相同，如果一次要需要卸载多个文件，直接在空格分隔即可，如：rpm -e --nodeps sun-javadb-javadoc-10.5.3-0.2 sun-javadb-common-10.5.3-0.2
+
+rpm -i +包安装 
+rpm -e 卸载
+rpm -ql位置（qa地址） java
+rpm -i --force --nodeps +rpm包名强制安装 忽略依赖包
+rpm -e --force --nodeps +rpm包名强制卸载 忽略
+--nodeps                         do not verify package dependencies
+--force强制
+--ivh i+V+h install+v为更多信息输出+h包详细内容打印
+
+rpm -q samba 列出samba的安装信息
+rpm -qa|grep samba 是列出包含samba字段的软件的信息。比前者更准确搜索 按照字段搜索
+
+你可以理解为一个完全匹配软件名，一个不完全匹配软件名
+
+-v 显示附加信息
+-h (or --hash) 安装时输出hash记号 (``#'')
+--force 忽略软件包及文件的冲突
+--nodeps 忽略以来
+rpm -ql 包名注意这里的是不包括.rpm后缀的软件包的名称；如果只是想知道可执行程序放到那里去了，也可以用which，比如which vsftpd、??获得软件包相关的信息用rpm -q，q表示查询query，后面可以跟其他选项，比如
+i 表示info，获得软件包的信息；
+l 表示list，获得文件列表；
+a 表示all，在所有包中执行查询；
+rpm -qa查询所有安装过的包
+-qp (or ``-'') 查询软件包的文件
+-qf 查询属于哪个软件包+包名称
+ls -l列表
+ls -a所有 包括隐藏
+centos会自带openjdk 最好卸载 安装sun的jdk
+
+X86 代表i386,i486系列， 是为32位操作系统所使用的包。 x86 i386 32位
+X64是64位操作系统所用的包。安装何种包，视系统而定
+uname --help
+系统信息
+uname -l（-a -r）
+虚拟机之间无法复制粘贴 windos和虚拟机可以
+tar 安装：[root@localhost fcitx]# tar xvzf fcitx-3.2-050827.tar.bz2  
+rpm安装：rpm -i 。。
+~代表你的/home/用户明目录
+假设你的用户名是x，那么~/就是/home/x/
+.是代表此目录本身，但是一般可以不写
+所以cd ~/. 和cd ~ 和cd ~/效果是一样的
+但是.后面有东西又是另外一个问题，点在文件名头部，代表一个隐藏文件
+home里面 是yll和其他用户 																																																																																																	
+vim /etc/sysconfig/network修改主机名 最好用root
+host转多个是本地dns 连接网络受限查看hosts 也可以通过主机名ping 是主机和ip的lan局域网对应
+rpm -qagrep openssh
+yum install ssh安装SSH协议
+yum install rsync  rsync是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的⽂文件
+
+SSH
+⽆无密码原理
+Master（NameNode | JobTracker）作为客户端，要实现⽆无密码公钥认证，连接到服务器Salve（DataNode | Tasktracker）上时，需要在Master上⽣生成⼀一个密钥对，包括⼀一个公钥和⼀一个私钥，⽽而后将公钥复制到所有的Slave上。当Master通过SSH连接Salve时，
+Salve就会⽣生成⼀一个随机数并⽤用Master的公钥对随机数进⾏行加密，并发送给Master。Master收到加密数之后再⽤用私钥解密，并将解密数回传给Slave，Slave确认解密数⽆无误之后就允许Master进⾏行连接了。这就是⼀一个公钥认证过程，其间不需要⽤用户⼿手⼯工输入入密码。重要过程是将客户端Master复制到Slave上
+公钥加密 master只需要用私钥 master生成公钥给slave加密 私钥留给自己解密
+私钥解密  slave只需要用公钥
+
+
+
+虾⽪皮
+关注
+ - 2
+粉丝
+ - 1229
+荣誉：
+推荐博客
++
+加关注
+77
+0
+(
+请您对⽂文章做出评价
+)
+Hadoop
+集群（第
+5
+期）
+_Hadoop
+安装配置
+1、集群部署介绍
+1、集群部署介绍
+1.1  Hadoop简介
+1.1  Hadoop简介
+Hadoop
+是
+Apache
+软件基⾦金会旗下的⼀一个开源分布式计算平台。以
+Hadoop
+分布式⽂文件系统（
+HDFS
+，
+Hadoop
+Distributed Filesystem
+）和
+MapReduce
+（
+Google MapReduce
+的开源实现）为
+核⼼心
+的
+Hadoop
+为⽤用户提供了系统底层
+细节透明的分布式基础架构。
+　　对于
+Hadoop
+的集群来讲，可以分成两⼤大类⾓角⾊色：
+Master
+和
+Salve
+。⼀一个
+HDFS
+集群是由⼀一个
+NameNode
+和若干个
+DataNode
+组成的。其中
+NameNode
+作为主服务器，管理⽂文件系统的命名空间和客户端对⽂文件系统的访问操作；集群中的
+DataNode
+管理存储的数据。
+MapReduce
+框架是由⼀一个单独运⾏行在主节点上的
+JobTracker
+和运⾏行在每个集群从节点的
+TaskTracker
+共同组成
+的。主节点负责调度构成⼀一个作业的所有任务，这些任务分布在不同的从节点上。主节点监控它们的执⾏行情况，并且重新执⾏行之前的失
+败任务；从节点仅负责由主节点指派的任务。当⼀一个
+Job
+被提交时，
+JobTracker
+接收到提交作业和配置信息之后，就会将配置信息等分
+发给从节点，同时调度任务并监控
+TaskTracker
+的执⾏行。
+　　从上⾯面的介绍可以看出，
+HDFS
+和
+MapReduce
+共同组成了
+Hadoop
+分布式系统体系结构的核⼼心。
+HDFS
+在集群上实现
+分布式⽂文件
+系统
+，
+MapReduce
+在集群上实现了
+分布式计算
+和
+任务处理
+。
+HDFS
+在
+MapReduce
+任务处理过程中提供了⽂文件操作和存储等⽀支持，
+MapReduce
+在
+HDFS
+的基础上实现了任务的分发、跟踪、执⾏行等⼯工作，并收集结果，⼆二者相互作⽤用，完成了
+Hadoop
+分布式集群的主
+要任务。
+1.2  环境说明
+1.2  环境说明
+　　集群中包括
+4
+个节点：
+1
+个
+Master
+，
+3
+个
+Salve
+，节点之间局域⺴⽹网连接，可以相互
+ping
+通，具体集群信息可以查看
+"
+Hadoop
+集群
+（第
+2
+期）
+"
+。节点
+IP
+地址分布如下：
+机器名称
+IP
+地址
+Master.Hadoop
+192.168.1.2
+Salve1.Hadoop
+192.168.1.3
+Salve2.Hadoop
+192.168.1.4
+Salve3.Hadoop
+192.168.1.5
+　　四个节点上均是
+CentOS6.0
+系统，并且有⼀一个相同的⽤用户
+hadoop
+。
+Master
+机器主要配置
+NameNode
+和
+JobTracker
+的⾓角⾊色，负
+责总管分布式数据和分解任务的执⾏行；
+3
+个
+Salve
+机器配置
+DataNode
+和
+TaskTracker
+的⾓角⾊色，负责分布式数据存储以及任务的执⾏行。其
+实应该还应该有
+1
+个
+Master
+机器，⽤用来作为
+备⽤用
+，以防⽌止
+Master
+服务器
+宕机
+，还有⼀一个备⽤用⻢马上启⽤用。后续经验积累⼀一定阶段后
+补上
+⼀一台备⽤用
+Master
+机器。
+1.3  网络配置
+1.3  网络配置
+Hadoop
+集群要按照
+1.2
+⼩小节
+表格所⽰示进⾏行配置，我们在
+"
+Hadoop
+集群（第
+1
+期）
+"
+的
+CentOS6.0
+安装过程就按照提前规划好的主
+机名进⾏行安装和配置。如果实验室后来⼈人在安装系统时，没有配置好，不要紧，没有必要重新安装，在安装完系统之后仍然可以根据后
+来的规划对机器的主机名进⾏行修改。
+　　下⾯面的例⼦子我们将以
+Master
+机器为例，即主机名为
+"Master.Hadoop"
+，
+IP
+为
+"192.168.1.2"
+进⾏行⼀一些主机名配置的相关操作。其
+他的
+Slave
+机器以此为依据进⾏行修改。
+1
+）查看当前机器名称
+　　⽤用下⾯面命令进⾏行显⽰示机器名称，如果跟规划的不⼀一致，要按照下⾯面进⾏行修改。
+hostname
+　　上图中，⽤用
+"hostname"
+查
+"Master"
+机器的名字为
+"Master.Hadoop"
+，与我们预先规划的⼀一致。
+2
+）修改当前机器名称
+　　假定
+我们发现我们的机器的主机名不是我们想要的，通过对
+"
+/etc/sysconfig/network
+"
+⽂文件修改其中
+"
+HOSTNAME
+"
+后⾯面的
+值，改成我们规划的名称。
+　　这个
+"
+/etc/sysconfig/network
+"
+⽂文件是定义
+hostname
+和是否利⽤用⺴⽹网络的不接触⺴⽹网络设备的对系统全体定义的⽂文件。
+　　设定形式
+：设定值
+=
+值
+"/etc/sysconfig/network"
+的
+设定项⺫⽬目
+如下：
+NETWORKING 
+是否利⽤用⺴⽹网络
+GATEWAY 
+默认⺴⽹网关
+IPGATEWAYDEV 
+默认⺴⽹网关的接⼝口名
+HOSTNAME 
+主机名
+DOMAIN 
+域名
+　　⽤用下⾯面命令进⾏行修改当前机器的主机名（
+备注：
+修改系统⽂文件⼀一般⽤用
+root
+⽤用户）
+vim /etc/sysconfig/network
+　　通过上⾯面的命令我们从
+"/etc/sysconfig/network"
+中找到
+"HOSTNAME"
+进⾏行修改，查看内容如下：
+3
+）修改当前机器
+IP
+假定
+我们的机器连
+IP
+在当时安装机器时都没有配置好，那此时我们需要对
+"
+ifcfg-eth0
+"
+⽂文件进⾏行配置，该⽂文件位
+于
+"
+/etc/sysconfig/network-scripts
+"
+⽂文件夹下。
+　　在这个⺫⽬目录下⾯面，存放的是⺴⽹网络接⼝口（⺴⽹网卡）的制御脚本⽂文件（控制⽂文件），
+ifcfg- eth0
+是默认的第⼀一个⺴⽹网络接⼝口，如果机器中有
+多个⺴⽹网络接⼝口，那么名字就将依此类推
+ifcfg-eth1
+，
+ifcfg-eth2
+，
+ifcfg- eth3
+，
+......
+。
+　　这⾥里⾯面的⽂文件是相当重要的，涉及到⺴⽹网络能否正常⼯工作。
+　　设定形式：设定值
+=
+值
+　　设定项⺫⽬目项⺫⽬目如下：
+DEVICE 
+接⼝口名（设备
+,
+⺴⽹网卡）
+BOOTPROTO IP
+的配置⽅方法（
+static:
+固定
+IP
+，
+ dhcpHCP
+，
+ none:
+⼿手动）
+HWADDR MAC
+地址
+ONBOOT 
+系统启动的时候⺴⽹网络接⼝口是否有效（
+yes/no
+）
+TYPE 
+⺴⽹网络类型（通常是
+Ethemet
+）
+NETMASK 
+⺴⽹网络掩码
+IPADDR
+ IP
+地址
+IPV6INIT IPV6
+是否有效（
+yes/no
+）
+GATEWAY 
+默认⺴⽹网关
+IP
+地址
+　　查看
+"/etc/sysconfig/network-scripts/ifcfg-eth0"
+内容，如果
+IP
+不复核，就⾏行修改。
+　　如果上图中
+IP
+与规划不相符，⽤用下⾯面命令进⾏行修改：
+vim /etc/sysconfig/network-scripts/ifcgf-eth0
+　　修改完之后可以⽤用
+"ifconfig"
+进⾏行查看。
+4
+）配置
+hosts
+⽂文件（
+必须
+）
+"
+/etc/hosts
+"
+这个⽂文件是⽤用来配置主机将⽤用的
+DNS
+服务器信息，是记载
+LAN
+内接续的各主机的对应
+[HostName
+和
+IP]
+⽤用的。当
+⽤用户在进⾏行⺴⽹网络连接时，⾸首先查找该⽂文件，寻找对应主机名（或域名）对应的
+IP
+地址。
+　　我们要测试两台机器之间知否连通，⼀一般⽤用
+"ping 
+机器的
+IP"
+，如果想⽤用
+"ping 
+机器的主机名
+"
+发现找不⻅见该名称的机器，解决的办
+法就是修改
+"
+/etc/hosts
+"
+这个⽂文件，通过把
+LAN
+内的各主机的
+IP
+地址和
+HostName
+的
+⼀一⼀一对应
+写⼊入这个⽂文件的时候，就可以解决问
+题。
+　　例如：机器为
+"Master.Hadoop:192.168.1.2"
+对机器为
+"Salve1.Hadoop:192.168.1.3"
+⽤用命令
+"ping"
+记性连接测试。测试结果
+如下：
+从上图中的值，直接对
+IP
+地址进⾏行测试，能够
+ping
+通，但是对主机名进⾏行测试，发现没有
+ping
+通，提⽰示
+"unknown host——
+未知
+主机
+"
+，这时查看
+"Master.Hadoop"
+的
+"/etc/hosts"
+⽂文件内容。
+　　发现⾥里⾯面没有
+"192.168.1.3 Slave1.Hadoop"
+内容，故⽽而本机器是⽆无法对机器的主机名为
+"Slave1.Hadoop" 
+解析。
+　　在进⾏行
+Hadoop
+集群
+配置中，需要在
+"/etc/hosts"
+⽂文件中添加集群中所有机器的
+IP
+与主机名，这样
+Master
+与所有的
+Slave
+机器之
+间不仅可以通过
+IP
+进⾏行通信，⽽而且还可以通过主机名进⾏行通信。所以在所有的机器上的
+"/etc/hosts"
+⽂文件
+末尾
+中都要添加如下内容：
+192.168.1.2 Master.Hadoop
+192.168.1.3 Slave1.Hadoop
+192.168.1.4 Slave2.Hadoop
+192.168.1.5 Slave3.Hadoop
+　　⽤用以下命令进⾏行添加：
+vim /etc/hosts
+　　添加结果如下：
+　　现在我们在进⾏行对机器为
+"Slave1.Hadoop"
+的主机名进⾏行
+ping
+通测试，看是否能测试成功。
+　　从上图中我们已经能⽤用主机名进⾏行
+ping
+通了，说明我们刚才添加的内容，在局域⺴⽹网内能进⾏行
+DNS
+解析了，那么现在剩下的事⼉儿就
+是在其余的
+Slave
+机器上进⾏行相同的配置。然后进⾏行测试。（
+备注：
+当设置
+SSH
+⽆无密码验证后，可以
+"scp"
+进⾏行复制，然后把原来
+的
+"hosts"
+⽂文件执⾏行覆盖即可。）
+1.4  所需软件
+1.4  所需软件
+1
+）
+JDK
+软件
+下载地址：
+http://www.oracle.com/technetwork/java/javase/index.html
+    JDK
+版本：
+jdk-6u31-linux-i586.bin
+2
+）
+Hadoop
+软件
+下载地址：
+http://hadoop.apache.org/common/releases.html
+    Hadoop
+版本：
+hadoop-1.0.0.tar.gz
+1.5  VSFTP上传
+1.5  VSFTP上传
+　　在
+"
+Hadoop
+集群（第
+3
+期）
+"
+讲了
+VSFTP
+的安装及配置，如果没有安装
+VSFTP
+可以按照该⽂文档进⾏行安装。如果安装好了，就可以通
+过
+FlashFXP.exe
+软件把我们下载的
+JDK6.0
+和
+Hadoop1.0
+软件上传到
+"
+Master.Hadoop:192.168.1.2
+"
+服务器上。
+　　刚才我们⽤用⼀一般⽤用户（
+hadoop
+）通过
+FlashFXP
+软件把所需的两个软件上传了跟⺫⽬目下，我们通过命令查看下⼀一下是否已经上传了。
+从图中，我们的所需软件已经准备好了。
+2、SSH无密码验证配置
+2、SSH无密码验证配置
+Hadoop
+运⾏行过程中需要管理远端
+Hadoop
+守护进程，在
+Hadoop
+启动以后，
+NameNode
+是通过
+SSH
+（
+Secure Shell
+）来启动和
+停⽌止各个
+DataNode
+上的各种守护进程的。这就必须在节点之间执⾏行指令的时候是不需要输⼊入密码的形式，故我们需要配置
+SSH
+运⽤用⽆无
+密码公钥认证的形式，这样
+NameNode
+使⽤用
+SSH
+⽆无密码登录并启动
+DataName
+进程，同样原理，
+DataNode
+上也能使⽤用
+SSH
+⽆无密码登
+录到
+NameNode
+。
+2.1  安装和启动SSH协议
+2.1  安装和启动SSH协议
+　　在
+"Hadoop
+集群（第
+1
+期）
+"
+安装
+CentOS6.0
+时，我们选择了⼀一些基本安装包，所以我们需要两个服务：
+ssh
+和
+rsync
+已经安装了。
+可以通过下⾯面命令查看结果显⽰示如下：
+rpm –qa | grep openssh
+rpm –qa | grep rsync
+　　假设
+没有安装
+ssh
+和
+rsync
+，可以通过下⾯面命令进⾏行安装。
+yum install ssh 
+安装
+SSH
+协议
+yum install rsync 
+（
+rsync
+是⼀一个远程数据同步⼯工具，可通过
+LAN/WAN
+快速同步多台主机间的⽂文件）
+service sshd restart 
+启动服务
+　　确保所有的服务器都安装，上⾯面命令执⾏行完毕，各台机器之间可以通过密码验证相互登。
+2.2  配置Master无密码登录所有Salve
+2.2  配置Master无密码登录所有Salve
+1
+）
+ 
+hostname查看主机名
+etc/sysconfig/networking修改主机名等配置
+
+SSH
+⽆无密码原理
+Master
+（
+NameNode | JobTracker
+）作为客户端，要实现⽆无密码公钥认证，连接到服务器
+Salve
+（
+DataNode | Tasktracker
+）
+上时，需要在
+Master
+上⽣生成⼀一个密钥对，包括⼀一个公钥和⼀一个私钥，⽽而后将公钥复制到所有的
+Slave
+上。当
+Master
+通过
+SSH
+连接
+Salve
+时，
+Salve
+就会⽣生成⼀一个随机数并⽤用
+Master
+的公钥对随机数进⾏行加密，并发送给
+Master
+。
+Master
+收到加密数之后再⽤用私钥解
+密，并将解密数回传给
+Slave
+，
+Slave
+确认解密数⽆无误之后就允许
+Master
+进⾏行连接了。这就是⼀一个公钥认证过程，其间不需要⽤用户⼿手⼯工
+输⼊入密码。重要过程是将客户端
+Master
+复制到
+Slave
+上。
+2
+）
+Master
+机器上⽣生成密码对
+在
+Master
+节点上执⾏行以下命令：
+ssh-keygen –t rsa –P ''
+
+
+　这条命是生成其无密码密钥对，询问其保存路径时直接回⻋车采⽤用默认路径。⽣生成的密钥对：id_rsa和id_rsa.pub，默认存储在"/home/hadoop/.ssh"目录下。查看"/home/hadoop/"下是否有
+".ssh"文件夹，且".ssh"文件下是否有两个刚⽣生产的⽆无密码密钥对。
+接着在Master节点上做如下配置，把id_rsa.pub追加到授权的key里⾯面去。
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+将公钥导入授权keys之后 同目录多个授权keys文件
+追加>> 
+
+
+
+whoami hadoop用户
+hostname master。hadoop
+./home/yll
+~/hadoop
+rm -r 目录 删除其子文件
+ssh-keygen -t rsa -P" 
+ssh-keygen -t dsa centos的 keygen之前无空格
+ls -l列表 -a所有包括隐藏 -R（子文件）
+useradd yll <回车>
+passwd yll <回车>
+
+bash-4.1$不显示用户名路径的解决方法
+vi ~/.bash_profile  局部环境
+/etc/profile总体环境
+~/bash_profile修改基本用户 当前用户 的配置 例如显示问题 username@machine
+export PS1='[\u@\h \W]\$'
+source ~/.bash_profile 
+
+/etc/ssh/sshd_config防止关于ssh的厨师配置 例如rsa验证方式开启？公约四月配对？author权限路径。ssh/authorkeys..
+修改完service sshd restart 很多默认不需要改
+ssh到另外机器 可以控制的地方是那台机器的位置
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+iso+mac：
+
+avd就是安卓模拟器 在eclipse内部可以
+但是苹果手机模拟器必须在mac os系统下 
+所以徐虚拟机装mac os 然后安装模拟器 
+ios是iphone ipad系统
+mac os是苹果电脑系统
+
+
+控制+alt 跳出虚拟机
+可惜MAC操作系统只能安装在苹果电脑中
+
+sata:ss-st500dm002-1bd142是什么意思
+2014-10-16 18:10 ma9zJ57 | 分类：硬盘 | 浏览290次
+分享到：
+2014-10-16 19:13
+提问者采纳
+
+SATA端口上有硬盘，硬盘为希捷硬盘，型号为st500dm002
+
+SATA是Serial ATA的缩写，即串行ATA。这是一种完全不同于并行ATA的新型硬盘接口类型
+
+把U盘格式化为 任何启动方式（usbzip、usbhdd...）对U盘都没有损害。只不过为U盘增加了引导功能。
+
+pe 进入win8或者03等 安装win7/8程序 会先进入一个假win8 只是界面 然后安装u盘内部系统 大白菜有引导启动的作用
+大白菜等可以引导 哪怕没有iso文件 一样在电脑出现问题 无法启动时候 设置u盘启动 从u盘 然后从硬盘引导
+
+大白菜等里面有disk genius等分区工具
+新进入的pe有启动修复工具 nt6等修复
+双系统 
+需要先分出分区 
+
+partition magic分区
+
+macbook air自带mac os 使用hfs文件系统
+CDR 在mac下 可以直接写入U盘 DMG 会有一个验证过程，不验证完成不能写入U盘 MAC下磁盘工具可以直接将已经安装好的系统打包做成dmg镜像，就像ghost
+写入硬盘来说。这两个后缀可以粗略通用。。。
+cdr是懒人版别人打包的，dmg一般是官方的原版
+不用这么麻烦。cdr直接用windows下的硬盘助手写到u盘装就好了。还有cdr可以直接改为iso。。可以正常使用。但我试过GM懒人版iso在mac下恢复到U盘老是出错。。LION时直接改为iso就可以在系统下恢复到U盘
+
+CDR 转换成 ISO 文件
+
+把 CDR 直接改变扩展名为 ISO 文件就好了。计算机可以识别
+
+
+记住选择“使用ISO“” 
+
+
+DMG 转换为 CDR
+
+    首先双击打开 DMG 文件。
+
+    运行“磁盘工具”（应用程序->实用工具）
+
+    在右侧选中需要转换的 DMG文件，再点击转换按钮 
+
+最新版本的Unlock-All-v130，即Unlocker for VMware workstation 1.3.0
+它是VM虚拟机用来安装mac操作系统必备的补丁,本版本支持最新的vmare虚拟机。
+运行这个补丁后，你才可以看到Apple Mac OS X 的安装选项。否则是无法加载ISO（DMG）镜像文件进行安装的。想安装黑苹果这个补丁是不可缺少的
+unlocak203针对最新vaware11
+有些设置需要关闭服务 但是打开软件后默写服务自动开启 
+虚拟机安装时候必须把unlocak文件放到vmware安装根目录  否则怎么知道执行unlocak的vm在哪里呢 ？管理员执行 现关闭vm服务
+
+虚拟机安装如果出现问题 要修改vt 虚拟化技术 bios f2
+以及修改.vmx文件 添加smc.version = “0”即可
+
+双系统安装 
+例如xp装win7
+只需要格式化 或者分出一个纯净盘
+下载iso 或者ghost 解压 setep即可 还原到特定盘 可能出现问题
+双系统bootmgr is missing
+启动管理缺失
+需要pe引导修复 或者NT修复
+ntbootatuofix
+或者bios 光盘启动 然后查光盘启动重装等
+y430p f2进入bios efui
+台式机
+
+xcode是mac os上个编程软件 可以编写自己写的ios代码
+
+XCode带的iOS模拟器（simulator）只支持x86代码，不支持ARM code，所以没法直接运行iOS上的程序。
+
+
+mac 系统下确实是有 ios模拟器。但是mac 下的模拟器 是Xcode里带的，就是在mac系统下开发ios时候启动的模拟器。要是想玩游戏的话，玩不了的，没法安装app里的游戏。即使安装了，里面没有硬件配置，也是玩不了的。。我做ios开发的。希望采纳
+IOS模拟器属于SDK 即开发工具，是苹果用来提供给开发者快速调试程序的，
+只能运行通过Xcode编译出来的程序，不可以安装appstore的应用和ipa包，
+其原理机制和你见到的FC之类的游戏模拟器不同，请放弃此念头。
+xcode安装Simulator了模拟器
+
+
+
+
+百度地图map 云：
+位置数据（poi）
+
+位置数据（poi）即为开发者在定义好属性和扩展列的位置数据表里面中带有位置属性的业务数据记录，类似与常见数据表下的一条记录。
+
+说明：
+
+a.支持点线面类型的设置
+
+b.对数量以及单条poi的存储大小有限制 
+
+
+位置数据表（geotable）
+
+位置数据表（geotable）是百度LBS云提供给开发者自定义存储一类位置数据的集合，类似于常见数据库的一个表（table）。
+
+说明：
+
+a.结构由开发者完全自定义；
+
+b.支持对点线面数据的支持； 
+
+自定义扩展列（column）
+
+自定义扩展列（column）是开发者所创建的位置数据表基础上根据自己的应用场景自定义扩展的列，类似于常见数据表的一个列（column）。
+
+说明： 
+
+
+创建表（create geotable）接口
+
+请求url
+
+http://api.map.baidu.com/geodata/v3/geotable/create  //POST请求
+
+云存储 云检索
+还有
+api大众版 普遍pc
+ 快速版 移动
+ 开原版 原始api加新功能
+ 
+ 
+ 
+ 
+ 
+ findtreebufatherid（）{
+ list li=findbyfatherid（）
+literater<.Bank.>   liter= li。iterater（）
+liter.hasnext(){
+Bank bank=liter.next() 
+alllist.add(bank) 
+ bank.findtreebufatherid() add
+ }
+ 
+ }
+ 
+ 
+ java面试题总结：
+ apache poi工具包
+ 写一个servlet或者class
+
+ 页面表格内的list<student>  
+ 页面的表格值存放在dataset的list中
+ createworkbook（工作薄）
+  workbook.createshell
+  workbook.createCellStyle();  
+  HSSFFont font = workbook.createFont();  
+        font.setColor(HSSFColor.VIOLET.index);  
+ style.setFont(font);  
+  HSSFRow row = sheet.createRow(0);  
+  
+  for (short i = 0; i < headers.length; i++)  
+        {  
+            HSSFCell cell = row.createCell(i);  
+            cell.setCellStyle(style);  
+            HSSFRichTextString text = new HSSFRichTextString(headers[i]);  
+            cell.setCellValue(text);  
+        }  
+        Iterator<T> it = dataset.iterator();  
+        Student t = (student) it.next();  
+        Field[] fields = t.getClass().getDeclaredFields();  
+        t.getClass().getMethod(getMethodName, ）。invoke()
+        因为fieldhiprivate类型 必须用反射
+        之后可以对list中的1或者1进行转换 转换成男女
+         
+                         
+                   
+public void exportExcel(String title, String[] headers,  
+            Collection<T> dataset, OutputStream out, String pattern)  
+    {  
+        // 声明一个工作薄  
+        HSSFWorkbook workbook = new HSSFWorkbook();  
+        // 生成一个表格  
+        HSSFSheet sheet = workbook.createSheet(title);  
+        // 设置表格默认列宽度为15个字节  
+        sheet.setDefaultColumnWidth((short) 15);  
+        // 生成一个样式  
+        HSSFCellStyle style = workbook.createCellStyle();  
+        // 设置这些样式  
+        style.setFillForegroundColor(HSSFColor.SKY_BLUE.index);  
+        style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);  
+        style.setBorderBottom(HSSFCellStyle.BORDER_THIN);  
+        style.setBorderLeft(HSSFCellStyle.BORDER_THIN);  
+        style.setBorderRight(HSSFCellStyle.BORDER_THIN);  
+        style.setBorderTop(HSSFCellStyle.BORDER_THIN);  
+        style.setAlignment(HSSFCellStyle.ALIGN_CENTER);  
+        // 生成一个字体  
+        HSSFFont font = workbook.createFont();  
+        font.setColor(HSSFColor.VIOLET.index);  
+        font.setFontHeightInPoints((short) 12);  
+        font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);  
+        // 把字体应用到当前的样式  
+        style.setFont(font);  
+        // 生成并设置另一个样式  
+        HSSFCellStyle style2 = workbook.createCellStyle();  
+        style2.setFillForegroundColor(HSSFColor.LIGHT_YELLOW.index);  
+        style2.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);  
+        style2.setBorderBottom(HSSFCellStyle.BORDER_THIN);  
+        style2.setBorderLeft(HSSFCellStyle.BORDER_THIN);  
+        style2.setBorderRight(HSSFCellStyle.BORDER_THIN);  
+        style2.setBorderTop(HSSFCellStyle.BORDER_THIN);  
+        style2.setAlignment(HSSFCellStyle.ALIGN_CENTER);  
+        style2.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);  
+        // 生成另一个字体  
+        HSSFFont font2 = workbook.createFont();  
+        font2.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);  
+        // 把字体应用到当前的样式  
+        style2.setFont(font2);  
+  
+        // 声明一个画图的顶级管理器  
+        HSSFPatriarch patriarch = sheet.createDrawingPatriarch();  
+        // 定义注释的大小和位置,详见文档  
+        HSSFComment comment = patriarch.createComment(new HSSFClientAnchor(0,  
+                0, 0, 0, (short) 4, 2, (short) 6, 5));  
+        // 设置注释内容  
+        comment.setString(new HSSFRichTextString("可以在POI中添加注释！"));  
+        // 设置注释作者，当鼠标移动到单元格上是可以在状态栏中看到该内容.  
+        comment.setAuthor("leno");  
+  
+        // 产生表格标题行  
+        HSSFRow row = sheet.createRow(0);  
+        for (short i = 0; i < headers.length; i++)  
+        {  
+            HSSFCell cell = row.createCell(i);  
+            cell.setCellStyle(style);  
+            HSSFRichTextString text = new HSSFRichTextString(headers[i]);  
+            cell.setCellValue(text);  
+        }  
+  
+        // 遍历集合数据，产生数据行  
+        Iterator<T> it = dataset.iterator();  
+        int index = 0;  
+        while (it.hasNext())  
+        {  
+            index++;  
+            row = sheet.createRow(index);  
+            T t = (T) it.next();  
+            // 利用反射，根据javabean属性的先后顺序，动态调用getXxx()方法得到属性值  
+            Field[] fields = t.getClass().getDeclaredFields();  
+            for (short i = 0; i < fields.length; i++)  
+            {  
+                HSSFCell cell = row.createCell(i);  
+                cell.setCellStyle(style2);  
+                Field field = fields[i];  
+                String fieldName = field.getName();  
+                String getMethodName = "get"  
+                        + fieldName.substring(0, 1).toUpperCase()  
+                        + fieldName.substring(1);  
+                try  
+                {  
+                    Class tCls = t.getClass();  
+                    Method getMethod = tCls.getMethod(getMethodName,  
+                            new Class[]  
+                            {});  
+                    Object value = getMethod.invoke(t, new Object[]  
+                    {});  
+                    // 判断值的类型后进行强制类型转换  
+                    String textValue = null;  
+                    // if (value instanceof Integer) {  
+                    // int intValue = (Integer) value;  
+                    // cell.setCellValue(intValue);  
+                    // } else if (value instanceof Float) {  
+                    // float fValue = (Float) value;  
+                    // textValue = new HSSFRichTextString(  
+                    // String.valueOf(fValue));  
+                    // cell.setCellValue(textValue);  
+                    // } else if (value instanceof Double) {  
+                    // double dValue = (Double) value;  
+                    // textValue = new HSSFRichTextString(  
+                    // String.valueOf(dValue));  
+                    // cell.setCellValue(textValue);  
+                    // } else if (value instanceof Long) {  
+                    // long longValue = (Long) value;  
+                    // cell.setCellValue(longValue);  
+                    // }  
+                    if (value instanceof Boolean)  
+                    {  
+                        boolean bValue = (Boolean) value;  
+                        textValue = "男";  
+                        if (!bValue)  
+                        {  
+                            textValue = "女";  
+                        }  
+                    }  
+ 
+ 
+
+
+
+java面试宝典：
+
+一个文件中多个类
+只能有一个public类
+并且此public类必须与文件名相同
+
+
+java中&叫做按位与，&&叫做短路与，它们的区别是：
+
+& 既是位运算符又是逻辑运算符，&的两侧可以是int，也可以是boolean表达式，当&两侧是int时，要先把运算符两侧的数转化为二进制数再进行运算，而短路与（&&）的两侧要求必须是布尔表达式。举例如下：
+
+12&5 的值是多少？答：12转成二进制数是1100（前四位省略了），5转成二进制数是0101，则运算后的结果为0100即4 这是两侧为数值时；
+
+若 int i = 2，j = 4；则（++i=2）&（j++=4）的结果为false，其过程是这样的：先判断++i=2是否成立，这里当然是不成立了（3 == 2），但是程序还会继续判断下一个表达式是否成立，j++=4 ，该表达式是成立的，但是&运算符要求运算符两侧的值都为真，结果才为真，所以（++i=2）&（j++=4）的结果为 false 注意 ：&为真的条件是两侧表达式都为真，但是即使我们判断出左侧表达式的值为false，程序也还是要继续执行去判断右侧的表达式值的真假
+
+若 int i = 2，j = 4；则（++i=2）&&（j++=4）的结果为false，其过程基本上和上面的是相同的，但是若左侧表达式的值为false时，程序则不会继续判断右侧表达式的真假了，短路与中，短路这个词大概也就是这个意思吧 收起
+&&:双目运算符，计算两个表达式同时成立的“真值”（同时成立真值为真否则为假）
+逻辑真值有两种，1为真，0为假，但在运算时用非零表示真，0表示假…
+即：数值->逻辑真值－－非0为真，0为假/逻辑真值->数值－－真为1，假为0…
+例如：char a=1,b=0,c=-1;那么a真b假c真。a&&b和c&&b为假值为0，a&&c为真值为1
+
+&&两边可以boolean短路逻辑与  可以int 非0为假  0为真 
+&两把boolean 非短路逻辑与  可以int按位于 转化为二进制做 
+byte从-128到127 -128表示-0 印度阿三定义的 和计算机内补码有关
+
+
+
+
+switch（默认int） 可以存放低级的byte short int char 
+swtich（）里面必须是int和enum--即枚举类型。
+
+short、 char 或者 byte他会自动转换为int的。。
+
+long不能自动转换为int..
+
+因为long比int范围大..可能会丢失精度..
+
+long转化int8字符  8字符转化为4字符32位 丢失精度 
+float double 等转化为int也丢失
+String是java7加上去的
+
+BCD码（Binary-Coded Decimal‎
+常见8421bcd边按摩
+
+char字符是针对unicode编码的 全世界所有字符按照两个字节表示
+
+
+short s1
+s1=s1+1错误
+因为s1+1向上提升类型 转化为int int给低级的short 强制类型转化错误
+int无法转化为short 但是short可以转化为int
+
+final int m=5
+或者final stringbuffer m=new stringbuffer（“hello ”）；
+对象引用变量所指向的对象不可以边 但是具体对象值可以变
+
+final：
+final修饰类 无法继承
+final修饰方法 可继承 无法重写
+修饰基本变量 为常量
+修饰复杂变量 例如对象引用变量person 或者stringbuffer对象 对象引用变量指向的对象或对象地址不变  但是对象本身的内部属性可以变化 
+
+
+
+。equals表示值等
+==表示全等
+String a=new String("aa");
+String b=new String("aa");
+a和b的两个aa地址不一样 
+只有b=a；才表示b和a引用指向一个字符串 否则不会因为值一样而指向同一个
+
+
+java 中的String 和new String 的区别_百度知道
+内存中有区别，
+String str = "hello" 如果之前有String对象是hello的值的话那str直接就指向之前的那个对象了，不再重新new一个对象了
+ String str = new String("hello");无论以前有没有都重新new一个新的
+
+
+str1.equals("222")
+str1不能为null 否则空指针异常
+但是括号内可以是null
+“222”.equals(str1)可以
+
+
+接口可以继承
+例list set接口就继承了（而不是实现）collection接口
+
+
+就 HashMap 与 HashTable 主要从三方面来说。
+共同点：都map功能 
+一.历史原因:Hashtable 是基于陈旧的 Dictionary 类的， HashMap 是 Java 1.2引进的 Map
+接口的一个实现
+二.同步性:Hashtable 是线程安全的，也就是说是同步的，而 HashMap 是线程序不安全的，
+不是同步的
+三.值：只有 HashMap 可以让你将空值作为一个表的条目的 key 或 value
+
+
+
+
+
+
+断言：assert i==5；加在代码中
+一种调试机制 调试最基本关键环节功能 后面加boolean语句 若为true表示程序按照规矩正确运行 否则表示出错  退出
+
+
+string不可变类 string是final类 对象创建完只读的 多种状态 多个副本 性能 不管string对象存在栈还是堆  不管是string s=“11”还是string s=new string("s222")堆中 都是string 都不可变
+string多次修改 需要用stringbuffer
+string每次修改都会留一个副本 多次修改每个修改过程留个副本 内存开销
+stringbuffer 原地修改 和string转化
+数组有.length属性
+字符串有.length()方法
+
+异常机制就是java的错误处理机制  java.lang.exception
+错误： java.lang.error 它指的是一个合理的应用程序不能截获的严重的问题。大多数都是反常的情况。” 完全无法预料的故障  程序本身无法克服 和恢复 程序只能死了 很难处理 比如内存溢出 线程死锁
+ java.lang.exception java.lang.error都java.lang.throwable
+
+异常分两类，（系统异常）（runtime exception）（非检查是异常）运行时异常和（普通异常）（checked ex）检查时异常。
+checked 异常就是经常遇到的（硬盘空间不足）IO异常，（网线断了 链接不了db）以及SQL异常等等，对于这种异常，编译器强制要求我们去try/catch。
+runtime exception，我们可以不处理，比如：我们从来没有人去处理过NullPointerException 数组越界 类转换异常，它就是运行时异常，这还是个最常见的异常之一哦。
+当出现这样的异常时，总是由虚拟机接管。出现运行时异常后，系统会把异常一直往上层抛，一直遇到处理代码。如果没有处理块，到最上层，如果是多线程就由Thread.run()抛出，如果是单线程就被main()抛出。抛出之后，如果是线程，这个线程也就退出了。如果是主程序抛出的异常，那么这整个程序也就退出了。
+你如果不对运行时异常进行处理，那么出现运行时异常之后，要么是线程中止，要么是主程序终止。 
+
+
+floor 返回不大于的最大整数 
+round 则是4舍5入的计算，入的时候是到大于它的整数
+round方法，它表示“四舍五入”，算法为Math.floor(x+0.5)，即将原来的数字加上0.5后再向下取整，所以，Math.round(11.5)的结果为12，Math.round(-11.5)的结果为-11。
+
+
+
+ceil 则是不小于他的最小整数
+floor不大于
+Math.round（）为先+0.5再floor
+
+
+11111111111111
+
+
+
+replication
+赋值
+
+transaction事务 处理
+transact
+
+触发器常常用于强制业务规则和数据完整性
+
+存储过程见csdn博客
+
+批处理sql
+
+完成特定功能的sql封装成一个存储过程 当sql很多 重复调用 封装 
+1.存储过程（创建完）第一次调用就设置缓存（不设置with recompile） 预编译后的结果 下次很快 而不是重新编译 快 
+2.存储过程设置用户访问权限 安全机制
+3.web服务器本来一个dao方法 多条sql传递到db返回结果 web服务器和db不在一起 网络连接 占网络带宽 现在callablestatement传递一个存储过程名字即可
+
+  
+在db调用直接exec name
+create procedure name
+参数 @
+as
+sql
+
+with recompile缓存
+with encryption加密
+
+简单的老的JDBC通过CallableStatement类支持存储过程的调用。该类实际上是PreparedStatement的一个子类
+
+CallableStatement proc = connection.prepareCall("{ call set_death_age(?, ?) }"); 
+
+
+
+
+
+
+触发器 
+满足自动调用的 存储过程是主动exec
+DML触发器
+当数据库中表中的数据发生变化时，包括insert,update,delete任意操作，如果我们对该表写了对应的DML触发器，那么该触发器自动执行。DML触发器的主要作用在于强制执行业 务规则，以及扩展Sql Server约束，默认值等。因为我们知道约束只能约束同一个表中的数据，而触发器中则可以执行任意Sql命令。
+DDL触发器
+它是Sql Server2005新增的触发器，主要用于审核与规范对数据库中表，触发器，视图等结构上的操作。比如在修改表，修改列，新增表，新增列等。它在数据库结构发生变化时执行，我们主要用它来记录数据库的修改过程，以及限制程序员对数据库的修改，比如不允许删除某些指定表等。
+登录触发器
+登录触发器将为响应 LOGIN 事件而激发存储过程。与 SQL Server 实例建立用户会话时将引发此事件。登录触发器将在登录的身份验证阶段完成之后且用户会话实际建立之前激发。因此，来自触发器内部且通常将到达用户的所有消息（例如错误消息和来自 PRINT 语句的消息）会传送到 SQL Server 错误日志。如果身份验证失败，将不激发登录触发器。
+
+1.登陆sql触发器
+2.表指定结构发生改变调用
+3.结构不变 任何数据发生增删改调用
+例如
+create trigger tri_update
+on student
+for update
+as
+if update(student_id)
+begin
+raiserror('学号不能修改!',16,8)
+rollbacktran
+end
+go
+
+
+触发器类似于check也是约束条件
+
+约束只能对其所在表中的数据，或是在设计时输入的特定数据进行验证。这同触发器形成对比，触发器可以跨越数据库甚至服务器，
+简单的来说，触发器可以实现约束的一切功能。
+只有在约束无法实现特定功能的情况下，才考虑通过触发器来完成。但是由于触发器自身的种种缺陷，其往往不是实现数据一致性等特定功能的首选解决方案。
+从性能上来说，约束的执行性能都要高一点。
+如果约束能够实现特定的功能，则数据库最好能够采用约束而不是触发器。因为约束能够提供比较高的执行性能，而且数据库管理员维护的工作量也会小得多。
+触发器不方便数据库维护
+触发器可以提供比CHECK约束更复杂一点的功能。如触发器可以引用其他表中的列。
+
+系统现成的约束
+例如unique 主外键约束 非空 
+
+
+
+check
+ALTER TABLE Persons
+ADD CHECK (Id_P>0)
+或者加约束名称ADD CONSTRAINT chk_Person CHECK (Id_P>0 AND City='Sandnes')
+
+CREATE TABLE Persons
+(
+Id_P int NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255),
+CHECK (Id_P>0)
+)
+
+
+ALTER TABLE Persons
+DROP CONSTRAINT chk_Person
+
+内连接 on
+SELECT column_name(s)
+FROM table_name1
+INNER JOIN table_name2 
+ON table_name1.column_name=table_name2.column_name
+
+where
+select * from a，b where a。=b。
+
+
+
+
+sql：
+SELECT DISTINCT columnname FROM Orders
+默认升序asc
+SELECT Company, OrderNumber FROM Orders ORDER BY Company DESC
+
+
+
+三、断言约束：不必与特定的列绑定，可以理解为能应用于多个表的check约束，因此必须在表定义之外独立创建断言。
+语法如下：
+create assertion constraint_name
+check search condition
+例如：
+create assertion name
+check (Emp_Sal.emp_id in(select emp_id from EmployeeInfo where emp_name is not null)
+添加断言后，每当试图添加或修改Emp_Sal表中的数据时，就对断言中的搜索条件求值，如果为false，则取消执行，给出提示
+
+
+在foreign key创建语法中，提供了可选的on update和on delete子句，也就是上面的[referential triggered action]。可用此保持引用完整性。
+on update / on delete
+no action|cascade|restrict|set null|set default
+no action:更新或删除父表中的数据时，如果会使子表中的外键违反引用完整性，该动作将被禁止执行。不过在某些条件下，可出现暂时的，但在数据的最终状态中，不能违反外键的引用完整性。
+cascade: 当父表中被引用列的数据被更新或删除时，子表中的相应的数据也被更新或删除。
+restrict:与no action规则基本相同，只是引用列中的数据永远不能违反外键的引用完整性，暂时的也不行。
+set null:当父表数据被更新或删除时，子表中的相应数据被设置成Null值，前提是子表中的相应列允许null值。
+set default:当父表数据被更新或删除时,子表中的数据被设置成默认值。前提是子表中的相应列设置有默认值。
+
+
+数据库访问性能优化
+1.connection pool
+2.存储过程
+3.充分利用索引
+4.优化sql查询语句
+
+
+
+BF（朴素字符串匹配）+KMP（KMP自富川匹配 模式匹配）
+
+朴素省略
+
+KMP
+所以kmp算法的核心即是计算字符串f每一个位置之前的字符串的前缀和后缀公共部分的最大长度（不包括字符串本身，否则最大长度始终是字符串本身）。
+自覆盖程度 前缀字符串和后缀字符串公共部分最大长度
+NEXT
+bf：之前每次主串和模式串 比较完发现不匹配  主串指针回溯到本轮比较开头 下一个位置 重新比较
+kmp：看毛片 
+主串指针不必回溯 发现不匹配时候根据已匹配过子字符串自覆盖信息  寻找下一个比较位置 尽可能减少不必要的比较 
+模式串j位置发现不匹配 模式串右移j-next【j】个位置与主串比较过的串的后缀字符串重新开始比较  跳过的都是不必要比较的 （这样主串也回溯了 但是回溯的不必要 因为next！=0必有一定自覆盖 省去不必要的比较）
+但是由于自覆盖 前面next【j】哥完全一一样 就是主串后缀部分 和模式窜前缀部分重叠 不需要比较 所以主串比较位置可以后移前后缀长度 也就是next值 去和模式串的除掉next哥元素之后的元素比较  所以只需要将模式串第next[j]+1元素 a[next[j]]
+和主串上的匹配失败值再次比较  这样主串完全不需要再回溯了 。
+
+
+
+
+
+
+
+
+
+
+
+</html
